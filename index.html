@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Okavango</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --ink: #0f0e0c;
+    --paper: #f5f2ec;
+    --warm-white: #faf8f4;
+    --accent: #c8652a;
+    --mid: #7a7060;
+    --light: #e8e4dc;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--warm-white);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--light);
+    padding: 0 48px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .nav-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-link:hover { color: var(--ink); }
+
+  .nav-cta {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    background: var(--ink);
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--accent); }
+
+  /* HERO */
+  .hero {
+    background: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-circle-1 {
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,101,42,0.12);
+  }
+
+  .hero-circle-2 {
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,101,42,0.08);
+  }
+
+  .hero-circle-3 {
+    position: absolute;
+    bottom: -200px; left: -100px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    border: 1px solid rgba(245,242,236,0.04);
+  }
+
+  .hero-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--paper);
+    margin-bottom: 24px;
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: rgba(245,242,236,0.6);
+    margin-bottom: 40px;
+    max-width: 600px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    background: var(--accent);
+    padding: 16px 32px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover { opacity: 0.85; }
+
+  .btn-ghost {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,242,236,0.7);
+    background: transparent;
+    padding: 15px 32px;
+    text-decoration: none;
+    border: 1px solid rgba(245,242,236,0.2);
+    transition: border-color 0.2s, color 0.2s;
+    cursor: pointer;
+  }
+
+  .btn-ghost:hover {
+    border-color: rgba(245,242,236,0.5);
+    color: var(--paper);
+  }
+
+
+
+  /* SECTION BASE */
+  section {
+    padding: 100px 48px;
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+
+  .section-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+
+  .section-headline em {
+    font-style: italic;
+    color: var(--mid);
+  }
+
+  .section-body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--mid);
+    max-width: 560px;
+  }
+
+  /* PROBLEM SECTION */
+  .problem {
+    background: var(--paper);
+    border-top: 1px solid var(--light);
+    border-bottom: 1px solid var(--light);
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    margin-top: 60px;
+  }
+
+  .problem-item {
+    padding-top: 24px;
+    border-top: 1px solid var(--light);
+  }
+
+  .problem-number {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .problem-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+
+  .problem-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--mid);
+  }
+
+  /* HOW WE BUILD */
+  .dimensions {
+    background: var(--warm-white);
+  }
+
+  .dimensions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    margin-top: 60px;
+    background: var(--light);
+  }
+
+  .dimension-card {
+    background: var(--warm-white);
+    padding: 40px 32px;
+  }
+
+  .dimension-number {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+
+  .dimension-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+
+  .dimension-sub {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--mid);
+    margin-bottom: 16px;
+  }
+
+  .dimension-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--mid);
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--light);
+  }
+
+  .dimension-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .dimension-items li {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .dimension-items li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  /* HOW IT WORKS */
+  .process {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .process .section-headline { color: var(--paper); }
+  .process .section-body { color: rgba(245,242,236,0.55); }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    margin-top: 60px;
+    background: rgba(245,242,236,0.06);
+  }
+
+  .process-step {
+    background: var(--ink);
+    padding: 40px 32px;
+  }
+
+  .step-number {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
+
+  .step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--paper);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .step-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: rgba(245,242,236,0.5);
+  }
+
+  /* AUDIT CTA */
+  .audit {
+    background: var(--paper);
+    border-top: 1px solid var(--light);
+  }
+
+  .audit-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .audit-question {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+
+  .audit-question em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .audit-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--mid);
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  .audit-options {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .audit-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 28px;
+    background: var(--warm-white);
+    border: 1px solid var(--light);
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+    cursor: pointer;
+  }
+
+  .audit-option:hover {
+    border-color: var(--accent);
+    background: white;
+  }
+
+  .audit-option-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink);
+  }
+
+  .audit-option-arrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 16px;
+    color: var(--accent);
+  }
+
+  /* ABOUT */
+  .about {
+    background: var(--warm-white);
+    border-top: 1px solid var(--light);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 3vw, 48px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .about-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .about-body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--mid);
+    margin-bottom: 16px;
+  }
+
+  .about-visual {
+    background: var(--ink);
+    aspect-ratio: 4/5;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 40px;
+  }
+
+  .about-visual-circle {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,101,42,0.2);
+  }
+
+  .about-visual-circle-2 {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,101,42,0.12);
+  }
+
+  .about-visual-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: rgba(245,242,236,0.4);
+    position: relative;
+    z-index: 2;
+    line-height: 1.6;
+  }
+
+  /* FINAL CTA */
+  .final-cta {
+    background: var(--accent);
+    padding: 100px 48px;
+  }
+
+  .final-cta-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .final-cta-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--warm-white);
+    max-width: 560px;
+  }
+
+  .final-cta-headline em {
+    font-style: italic;
+    opacity: 0.75;
+  }
+
+  .btn-white {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--warm-white);
+    padding: 16px 32px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+    flex-shrink: 0;
+  }
+
+  .btn-white:hover { opacity: 0.9; }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    padding: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--paper);
+  }
+
+  .footer-logo span { color: var(--accent); }
+
+  .footer-copy {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: rgba(245,242,236,0.3);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 24px; }
+    nav .nav-links { display: none; }
+    section { padding: 72px 24px; }
+    .hero { padding: 100px 24px 72px; }
+    .hero-inner,
+    .problem-grid,
+    .dimensions-grid,
+    .process-steps,
+    .audit-inner,
+    .about-grid,
+    .final-cta-inner { grid-template-columns: 1fr; gap: 40px; }
+
+    .final-cta { padding: 72px 24px; }
+    footer { padding: 32px 24px; flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Okavango<span>.</span></a>
+  <div class="nav-links">
+    <a href="#problem" class="nav-link">The Problem</a>
+    <a href="#approach" class="nav-link">Our Approach</a>
+    <a href="#why" class="nav-link">Why Okavango</a>
+    <a href="#audit" class="nav-cta">Take the Audit</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-circle-1"></div>
+  <div class="hero-circle-2"></div>
+  <div class="hero-circle-3"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Competitive Advantage</div>
+    <h1 class="hero-headline">Your business is competing<br>in a world it <em>wasn't built for.</em></h1>
+    <p class="hero-body">The rules changed. AI-native companies are getting leaner. Markets are getting noisier. The gap between businesses that adapt and those that don't is widening every day.</p>
+    <p class="hero-body" style="margin-top:-20px;">Okavango helps you close that gap so your business emerges sharper, leaner and stronger than ever.</p>
+    <div class="hero-actions">
+      <a href="#audit" class="btn-primary">Find Where You Stand</a>
+      <a href="#problem" class="btn-ghost">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+  <div class="section-inner">
+    <div class="section-label">The Problem</div>
+    <h2 class="section-headline">Most businesses don't act<br><em>until it's too late.</em></h2>
+    <p class="section-body">Two things are happening right now. AI-native companies are eating your margin. And your market is filling with offerings nobody can tell apart.</p>
+    <p class="section-body" style="margin-top:20px;">Most businesses pick one problem to solve. That's not enough anymore.</p>
+    <div class="problem-grid">
+      <div class="problem-item">
+        <div class="problem-number">01 — Cost Structure</div>
+        <h3 class="problem-title">Leaner competitors are entering every market.</h3>
+        <p class="problem-desc">AI-native companies operate on a fraction of the cost of traditional businesses. That gap widens every quarter. Competing on price from a heavier cost base is a race you can't win.</p>
+      </div>
+      <div class="problem-item">
+        <div class="problem-number">02 — Differentiation</div>
+        <h3 class="problem-title">Everything is starting to look the same.</h3>
+        <p class="problem-desc">When AI flattens execution, the market fills with offerings that are hard to tell apart. Standing out gets harder and more expensive. The businesses that don't have a clear edge start competing on price by default.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="dimensions" id="approach">
+  <div class="section-inner">
+    <div class="section-label">Our Approach</div>
+    <h2 class="section-headline">We see the whole picture<br><em>when you can only see one problem.</em></h2>
+    <p class="section-body">Most clients come to us with one question. Either how do we stand out, or how do we operate leaner. What they discover is that the answer to one almost always runs through the other.</p>
+    <p class="section-body" style="margin-top:20px;">We start where it hurts. Then we see the whole picture. Then we build in the right order so every move compounds the next.</p>
+    <div class="dimensions-grid" style="margin-top:60px;">
+      <div class="dimension-card">
+        <div class="dimension-number">01 — Start</div>
+        <h3 class="dimension-title">Where it hurts.</h3>
+        <p class="dimension-desc">We engage on the problem you can already name. You don't need to see the whole picture on day one.</p>
+      </div>
+      <div class="dimension-card">
+        <div class="dimension-number">02 — See</div>
+        <h3 class="dimension-title">The whole picture.</h3>
+        <p class="dimension-desc">We map how that problem connects to the rest of your business. Most issues that feel like one thing are actually several things pointing in different directions.</p>
+      </div>
+      <div class="dimension-card">
+        <div class="dimension-number">03 — Build</div>
+        <h3 class="dimension-title">In the right order.</h3>
+        <p class="dimension-desc">So each move compounds the next. Not isolated fixes. A business that gets sharper, leaner and harder to compete with over time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIT -->
+<section class="process" id="audit">
+  <div class="section-inner" style="max-width:760px; text-align:center; margin:0 auto;">
+    <div class="section-label" style="text-align:center;">The Erosion Audit</div>
+    <h2 class="section-headline" style="color:var(--paper); font-size:clamp(28px,3vw,48px);">Where are you feeling<br>your edge erode?</h2>
+    <p style="font-family:'DM Sans',sans-serif; font-size:17px; font-weight:300; color:rgba(245,242,236,0.55); line-height:1.75; margin:20px auto 48px; max-width:480px;">How you work or what you offer. Answer a few questions and we'll show you exactly where you stand and where to start.</p>
+    <a href="#contact" class="btn-primary" style="font-size:12px; padding:18px 48px; display:inline-block;">Take the Erosion Audit</a>
+  </div>
+</section>
+
+<!-- WHY OKAVANGO -->
+<section class="about" id="why">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="about-visual-circle"></div>
+        <div class="about-visual-circle-2"></div>
+        <div class="about-visual-text">The only major river<br>that runs to the desert.<br><br>And turns it into an oasis.</div>
+      </div>
+      <div>
+        <div class="section-label">Why Okavango</div>
+        <h2 class="about-name">Built to move<br><em>differently.</em></h2>
+        <p class="about-body">The Okavango is the only major river in the world that runs toward the desert instead of the sea. When it arrives, it creates one of the most extraordinary ecosystems on earth. A thriving oasis that draws life from thousands of miles around.</p>
+        <p class="about-body">That's what we help you build. A business that doesn't follow the crowd to the same destination. One that moves differently, operates leaner, and stands for something distinct.</p>
+        <p class="about-body">Okavango is an AI-native firm with a decade of experience building at the intersection of business, technology and community. We operate the same way we ask you to operate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="contact">
+  <div class="final-cta-inner">
+    <h2 class="final-cta-headline">The businesses that move now<br>won't just survive.<br><em>They'll become the oasis.</em></h2>
+    <a href="mailto:hello@okavango.com" class="btn-white">Start a Conversation</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Okavango<span>.</span></div>
+  <div class="footer-copy">© 2026 Okavango. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
