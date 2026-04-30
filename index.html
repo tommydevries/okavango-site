@@ -8,25 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-  :root {
-    --bg: #0f0f0f;
-    --bg-section: #161614;
-    --text: #e8e4de;
-    --text-muted: #9a9590;
-    --accent: #c8b898;
-    --accent-light: #c8b898;
-    --accent-deep: #c8b898;
-    --font: 'Inter', -apple-system, sans-serif;
-    --font-hero: 'Cormorant Garamond', Georgia, serif;
-    --bg-light: #f2efe9;
-    --text-dark: #1a1a18;
-    --text-dark-muted: #5a5650;
-  }
-
+  :root { --bg: #0f0f0f; --bg-section: #161614; --text: #e8e4de; --text-muted: #9a9590; --accent: #c8b898; --accent-light: #c8b898; --accent-deep: #c8b898; --font: 'Inter', -apple-system, sans-serif; --font-hero: 'Cormorant Garamond', Georgia, serif; --bg-light: #f2efe9; --text-dark: #1a1a18; --text-dark-muted: #5a5650; }
   html { scroll-behavior: smooth; font-size: 16px; }
   body { font-family: var(--font); background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; line-height: 1.6; }
-
   .hero { position: relative; height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; text-align: center; padding: 0 8vw 12vh; overflow: hidden; }
   .hero video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.65; z-index: 0; }
   .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,15,15, 0.85) 0%, rgba(15,15,15, 0.25) 40%, rgba(15,15,15, 0.1) 100%); z-index: 1; }
@@ -39,7 +23,6 @@
   .scroll-hint { position: absolute; bottom: 3vh; left: 50%; transform: translateX(-50%); z-index: 2; opacity: 0.4; animation: pulse 2.5s ease-in-out infinite; }
   .scroll-hint svg { width: 20px; height: 20px; stroke: var(--text-muted); }
   @keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.7; } }
-
   .grunt-test { background: var(--bg-section); border-top: 1px solid rgba(200,184,152,0.08); text-align: center; padding: 14vh 8vw; }
   .grunt-test .section-inner { max-width: 760px; margin: 0 auto; }
   .grunt-test h2 { font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 400; line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 1.75rem; color: var(--text); }
@@ -48,7 +31,6 @@
   .btn-primary:hover { background: var(--accent); color: var(--bg); }
   .btn-primary-dark { display: inline-block; padding: 16px 44px; border: 1px solid var(--text-dark); color: var(--text-dark); text-decoration: none; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: background 0.3s, color 0.3s; }
   .btn-primary-dark:hover { background: var(--text-dark); color: var(--bg-light); }
-
   .value-stack { background: var(--bg-light); color: var(--text-dark); padding: 12vh 8vw; }
   .value-stack .section-inner { max-width: 800px; }
   .value-stack .section-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dark-muted); margin-bottom: 1.5rem; }
@@ -57,7 +39,6 @@
   .value { display: grid; grid-template-columns: 1fr 1.4fr; gap: 2rem; align-items: start; }
   .value h3 { font-size: 1.25rem; font-weight: 500; line-height: 1.35; color: var(--text-dark); }
   .value p { font-size: 1.1rem; font-weight: 300; color: var(--text-dark-muted); line-height: 1.7; }
-
   .stakes { background: var(--bg-section); border-top: 1px solid rgba(200,184,152,0.08); padding: 12vh 8vw; }
   .stakes .section-inner { max-width: 1100px; }
   .stakes .section-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 2.5rem; }
@@ -69,7 +50,6 @@
   .mistake-number { font-family: var(--font); font-size: 2.5rem; font-weight: 200; line-height: 1; color: var(--accent); opacity: 0.5; padding-top: 0.15rem; letter-spacing: -0.03em; }
   .mistake-content h3 { font-family: var(--font); font-size: 1.1rem; font-weight: 500; color: var(--text); margin-bottom: 0.5rem; line-height: 1.4; }
   .mistake-content p { font-family: var(--font); font-size: 0.95rem; font-weight: 300; color: var(--text-muted); line-height: 1.7; }
-
   .guide { background: var(--bg); border-top: 1px solid rgba(200,184,152,0.08); padding: 12vh 8vw; }
   .guide .section-inner { max-width: 1100px; }
   .guide-top { text-align: center; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto; }
@@ -79,7 +59,6 @@
   .guide-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
   .guide-block h3 { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.25rem; }
   .guide-block p { font-size: 1.05rem; font-weight: 300; color: var(--text-muted); line-height: 1.75; }
-
   .plan { background: var(--bg-section); border-top: 1px solid rgba(200,184,152,0.08); padding: 12vh 8vw; }
   .plan .section-inner { max-width: 800px; }
   .plan .section-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 2.5rem; }
@@ -88,11 +67,9 @@
   .step-number { font-size: 0.8rem; font-weight: 500; color: var(--accent-light); letter-spacing: 0.1em; margin-bottom: 0.75rem; }
   .step h3 { font-size: 1.15rem; font-weight: 500; margin-bottom: 0.75rem; }
   .step p { font-size: 1rem; font-weight: 300; color: var(--text-muted); line-height: 1.7; }
-
   .positioning { background: var(--bg); border-top: 1px solid rgba(200,184,152,0.08); display: flex; align-items: center; justify-content: center; min-height: 60vh; padding: 12vh 8vw; text-align: center; }
   .positioning-wordmark { font-family: var(--font-hero); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; color: var(--text); letter-spacing: 0.06em; margin-bottom: 1rem; }
   .positioning-inner p { font-family: var(--font-hero); font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 300; font-style: italic; color: var(--accent); letter-spacing: 0.04em; line-height: 1.4; }
-
   .cta { background: var(--bg); border-top: 1px solid rgba(200,184,152,0.08); text-align: center; padding: 14vh 8vw; }
   .cta h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 400; letter-spacing: -0.02em; margin-bottom: 1rem; }
   .cta .cta-sub { font-size: 1.1rem; color: var(--text-muted); font-weight: 300; margin-bottom: 3rem; }
@@ -104,13 +81,14 @@
   .contact-form textarea { resize: vertical; min-height: 120px; margin-bottom: 1.5rem; }
   .contact-form .btn-primary { width: 100%; text-align: center; cursor: pointer; background: none; font-family: var(--font); }
   .contact-form .btn-primary:hover { background: var(--accent); color: var(--bg); }
-
   footer { padding: 4vh 8vw; border-top: 1px solid rgba(200,184,152,0.08); display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--text-muted); }
   footer a { color: var(--text-muted); text-decoration: none; }
   footer a:hover { color: var(--text); }
-
   @media (max-width: 768px) {
     .hero { padding: 0 6vw 10vh; }
+    .hero video { object-position: 65% center; }
+    .hero-content br { display: none; }
+    .hero-content p { font-size: clamp(1.15rem, 5vw, 1.5rem); }
     section, .value-stack, .stakes, .guide, .plan { padding: 10vh 6vw; }
     .grunt-test { padding: 10vh 6vw; }
     .value { grid-template-columns: 1fr; gap: 0.75rem; }
@@ -124,8 +102,9 @@
 </head>
 <body>
 
+<!-- ── HERO: BRAND EXPRESSION ── -->
 <div class="hero">
-  <video autoplay muted loop playsinline>
+  <video autoplay muted loop playsinline preload="auto">
     <source src="hero-video.mp4" type="video/mp4">
   </video>
   <div class="hero-content">
@@ -144,14 +123,20 @@
   </div>
 </div>
 
+<!-- ── STORYBRAND: PROBLEM STATEMENT ── -->
 <section class="grunt-test">
   <div class="section-inner">
     <h2>Your business was built for a world<br>that no longer exists.</h2>
-    <p class="subhead">On one side, AI-enabled competitors are operating at a fraction of your cost structure. On the other, your market is filled with me-too competition that all looks and feels the same. You're getting squeezed on both sides.</p>
+    <p class="subhead">
+      On one side, AI-enabled competitors are operating at a fraction of your cost structure.
+      On the other, your market is filled with me-too competition that all looks and feels the same.
+      You're getting squeezed on both sides.
+    </p>
     <a href="#cta" class="btn-primary">Start a conversation</a>
   </div>
 </section>
 
+<!-- ── STORYBRAND: VALUE PROPOSITION (light section) ── -->
 <section class="value-stack">
   <div class="section-inner">
     <div class="section-label">What you get</div>
@@ -173,6 +158,7 @@
   </div>
 </section>
 
+<!-- ── STORYBRAND: STAKES ── -->
 <section class="stakes">
   <div class="section-inner">
     <div class="section-label">The cost of not acting</div>
@@ -205,6 +191,7 @@
   </div>
 </section>
 
+<!-- ── STORYBRAND: GUIDE ── -->
 <section class="guide">
   <div class="section-inner">
     <div class="guide-top">
@@ -215,16 +202,27 @@
     <div class="guide-blocks">
       <div class="guide-block">
         <h3>We get it</h3>
-        <p>You know AI matters. Your board knows. Your competitors definitely know. But knowing and doing are different things. Most organizations are stuck between pilots that don't scale and vendors selling tools that don't fit how your people actually work.</p>
+        <p>
+          You know AI matters. Your board knows. Your competitors definitely know.
+          But knowing and doing are different things. Most organizations are stuck
+          between pilots that don't scale and vendors selling tools that don't fit
+          how your people actually work.
+        </p>
       </div>
       <div class="guide-block">
         <h3>Why Okavango</h3>
-        <p>Okavango builds and operates AI systems for organizations in exactly this position. We're AI-native ourselves. We use what we sell, every day, and we're upfront about exactly how. We don't advise from the outside. We get inside how your organization works and build from there.</p>
+        <p>
+          Okavango builds and operates AI systems for organizations in exactly this
+          position. We're AI-native ourselves. We use what we sell, every day, and
+          we're upfront about exactly how. We don't advise from the outside. We get
+          inside how your organization works and build from there.
+        </p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ── STORYBRAND: THE PLAN ── -->
 <section class="plan" id="how">
   <div class="section-inner">
     <div class="section-label">Three steps</div>
@@ -249,6 +247,7 @@
   </div>
 </section>
 
+<!-- ── POSITIONING STATEMENT ── -->
 <section class="positioning">
   <div class="positioning-inner">
     <div class="positioning-wordmark">Okavango</div>
@@ -256,6 +255,7 @@
   </div>
 </section>
 
+<!-- ── STORYBRAND: CTA ── -->
 <section class="cta" id="cta">
   <h2>Worth a conversation?</h2>
   <p class="cta-sub">No pitch deck. No discovery call theater. A real conversation about where you are and what might be possible.</p>
@@ -269,6 +269,7 @@
   </form>
 </section>
 
+<!-- ── FOOTER ── -->
 <footer>
   <span>Okavango</span>
   <span>AI-native. Human-centered.</span>
