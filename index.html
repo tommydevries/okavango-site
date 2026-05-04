@@ -5,25 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Okavango</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --bg: #0f0f0f;
-    --bg-section: #161614;
-    --text: #e8e4de;
-    --text-muted: #9a9590;
-    --accent: #c8b898;
-    --accent-light: #c8b898;
-    --accent-deep: #c8b898;
+    --bg: #0e0d0b;
+    --bg-section: #14130f;
+    --text: #f2ead6;
+    --text-muted: #9a9488;
+    --accent: #d6a05c;
+    --accent-light: #d6a05c;
+    --accent-deep: #d6a05c;
     --font: 'Inter', -apple-system, sans-serif;
     --font-hero: 'Cormorant Garamond', Georgia, serif;
+    --font-mono: 'IBM Plex Mono', monospace;
 
     /* light section */
-    --bg-light: #f2efe9;
-    --text-dark: #1a1a18;
-    --text-dark-muted: #5a5650;
+    --bg-light: #f3ede0;
+    --text-dark: #1a1714;
+    --text-dark-muted: #5a5448;
   }
 
   html {
@@ -48,7 +49,7 @@
     justify-content: flex-end;
     align-items: center;
     text-align: center;
-    padding: 0 8vw 12vh;
+    padding: 0 8vw 5vh;
     overflow: hidden;
   }
 
@@ -58,9 +59,12 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.65;
     z-index: 0;
+    transition: opacity 2.5s ease;
   }
+
+  .hero .video-a { opacity: 0.65; z-index: 0; }
+  .hero .video-b { opacity: 0; z-index: 0; }
 
   .hero::after {
     content: '';
@@ -68,9 +72,9 @@
     inset: 0;
     background: linear-gradient(
       to top,
-      rgba(15,15,15, 0.65) 0%,
-      rgba(15,15,15, 0.15) 40%,
-      rgba(15,15,15, 0.05) 100%
+      rgba(15,15,15, 0.55) 0%,
+      rgba(15,15,15, 0.10) 40%,
+      rgba(15,15,15, 0.02) 100%
     );
     z-index: 1;
   }
@@ -106,6 +110,36 @@
     padding: 0.75em 0;
   }
 
+  .hero-landing {
+    display: block;
+    padding: 1.25em 0 0;
+  }
+
+  .hero-brand {
+    display: block;
+    color: var(--accent);
+  }
+
+  .hero-brand svg {
+    width: clamp(260px, 40vw, 480px);
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .hero-tagline {
+    display: block;
+    font-family: var(--font);
+    font-size: clamp(0.9rem, 1.4vw, 1rem);
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 0.7;
+    padding-top: 0.6em;
+  }
+
   .hero-content p .river-name {
     font-weight: 500;
     font-style: italic;
@@ -135,8 +169,8 @@
 
   /* ── GRUNT TEST (problem statement) ── */
   .grunt-test {
-    background: var(--bg-section);
-    border-top: 1px solid rgba(200,184,152,0.08);
+    background: var(--bg-light);
+    border-top: none;
     text-align: center;
     padding: 14vh 8vw;
   }
@@ -152,18 +186,26 @@
     line-height: 1.25;
     letter-spacing: -0.02em;
     margin-bottom: 1.75rem;
-    color: var(--text);
+    color: var(--text-dark);
   }
 
   .grunt-test .subhead {
     font-size: 1.2rem;
     font-weight: 300;
-    color: var(--text-muted);
+    color: var(--text-dark-muted);
     line-height: 1.7;
     margin-bottom: 2.5rem;
     max-width: 620px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .grunt-test .urgency {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    letter-spacing: 0.02em;
+    margin-top: 1rem;
   }
 
   .btn-primary {
@@ -202,11 +244,12 @@
     color: var(--bg-light);
   }
 
-  /* ── VALUE STACK (light section) ── */
+  /* ── VALUE STACK (dark section) ── */
   .value-stack {
-    background: var(--bg-light);
-    color: var(--text-dark);
+    background: var(--bg-section);
+    color: var(--text);
     padding: 12vh 8vw;
+    border-top: 1px solid rgba(200,184,152,0.08);
   }
 
   .value-stack .section-inner {
@@ -214,11 +257,12 @@
   }
 
   .value-stack .section-label {
+    font-family: var(--font-mono);
     font-size: 0.75rem;
     font-weight: 500;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--text-dark-muted);
+    color: var(--text-muted);
     margin-bottom: 1.5rem;
   }
 
@@ -227,7 +271,15 @@
     font-weight: 400;
     line-height: 1.3;
     letter-spacing: -0.02em;
-    color: var(--text-dark);
+    color: var(--text);
+    margin-bottom: 0.75rem;
+  }
+
+  .value-subhead {
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: var(--text-dark-muted);
+    line-height: 1.6;
     margin-bottom: 3.5rem;
   }
 
@@ -248,13 +300,13 @@
     font-size: 1.25rem;
     font-weight: 500;
     line-height: 1.35;
-    color: var(--text-dark);
+    color: var(--text);
   }
 
   .value p {
     font-size: 1.1rem;
     font-weight: 300;
-    color: var(--text-dark-muted);
+    color: var(--text-muted);
     line-height: 1.7;
   }
 
@@ -270,6 +322,7 @@
   }
 
   .stakes .section-label {
+    font-family: var(--font-mono);
     font-size: 0.75rem;
     font-weight: 500;
     letter-spacing: 0.15em;
@@ -305,7 +358,7 @@
     grid-template-columns: auto 1fr;
     gap: 1.5rem;
     align-items: start;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
   }
 
   .mistake:last-child {
@@ -313,28 +366,27 @@
   }
 
   .mistake-number {
-    font-family: var(--font);
-    font-size: 2.5rem;
-    font-weight: 200;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
     line-height: 1;
     color: var(--accent);
-    opacity: 0.5;
-    padding-top: 0.15rem;
-    letter-spacing: -0.03em;
+    letter-spacing: 0.1em;
+    padding-top: 0.35rem;
   }
 
   .mistake-content h3 {
     font-family: var(--font);
-    font-size: 1.1rem;
+    font-size: 1.35rem;
     font-weight: 500;
     color: var(--text);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
     line-height: 1.4;
   }
 
   .mistake-content p {
     font-family: var(--font);
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     font-weight: 300;
     color: var(--text-muted);
     line-height: 1.7;
@@ -382,6 +434,10 @@
     letter-spacing: -0.01em;
   }
 
+  .guide-choice-accent {
+    color: var(--accent);
+  }
+
   .guide-blocks {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -416,6 +472,7 @@
   }
 
   .plan .section-label {
+    font-family: var(--font-mono);
     font-size: 0.75rem;
     font-weight: 500;
     letter-spacing: 0.15em;
@@ -440,6 +497,7 @@
   }
 
   .step-number {
+    font-family: var(--font-mono);
     font-size: 0.8rem;
     font-weight: 500;
     color: var(--accent-light);
@@ -460,35 +518,117 @@
     line-height: 1.7;
   }
 
-  /* ── POSITIONING STATEMENT ── */
-  .positioning {
-    background: var(--bg);
-    border-top: 1px solid rgba(200,184,152,0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 60vh;
+  /* ── WHO THIS IS FOR ── */
+  .who {
+    background: var(--bg-light);
     padding: 12vh 8vw;
+  }
+
+  .who .section-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .who .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dark-muted);
+    margin-bottom: 2rem;
     text-align: center;
   }
 
-  .positioning-wordmark {
-    font-family: var(--font-hero);
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 300;
-    color: var(--text);
-    letter-spacing: 0.06em;
-    margin-bottom: 1rem;
+  .who h2 {
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    color: var(--text-dark);
+    text-align: center;
+    margin-bottom: 4rem;
   }
 
-  .positioning-inner p {
+  .personas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+
+  .persona {
+    padding: 2.5rem 2rem;
+    border: 1px solid rgba(26,26,24,0.1);
+    background: rgba(255,255,255,0.5);
+  }
+
+  .persona h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .persona p {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--text-dark-muted);
+    line-height: 1.7;
+  }
+
+  /* ── ACCENT CTA BAND ── */
+  .cta-band {
+    background: var(--accent);
+    padding: 6vh 8vw;
+    text-align: center;
+  }
+
+  .cta-band p {
     font-family: var(--font-hero);
-    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
     font-weight: 300;
     font-style: italic;
-    color: var(--accent);
-    letter-spacing: 0.04em;
+    color: var(--bg);
+    letter-spacing: 0.01em;
     line-height: 1.4;
+    margin-bottom: 2rem;
+  }
+
+  .btn-dark {
+    display: inline-block;
+    padding: 14px 40px;
+    border: 1px solid var(--bg);
+    color: var(--bg);
+    text-decoration: none;
+    font-family: var(--font);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background 0.3s, color 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-dark::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--bg);
+    transition: width 0.4s ease;
+  }
+
+  .btn-dark:hover::after {
+    width: 100%;
+  }
+
+  .btn-dark:hover {
+    background: var(--bg);
+    color: var(--accent);
   }
 
   /* ── CTA ── */
@@ -510,7 +650,37 @@
     font-size: 1.1rem;
     color: var(--text-muted);
     font-weight: 300;
+    margin-bottom: 2.5rem;
+  }
+
+  /* self-selection entry */
+  .pain-select {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
     margin-bottom: 3rem;
+  }
+
+  .pain-option {
+    padding: 10px 20px;
+    border: 1px solid rgba(200,184,152,0.2);
+    background: transparent;
+    color: var(--text-muted);
+    font-family: var(--font);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 2px;
+  }
+
+  .pain-option:hover,
+  .pain-option.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(200,184,152,0.06);
   }
 
   .contact-form {
@@ -582,6 +752,14 @@
     color: var(--text-muted);
   }
 
+  footer .footer-line {
+    font-family: var(--font-hero);
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--accent);
+    opacity: 0.6;
+  }
+
   footer a {
     color: var(--text-muted);
     text-decoration: none;
@@ -591,21 +769,44 @@
     color: var(--text);
   }
 
+  /* ── EXPANDING LINE DIVIDER ── */
+  .line-reveal {
+    display: block;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    margin: 0 auto;
+    opacity: 0.3;
+    transition: none;
+  }
+
+  .line-reveal.visible {
+    animation: lineExpand 0.8s ease-out forwards;
+  }
+
+  @keyframes lineExpand {
+    from { width: 0; }
+    to { width: 80px; }
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     .hero { padding: 0 6vw 10vh; }
-    .hero video { object-position: 65% center; }
+    .hero video { object-position: 65% center !important; }
     .hero-desktop { display: none; }
     .hero-mobile { display: block; }
     .hero-content p { font-size: clamp(1.15rem, 5vw, 1.5rem); }
-    section, .value-stack, .stakes, .guide, .plan { padding: 10vh 6vw; }
+    section, .value-stack, .stakes, .guide, .plan, .who { padding: 10vh 6vw; }
     .grunt-test { padding: 10vh 6vw; }
-    .value { grid-template-columns: 1fr; gap: 0.75rem; }
+.value { grid-template-columns: 1fr; gap: 0.75rem; }
     .steps { grid-template-columns: 1fr; }
     .stakes-grid { grid-template-columns: 1fr; gap: 3rem; }
     .guide-top { max-width: 100%; }
     .guide-blocks { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
+    .personas { grid-template-columns: 1fr; }
+    .pain-select { flex-direction: column; align-items: center; }
+    .pain-option { width: 80%; text-align: center; }
   }
 </style>
 </head>
@@ -613,21 +814,26 @@
 
 <!-- ── HERO: BRAND EXPRESSION ── -->
 <div class="hero">
-  <video autoplay muted loop playsinline preload="auto">
+  <video class="video-a" autoplay muted playsinline preload="auto">
+    <source src="hero-video.mp4" type="video/mp4">
+  </video>
+  <video class="video-b" muted playsinline preload="auto">
     <source src="hero-video.mp4" type="video/mp4">
   </video>
   <div class="hero-content">
     <p class="hero-desktop">
-      <span class="hero-block">Every major river in the world flows to the sea,<br>
-      where they all merge together and lose their identity.</span>
+      <span class="hero-block">Every major river in the world runs to the sea,<br>
+      where they merge and lose their identity.</span>
       <span class="hero-pause">Except one.</span>
-      <span class="hero-block">The <span class="river-name">Okavango</span> flows to the desert<br>
-      and becomes a one of a kind thriving oasis instead.</span>
+      <span class="hero-block">It flows to the desert<br>
+      and becomes a one-of-a-kind thriving oasis.</span>
+      <span class="hero-landing"><span class="hero-brand"><svg viewBox="35 45 1545 400" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><path d="M 160 110 C 100 100, 50 160, 58 220 C 66 290, 130 335, 200 330 C 270 325, 320 255, 310 185 C 302 130, 240 92, 180 108"/><path d="M 352 60 C 362 80, 368 110, 368 150 L 368 335 M 368 210 C 392 188, 430 172, 478 188 C 448 190, 420 198, 395 215 C 418 240, 448 276, 500 335"/><path d="M 610 200 C 570 180, 535 200, 530 245 C 525 295, 565 335, 610 330 C 645 326, 665 296, 668 262 L 668 312 C 668 322, 675 327, 690 327 L 708 325"/><path d="M 720 200 C 728 235, 748 285, 775 325 C 795 335, 815 325, 835 290 C 855 250, 870 215, 880 180"/><path d="M 1000 218 C 935 203, 885 240, 890 285 C 895 322, 955 335, 1010 327 C 1048 321, 1066 295, 1062 268 L 1062 308 C 1062 320, 1074 325, 1090 325"/><path d="M 1100 200 C 1100 240, 1100 290, 1105 335 M 1105 240 C 1120 215, 1155 200, 1190 210 C 1220 220, 1235 250, 1235 290 L 1235 335"/><path d="M 1340 210 C 1295 195, 1260 225, 1260 270 C 1260 312, 1305 332, 1345 328 C 1375 324, 1395 302, 1395 278 L 1395 335 C 1395 378, 1382 408, 1348 420 C 1318 430, 1288 424, 1268 408"/><path d="M 1500 210 C 1460 198, 1420 222, 1420 270 C 1420 315, 1460 335, 1505 332 C 1545 328, 1570 300, 1565 262 C 1560 228, 1535 210, 1510 206"/></svg></span><span class="hero-tagline">Build meaningful difference into your business</span></span>
     </p>
     <p class="hero-mobile">
-      Every major river flows to the sea, where they merge together and lose their identity.
+      Every major river in the world runs to the sea, where they merge and lose their identity.
       <span class="hero-pause">Except one.</span>
-      The <span class="river-name">Okavango</span> flows to the desert and becomes a one of a kind thriving oasis instead.
+      It flows to the desert and becomes a one-of-a-kind thriving oasis.
+      <span class="hero-landing"><span class="hero-brand"><svg viewBox="35 45 1545 400" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><path d="M 160 110 C 100 100, 50 160, 58 220 C 66 290, 130 335, 200 330 C 270 325, 320 255, 310 185 C 302 130, 240 92, 180 108"/><path d="M 352 60 C 362 80, 368 110, 368 150 L 368 335 M 368 210 C 392 188, 430 172, 478 188 C 448 190, 420 198, 395 215 C 418 240, 448 276, 500 335"/><path d="M 610 200 C 570 180, 535 200, 530 245 C 525 295, 565 335, 610 330 C 645 326, 665 296, 668 262 L 668 312 C 668 322, 675 327, 690 327 L 708 325"/><path d="M 720 200 C 728 235, 748 285, 775 325 C 795 335, 815 325, 835 290 C 855 250, 870 215, 880 180"/><path d="M 1000 218 C 935 203, 885 240, 890 285 C 895 322, 955 335, 1010 327 C 1048 321, 1066 295, 1062 268 L 1062 308 C 1062 320, 1074 325, 1090 325"/><path d="M 1100 200 C 1100 240, 1100 290, 1105 335 M 1105 240 C 1120 215, 1155 200, 1190 210 C 1220 220, 1235 250, 1235 290 L 1235 335"/><path d="M 1340 210 C 1295 195, 1260 225, 1260 270 C 1260 312, 1305 332, 1345 328 C 1375 324, 1395 302, 1395 278 L 1395 335 C 1395 378, 1382 408, 1348 420 C 1318 430, 1288 424, 1268 408"/><path d="M 1500 210 C 1460 198, 1420 222, 1420 270 C 1420 315, 1460 335, 1505 332 C 1545 328, 1570 300, 1565 262 C 1560 228, 1535 210, 1510 206"/></svg></span><span class="hero-tagline">Build meaningful difference into your business</span></span>
     </p>
   </div>
   <div class="scroll-hint">
@@ -646,42 +852,26 @@
       On the other, your market is filled with me-too competition that all looks and feels the same.
       You're getting squeezed on both sides.
     </p>
-    <a href="#cta" class="btn-primary">Start a conversation</a>
   </div>
 </section>
 
-<!-- ── STORYBRAND: VALUE PROPOSITION (light section) ── -->
+<!-- ── STORYBRAND: VALUE PROPOSITION ── -->
 <section class="value-stack">
   <div class="section-inner">
     <div class="section-label">What you get</div>
-    <h2 class="value-headline">Build meaningful difference<br>into your operations and offering.</h2>
+    <h2 class="value-headline">An organization that gets harder to compete with.<br>Every week.</h2>
     <div class="values">
       <div class="value">
         <h3>An organization that compounds its own intelligence</h3>
-        <p>
-          Your knowledge, standards, and decisions<br>
-          build on each other. Every week the business<br>
-          operates better than the last,<br>
-          without adding headcount to make it happen.
-        </p>
+        <p>Your knowledge, standards, and decisions build on each other. The business operates better than the last week, without adding headcount to make it happen.</p>
       </div>
       <div class="value">
         <h3>People who work differently, not just faster</h3>
-        <p>
-          Your team stops spending time<br>
-          on work AI should handle<br>
-          and starts doing things that weren't possible before.<br>
-          New capabilities, not just efficiency gains.
-        </p>
+        <p>Your team stops spending time on work AI should handle and starts doing things that weren't possible before. New capabilities, not just efficiency gains.</p>
       </div>
       <div class="value">
         <h3>A system you own, not a dependency you rent</h3>
-        <p>
-          No ongoing consulting fees<br>
-          for advice that sits in a binder.<br>
-          A working system that your organization runs,<br>
-          with a clear path to full ownership.
-        </p>
+        <p>No ongoing consulting fees for advice that sits in a binder. A working system that your organization runs, with a clear path to full ownership.</p>
       </div>
     </div>
   </div>
@@ -691,25 +881,25 @@
 <section class="stakes">
   <div class="section-inner">
     <div class="section-label">The cost of not acting</div>
-    <h2>Every day the gap between AI-progressive and AI-lagging organizations widens. The further your operations fall behind, the harder it becomes to differentiate what you offer.</h2>
+    <h2>The longer you wait, the harder it gets to catch up. And the mistakes most organizations are making only accelerate the problem.</h2>
     <div class="stakes-grid">
       <div class="stakes-mistakes">
         <div class="mistake">
-          <div class="mistake-number">1</div>
+          <div class="mistake-number">01</div>
           <div class="mistake-content">
             <h3>Bolting AI onto old workflows</h3>
             <p>Jamming AI into processes designed before it existed. That's paving a hiking trail and calling it a highway.</p>
           </div>
         </div>
         <div class="mistake">
-          <div class="mistake-number">2</div>
+          <div class="mistake-number">02</div>
           <div class="mistake-content">
             <h3>Chasing efficiency instead of capability</h3>
             <p>Everyone is optimizing for speed when the real opportunity is what AI makes possible that wasn't possible before.</p>
           </div>
         </div>
         <div class="mistake">
-          <div class="mistake-number">3</div>
+          <div class="mistake-number">03</div>
           <div class="mistake-content">
             <h3>Treating it as a technology problem</h3>
             <p>AI isn't a technology decision. It's an organizational design decision. The human side is where it breaks or compounds.</p>
@@ -724,9 +914,8 @@
 <section class="guide">
   <div class="section-inner">
     <div class="guide-top">
-      <h2 class="guide-headline">The world has changed. AI is reshaping everything.</h2>
-      <p class="guide-choice"><span class="guide-choice-label">You have a choice:</span><br>
-      build distinction into everything you do, or become easier to replace every day.</p>
+      <p class="guide-choice">Every business believes it's distinct.<br>
+      <span class="guide-choice-accent">But if people can't tell, it isn't.</span></p>
     </div>
     <div class="guide-blocks">
       <div class="guide-block">
@@ -741,10 +930,10 @@
       <div class="guide-block">
         <h3>Why Okavango</h3>
         <p>
-          Okavango builds and operates AI systems for organizations in exactly this
-          position. We're AI-native ourselves. We use what we sell, every day, and
-          we're upfront about exactly how. We don't advise from the outside. We get
-          inside how your organization works and build from there.
+          We find what makes your organization meaningfully different and build
+          AI systems that make it compound. Your difference becomes how you operate,
+          not a claim on a slide. We're AI-native ourselves, and we stay inside
+          your organization to run it with you.
         </p>
       </div>
     </div>
@@ -755,7 +944,7 @@
 <section class="plan" id="how">
   <div class="section-inner">
     <div class="section-label">Three steps</div>
-    <h2>If you choose the path of distinction,<br>we should talk.</h2>
+    <h2>If this sounds like the kind of problem you're solving,<br>here's how it starts.</h2>
     <div class="steps">
       <div class="step">
         <div class="step-number">01</div>
@@ -776,18 +965,45 @@
   </div>
 </section>
 
-<!-- ── POSITIONING STATEMENT ── -->
-<section class="positioning">
-  <div class="positioning-inner">
-    <div class="positioning-wordmark">Okavango</div>
-    <p>AI-native. Human-centered.</p>
+<!-- ── WHO THIS IS FOR (client self-identification) ── -->
+<section class="who">
+  <div class="section-inner">
+    <div class="section-label">Who this is for</div>
+    <span class="line-reveal"></span>
+    <h2>This tends to land with a specific kind of leader.</h2>
+    <div class="personas">
+      <div class="persona">
+        <h3>The operator being squeezed</h3>
+        <p>Your margins are shrinking. Competitors are moving faster. You need to change how the organization works, not just add another tool to the stack.</p>
+      </div>
+      <div class="persona">
+        <h3>The builder stuck in pilot mode</h3>
+        <p>You've run the experiments. You've seen the demos. Nothing has stuck. You need something that works inside the way your people actually operate.</p>
+      </div>
+      <div class="persona">
+        <h3>The leader who wants to own it</h3>
+        <p>You don't want to be dependent on a vendor forever. You want a system your organization can eventually run on its own, built around what makes you different.</p>
+      </div>
+    </div>
   </div>
+</section>
+
+<!-- ── ACCENT CTA BAND ── -->
+<section class="cta-band">
+  <p>You already know what needs to change.<br>The question is how.</p>
+  <a href="#cta" class="btn-dark">Start a conversation</a>
 </section>
 
 <!-- ── STORYBRAND: CTA ── -->
 <section class="cta" id="cta">
   <h2>Worth a conversation?</h2>
   <p class="cta-sub">No pitch deck. No discovery call theater. A real conversation about where you are and what might be possible.</p>
+  <div class="pain-select">
+    <button class="pain-option" data-pain="squeezed">We're getting squeezed on margins</button>
+    <button class="pain-option" data-pain="stuck">AI pilots aren't sticking</button>
+    <button class="pain-option" data-pain="differentiate">We need to differentiate</button>
+    <button class="pain-option" data-pain="curious">Just curious</button>
+  </div>
   <form class="contact-form" action="mailto:thom@okavango.co" method="post" enctype="text/plain">
     <div class="form-row">
       <input type="text" name="name" placeholder="Your name" required>
@@ -800,9 +1016,114 @@
 
 <!-- ── FOOTER ── -->
 <footer>
-  <span>&copy; 2026 Tom DeVries. All rights reserved.</span>
-  <span>AI-native. Human-centered.</span>
+  <span>&copy; 2026 Okavango. All rights reserved.</span>
+  <span class="footer-line">Flow in your own direction.</span>
 </footer>
 
+<script>
+/* ── VIDEO CROSSFADE LOOP ── */
+(function() {
+  const a = document.querySelector('.video-a');
+  const b = document.querySelector('.video-b');
+  const fadeDuration = 2.5;
+
+  function setup() {
+    const duration = a.duration;
+    if (!duration || duration < fadeDuration * 2) {
+      a.loop = true;
+      return;
+    }
+
+    a.style.opacity = '0.65';
+    b.style.opacity = '0';
+    var active = 'a';
+
+    a.addEventListener('timeupdate', function() {
+      if (active !== 'a') return;
+      var timeLeft = duration - a.currentTime;
+      if (timeLeft <= fadeDuration) {
+        active = 'b';
+        b.currentTime = 0;
+        b.play();
+        b.style.zIndex = '1';
+        b.style.opacity = '0.65';
+      }
+    });
+
+    b.addEventListener('timeupdate', function() {
+      if (active !== 'b') return;
+      if (a.ended || a.paused) {
+        a.currentTime = 0;
+        a.play();
+      }
+      var timeLeft = duration - b.currentTime;
+      if (timeLeft <= fadeDuration) {
+        active = 'a';
+        b.style.opacity = '0';
+        b.style.zIndex = '0';
+      }
+    });
+
+    b.addEventListener('ended', function() {
+      b.pause();
+      b.style.opacity = '0';
+      b.style.zIndex = '0';
+    });
+
+    a.addEventListener('ended', function() {
+      a.currentTime = 0;
+      a.play();
+    });
+  }
+
+  if (a.readyState >= 1) {
+    setup();
+  } else {
+    a.addEventListener('loadedmetadata', setup);
+  }
+})();
+
+/* ── PAIN SELECTION ── */
+(function() {
+  const buttons = document.querySelectorAll('.pain-option');
+  const textarea = document.querySelector('.contact-form textarea');
+  const prompts = {
+    squeezed: "Our margins are under pressure and we need to change how we operate...",
+    stuck: "We've tried AI pilots but nothing has scaled or stuck...",
+    differentiate: "We need to build something competitors can't easily copy...",
+    curious: ""
+  };
+
+  buttons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      buttons.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      if (prompts[btn.dataset.pain] && !textarea.value) {
+        textarea.value = prompts[btn.dataset.pain];
+        textarea.focus();
+      }
+    });
+  });
+})();
+
+/* ── LINE REVEAL ON SCROLL ── */
+(function() {
+  var lines = document.querySelectorAll('.line-reveal');
+  if (!lines.length) return;
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  lines.forEach(function(line) {
+    observer.observe(line);
+  });
+})();
+</script>
 </body>
 </html>
