@@ -179,7 +179,7 @@
     50% { opacity: 0.7; }
   }
 
-  /* ── GRUNT TEST (problem statement) ── */
+  /* ── GRUNT TEST (paper section) ── */
   .grunt-test {
     background: var(--bg-light);
     border-top: none;
@@ -198,7 +198,7 @@
     line-height: 1.25;
     letter-spacing: -0.02em;
     margin-bottom: 1.75rem;
-    color: var(--text-dark);
+    color: #c66a4a;
   }
 
   .grunt-test .subhead {
@@ -256,12 +256,12 @@
     color: var(--bg-light);
   }
 
-  /* ── VALUE STACK (dark section) ── */
+  /* ── VALUE STACK (channel-deep section) ── */
   .value-stack {
-    background: var(--bg-section);
+    background: var(--accent-deep);
     color: var(--text);
     padding: 12vh 8vw;
-    border-top: 1px solid rgba(200,184,152,0.08);
+    border-top: none;
   }
 
   .value-stack .section-inner {
@@ -274,7 +274,7 @@
     font-weight: 500;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: rgba(242, 234, 214, 0.6);
     margin-bottom: 1.5rem;
   }
 
@@ -290,7 +290,7 @@
   .value-subhead {
     font-size: 1.15rem;
     font-weight: 300;
-    color: var(--text-muted);
+    color: rgba(242, 234, 214, 0.78);
     line-height: 1.6;
     margin-bottom: 3.5rem;
   }
@@ -322,19 +322,19 @@
   .value p {
     font-size: 1.1rem;
     font-weight: 300;
-    color: var(--text-muted);
+    color: rgba(242, 234, 214, 0.78);
     line-height: 1.7;
   }
 
   .value-capstone {
     padding-top: 3rem;
-    border-top: 1px solid rgba(74, 117, 135, 0.35);
+    border-top: 1px solid rgba(74, 117, 135, 0.6);
     max-width: 780px;
   }
 
   .value-capstone h3 {
     font-size: 1.5rem;
-    color: var(--accent);
+    color: var(--text);
   }
 
   /* ── STAKES ── */
@@ -404,7 +404,7 @@
     grid-template-columns: auto 1fr;
     gap: 1.5rem;
     align-items: start;
-    margin-bottom: 3rem;
+    margin-bottom: 1.4rem;
   }
 
   .mistake:last-child {
@@ -419,6 +419,7 @@
     color: var(--accent);
     letter-spacing: 0.1em;
     padding-top: 0.35rem;
+    transition: color 0.2s ease;
   }
 
   .mistake-content h3 {
@@ -426,8 +427,9 @@
     font-size: 1.35rem;
     font-weight: 500;
     color: var(--text);
-    margin-bottom: 0.6rem;
+    margin-bottom: 0;
     line-height: 1.4;
+    transition: color 0.2s ease;
   }
 
   .mistake-content p {
@@ -436,12 +438,29 @@
     font-weight: 300;
     color: var(--text-muted);
     line-height: 1.7;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.4s ease;
   }
 
-  /* ── GUIDE ── */
+  .mistake:hover .mistake-content p,
+  .mistake:focus-within .mistake-content p {
+    max-height: 260px;
+    opacity: 1;
+    margin-top: 0.6rem;
+  }
+
+  .mistake:hover .mistake-content h3,
+  .mistake:focus-within .mistake-content h3 {
+    color: var(--accent);
+  }
+
+  /* ── GUIDE (paper section) ── */
   .guide {
-    background: var(--bg);
-    border-top: 1px solid rgba(200,184,152,0.08);
+    background: var(--bg-light);
+    border-top: none;
     padding: 12vh 8vw;
   }
 
@@ -463,25 +482,25 @@
     line-height: 1.5;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: var(--text-dark-muted);
     margin-bottom: 1.75rem;
   }
 
   .guide-choice {
     font-size: clamp(1.35rem, 2.5vw, 1.75rem);
     font-weight: 300;
-    color: var(--text);
+    color: var(--text-dark);
     line-height: 1.5;
   }
 
   .guide-choice-label {
     font-weight: 500;
-    color: var(--text);
+    color: var(--text-dark);
     letter-spacing: -0.01em;
   }
 
   .guide-choice-accent {
-    color: var(--accent);
+    color: var(--accent-deep);
   }
 
   .guide-blocks {
@@ -495,14 +514,14 @@
     font-weight: 500;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: var(--text-dark-muted);
     margin-bottom: 1.25rem;
   }
 
   .guide-block p {
     font-size: 1.05rem;
     font-weight: 300;
-    color: var(--text-muted);
+    color: var(--text-dark-muted);
     line-height: 1.75;
   }
 
@@ -820,7 +839,7 @@
     display: block;
     width: 0;
     height: 1px;
-    background: var(--accent);
+    background: var(--accent-deep);
     margin: 0 auto;
     opacity: 0.3;
     transition: none;
@@ -855,6 +874,9 @@
     .personas { grid-template-columns: 1fr; }
     .pain-select { flex-direction: column; align-items: center; }
     .pain-option { width: 80%; text-align: center; }
+    .mistake { margin-bottom: 2rem; }
+    .mistake-content p { max-height: 400px; opacity: 1; margin-top: 0.6rem; }
+    .mistake-content h3 { margin-bottom: 0.4rem; }
   }
 </style>
 </head>
@@ -991,8 +1013,9 @@
 <section class="guide">
   <div class="section-inner">
     <div class="guide-top">
-      <p class="guide-choice">You have a choice: build distinction into everything you do,<br>
-      <span class="guide-choice-accent">or become easier to replace every day.</span></p>
+      <p class="guide-choice">You have a choice.<br>
+      Build distinction into everything you do.<br>
+      <span class="guide-choice-accent">Or become easier to replace every day.</span></p>
     </div>
     <div class="guide-blocks">
       <div class="guide-block">
