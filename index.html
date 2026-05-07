@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Okavango</title>
+<title>Okavango · Build meaningful difference into your business</title>
+<meta name="description" content="Okavango is an AI-native firm that builds and operates AI systems making organizations harder to compete with. We find what makes your business meaningfully different and operationalize that difference so it compounds over time.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -14,10 +15,10 @@
     --bg-section: #14130f;
     --text: #f2ead6;
     --text-muted: #9a9488;
-    --accent: #d6a05c;
-    --accent-light: #d6a05c;
-    --accent-deep: #d6a05c;
-    --font: 'Inter', -apple-system, sans-serif;
+    --accent: #4a7587;
+    --accent-light: #4a7587;
+    --accent-deep: #1a3a4a;
+    --font: 'Spectral', Georgia, serif;
     --font-hero: 'Cormorant Garamond', Georgia, serif;
     --font-mono: 'IBM Plex Mono', monospace;
 
@@ -49,7 +50,7 @@
     justify-content: flex-end;
     align-items: center;
     text-align: center;
-    padding: 0 8vw 5vh;
+    padding: 0 8vw 10vh;
     overflow: hidden;
   }
 
@@ -72,9 +73,9 @@
     inset: 0;
     background: linear-gradient(
       to top,
-      rgba(15,15,15, 0.55) 0%,
-      rgba(15,15,15, 0.10) 40%,
-      rgba(15,15,15, 0.02) 100%
+      rgba(15,15,15, 0.70) 0%,
+      rgba(15,15,15, 0.25) 40%,
+      rgba(15,15,15, 0.17) 100%
     );
     z-index: 1;
   }
@@ -83,6 +84,7 @@
     position: relative;
     z-index: 2;
     max-width: 780px;
+    transform: translateY(10px);
   }
 
   .hero-content p {
@@ -107,12 +109,12 @@
 
   .hero-pause {
     display: block;
-    padding: 0.75em 0;
+    padding: 0.55em 0;
   }
 
   .hero-landing {
     display: block;
-    padding: 1.25em 0 0;
+    padding: 0.75em 0 0;
   }
 
   .hero-brand {
@@ -127,17 +129,27 @@
     margin: 0 auto;
   }
 
-  .hero-tagline {
+  .hero-bridge {
     display: block;
-    font-family: var(--font);
-    font-size: clamp(0.9rem, 1.4vw, 1rem);
-    font-weight: 400;
+    font-family: var(--font-hero);
+    font-size: clamp(1.3rem, 2.5vw, 1.85rem);
     font-style: normal;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-weight: 500;
     color: var(--accent);
-    opacity: 0.7;
-    padding-top: 0.6em;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-brand-text {
+    display: block;
+    padding-top: 0.9em;
+    margin-top: -20px;
+    font-family: var(--font-hero);
+    font-size: clamp(1.96rem, 4.2vw, 3.85rem);
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    line-height: 1;
   }
 
   .hero-content p .river-name {
@@ -253,7 +265,7 @@
   }
 
   .value-stack .section-inner {
-    max-width: 800px;
+    max-width: 1100px;
   }
 
   .value-stack .section-label {
@@ -278,7 +290,7 @@
   .value-subhead {
     font-size: 1.15rem;
     font-weight: 300;
-    color: var(--text-dark-muted);
+    color: var(--text-muted);
     line-height: 1.6;
     margin-bottom: 3.5rem;
   }
@@ -289,11 +301,14 @@
     gap: 3.5rem;
   }
 
-  .value {
+  .values-pair {
     display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 2rem;
-    align-items: start;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+  }
+
+  .value {
+    display: block;
   }
 
   .value h3 {
@@ -301,6 +316,7 @@
     font-weight: 500;
     line-height: 1.35;
     color: var(--text);
+    margin-bottom: 0.9rem;
   }
 
   .value p {
@@ -308,6 +324,17 @@
     font-weight: 300;
     color: var(--text-muted);
     line-height: 1.7;
+  }
+
+  .value-capstone {
+    padding-top: 3rem;
+    border-top: 1px solid rgba(74, 117, 135, 0.35);
+    max-width: 780px;
+  }
+
+  .value-capstone h3 {
+    font-size: 1.5rem;
+    color: var(--accent);
   }
 
   /* ── STAKES ── */
@@ -333,21 +360,40 @@
 
   .stakes-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    max-width: 700px;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
   }
 
   .stakes h2 {
-    font-size: clamp(1.1rem, 1.8vw, 1.35rem);
-    font-weight: 300;
-    line-height: 1.7;
-    letter-spacing: -0.005em;
-    margin-bottom: 3rem;
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
     color: var(--text);
     max-width: 680px;
   }
 
+  .stakes-subhead {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 3.5rem;
+    max-width: 580px;
+  }
+
+  .stakes-column-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(200,184,152,0.1);
+  }
 
   .stakes-mistakes {
     padding-top: 0.25rem;
@@ -579,7 +625,7 @@
 
   /* ── ACCENT CTA BAND ── */
   .cta-band {
-    background: var(--accent);
+    background: var(--accent-deep);
     padding: 6vh 8vw;
     text-align: center;
   }
@@ -589,7 +635,7 @@
     font-size: clamp(1.4rem, 2.5vw, 1.85rem);
     font-weight: 300;
     font-style: italic;
-    color: var(--bg);
+    color: var(--text);
     letter-spacing: 0.01em;
     line-height: 1.4;
     margin-bottom: 2rem;
@@ -598,8 +644,8 @@
   .btn-dark {
     display: inline-block;
     padding: 14px 40px;
-    border: 1px solid var(--bg);
-    color: var(--bg);
+    border: 1px solid var(--text);
+    color: var(--text);
     text-decoration: none;
     font-family: var(--font);
     font-size: 0.85rem;
@@ -618,7 +664,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--bg);
+    background: var(--text);
     transition: width 0.4s ease;
   }
 
@@ -627,8 +673,8 @@
   }
 
   .btn-dark:hover {
-    background: var(--bg);
-    color: var(--accent);
+    background: var(--text);
+    color: var(--accent-deep);
   }
 
   /* ── CTA ── */
@@ -798,10 +844,12 @@
     .hero-content p { font-size: clamp(1.15rem, 5vw, 1.5rem); }
     section, .value-stack, .stakes, .guide, .plan, .who { padding: 10vh 6vw; }
     .grunt-test { padding: 10vh 6vw; }
-.value { grid-template-columns: 1fr; gap: 0.75rem; }
+.values-pair { grid-template-columns: 1fr; gap: 3rem; }
+    .value-capstone { max-width: 100%; padding-top: 2rem; }
     .steps { grid-template-columns: 1fr; }
     .stakes-grid { grid-template-columns: 1fr; gap: 3rem; }
     .guide-top { max-width: 100%; }
+    .stakes-grid { grid-template-columns: 1fr; gap: 3rem; }
     .guide-blocks { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
     .personas { grid-template-columns: 1fr; }
@@ -827,13 +875,13 @@
       <span class="hero-pause">Except one.</span>
       <span class="hero-block">It flows to the desert<br>
       and becomes a one-of-a-kind thriving oasis.</span>
-      <span class="hero-landing"><span class="hero-brand"><svg viewBox="35 45 1545 400" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><path d="M 160 110 C 100 100, 50 160, 58 220 C 66 290, 130 335, 200 330 C 270 325, 320 255, 310 185 C 302 130, 240 92, 180 108"/><path d="M 352 60 C 362 80, 368 110, 368 150 L 368 335 M 368 210 C 392 188, 430 172, 478 188 C 448 190, 420 198, 395 215 C 418 240, 448 276, 500 335"/><path d="M 610 200 C 570 180, 535 200, 530 245 C 525 295, 565 335, 610 330 C 645 326, 665 296, 668 262 L 668 312 C 668 322, 675 327, 690 327 L 708 325"/><path d="M 720 200 C 728 235, 748 285, 775 325 C 795 335, 815 325, 835 290 C 855 250, 870 215, 880 180"/><path d="M 1000 218 C 935 203, 885 240, 890 285 C 895 322, 955 335, 1010 327 C 1048 321, 1066 295, 1062 268 L 1062 308 C 1062 320, 1074 325, 1090 325"/><path d="M 1100 200 C 1100 240, 1100 290, 1105 335 M 1105 240 C 1120 215, 1155 200, 1190 210 C 1220 220, 1235 250, 1235 290 L 1235 335"/><path d="M 1340 210 C 1295 195, 1260 225, 1260 270 C 1260 312, 1305 332, 1345 328 C 1375 324, 1395 302, 1395 278 L 1395 335 C 1395 378, 1382 408, 1348 420 C 1318 430, 1288 424, 1268 408"/><path d="M 1500 210 C 1460 198, 1420 222, 1420 270 C 1420 315, 1460 335, 1505 332 C 1545 328, 1570 300, 1565 262 C 1560 228, 1535 210, 1510 206"/></svg></span><span class="hero-tagline">Build meaningful difference into your business</span></span>
+      <span class="hero-landing"><span class="hero-bridge">That's the only kind of business worth building.</span><span class="hero-brand-text">Okavango</span></span>
     </p>
     <p class="hero-mobile">
       Every major river in the world runs to the sea, where they merge and lose their identity.
       <span class="hero-pause">Except one.</span>
       It flows to the desert and becomes a one-of-a-kind thriving oasis.
-      <span class="hero-landing"><span class="hero-brand"><svg viewBox="35 45 1545 400" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><path d="M 160 110 C 100 100, 50 160, 58 220 C 66 290, 130 335, 200 330 C 270 325, 320 255, 310 185 C 302 130, 240 92, 180 108"/><path d="M 352 60 C 362 80, 368 110, 368 150 L 368 335 M 368 210 C 392 188, 430 172, 478 188 C 448 190, 420 198, 395 215 C 418 240, 448 276, 500 335"/><path d="M 610 200 C 570 180, 535 200, 530 245 C 525 295, 565 335, 610 330 C 645 326, 665 296, 668 262 L 668 312 C 668 322, 675 327, 690 327 L 708 325"/><path d="M 720 200 C 728 235, 748 285, 775 325 C 795 335, 815 325, 835 290 C 855 250, 870 215, 880 180"/><path d="M 1000 218 C 935 203, 885 240, 890 285 C 895 322, 955 335, 1010 327 C 1048 321, 1066 295, 1062 268 L 1062 308 C 1062 320, 1074 325, 1090 325"/><path d="M 1100 200 C 1100 240, 1100 290, 1105 335 M 1105 240 C 1120 215, 1155 200, 1190 210 C 1220 220, 1235 250, 1235 290 L 1235 335"/><path d="M 1340 210 C 1295 195, 1260 225, 1260 270 C 1260 312, 1305 332, 1345 328 C 1375 324, 1395 302, 1395 278 L 1395 335 C 1395 378, 1382 408, 1348 420 C 1318 430, 1288 424, 1268 408"/><path d="M 1500 210 C 1460 198, 1420 222, 1420 270 C 1420 315, 1460 335, 1505 332 C 1545 328, 1570 300, 1565 262 C 1560 228, 1535 210, 1510 206"/></svg></span><span class="hero-tagline">Build meaningful difference into your business</span></span>
+      <span class="hero-landing"><span class="hero-bridge">That's the only kind of business worth building.</span><span class="hero-brand-text">Okavango</span></span>
     </p>
   </div>
   <div class="scroll-hint">
@@ -859,19 +907,22 @@
 <section class="value-stack">
   <div class="section-inner">
     <div class="section-label">What you get</div>
-    <h2 class="value-headline">An organization that gets harder to compete with.<br>Every week.</h2>
+    <h2 class="value-headline">Build meaningful difference into your business.</h2>
+    <p class="value-subhead">As intelligence and competition become abundant, the rules of this wild game called business change quickly. Your organization must deliver value that's scarce and hard to copy.</p>
     <div class="values">
-      <div class="value">
-        <h3>An organization that compounds its own intelligence</h3>
-        <p>Your knowledge, standards, and decisions build on each other. The business operates better than the last week, without adding headcount to make it happen.</p>
+      <div class="values-pair">
+        <div class="value">
+          <h3>Your offering</h3>
+          <p>Your product, service, brand, and experience should all express the same thing. We help you uncover what makes your business genuinely distinct, then build it into each of them so customers feel the same signature wherever they meet you.</p>
+        </div>
+        <div class="value">
+          <h3>Your operations</h3>
+          <p>AI gives you leverage. What you point it at is what matters. We point it at the beliefs that make you who you are: your standards, your judgment, the ways of working you'd never compromise. The brand becomes what the operation actually is, all the way through.</p>
+        </div>
       </div>
-      <div class="value">
-        <h3>People who work differently, not just faster</h3>
-        <p>Your team stops spending time on work AI should handle and starts doing things that weren't possible before. New capabilities, not just efficiency gains.</p>
-      </div>
-      <div class="value">
-        <h3>A system you own, not a dependency you rent</h3>
-        <p>No ongoing consulting fees for advice that sits in a binder. A working system that your organization runs, with a clear path to full ownership.</p>
+      <div class="value value-capstone">
+        <h3>Your distinction</h3>
+        <p>When the offering reflects who you are and the operations make it real, you hold a position no one else can take. The work compounds. As the market shifts, the advantage only deepens.</p>
       </div>
     </div>
   </div>
@@ -881,28 +932,54 @@
 <section class="stakes">
   <div class="section-inner">
     <div class="section-label">The cost of not acting</div>
-    <h2>The longer you wait, the harder it gets to catch up. And the mistakes most organizations are making only accelerate the problem.</h2>
+    <h2>Every day you wait,<br>you slowly disappear.</h2>
+    <p class="stakes-subhead">Action does not equal impact. These are the mistakes most organizations make on both sides of the problem and how we help you avoid them.</p>
     <div class="stakes-grid">
       <div class="stakes-mistakes">
+        <div class="stakes-column-label">Offering</div>
         <div class="mistake">
           <div class="mistake-number">01</div>
           <div class="mistake-content">
-            <h3>Bolting AI onto old workflows</h3>
-            <p>Jamming AI into processes designed before it existed. That's paving a hiking trail and calling it a highway.</p>
+            <h3>Prioritizing transactions over relationships</h3>
+            <p>Tracking transactions is easy. But making them your primary measure tends to produce churn. We help you build and measure around relationships instead.</p>
           </div>
         </div>
         <div class="mistake">
           <div class="mistake-number">02</div>
           <div class="mistake-content">
-            <h3>Chasing efficiency instead of capability</h3>
-            <p>Everyone is optimizing for speed when the real opportunity is what AI makes possible that wasn't possible before.</p>
+            <h3>Believing one big thing will set you apart</h3>
+            <p>Distinction isn't one differentiator. It's doing everything three percent differently than anyone else would. We help you build that compound identity across your whole offering.</p>
           </div>
         </div>
         <div class="mistake">
           <div class="mistake-number">03</div>
           <div class="mistake-content">
+            <h3>Assuming people make logical decisions</h3>
+            <p>They don't. Decisions are made on feeling, then justified with logic. We help you build an offering for the part of the brain that actually decides.</p>
+          </div>
+        </div>
+      </div>
+      <div class="stakes-mistakes">
+        <div class="stakes-column-label">Operations</div>
+        <div class="mistake">
+          <div class="mistake-number">04</div>
+          <div class="mistake-content">
+            <h3>Bolting AI onto old workflows</h3>
+            <p>AI doesn't improve a broken process. It amplifies it. We redesign your systems, habits, and organizational structure so AI is native to how you operate.</p>
+          </div>
+        </div>
+        <div class="mistake">
+          <div class="mistake-number">05</div>
+          <div class="mistake-content">
+            <h3>Chasing efficiency instead of capability</h3>
+            <p>Speed is a commodity. We help you find the real opportunity: what AI makes possible that wasn't possible before.</p>
+          </div>
+        </div>
+        <div class="mistake">
+          <div class="mistake-number">06</div>
+          <div class="mistake-content">
             <h3>Treating it as a technology problem</h3>
-            <p>AI isn't a technology decision. It's an organizational design decision. The human side is where it breaks or compounds.</p>
+            <p>AI isn't a technology decision. It's an organizational design decision. We work on the human side, where it actually compounds or breaks.</p>
           </div>
         </div>
       </div>
@@ -914,8 +991,8 @@
 <section class="guide">
   <div class="section-inner">
     <div class="guide-top">
-      <p class="guide-choice">Every business believes it's distinct.<br>
-      <span class="guide-choice-accent">But if people can't tell, it isn't.</span></p>
+      <p class="guide-choice">You have a choice: build distinction into everything you do,<br>
+      <span class="guide-choice-accent">or become easier to replace every day.</span></p>
     </div>
     <div class="guide-blocks">
       <div class="guide-block">
