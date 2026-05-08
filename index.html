@@ -184,32 +184,32 @@
     background: var(--bg-light);
     border-top: none;
     text-align: center;
-    padding: 14vh 8vw;
+    padding: 10vh 8vw;
   }
 
   .grunt-test .section-inner {
-    max-width: 760px;
+    max-width: 1100px;
     margin: 0 auto;
   }
 
   .grunt-test h2 {
-    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
     font-weight: 400;
-    line-height: 1.25;
+    line-height: 1.2;
     letter-spacing: -0.02em;
-    margin-bottom: 1.75rem;
+    margin: 0 auto 2.25rem;
+    max-width: 900px;
     color: #c66a4a;
   }
 
   .grunt-test .subhead {
+    font-family: var(--font);
     font-size: 1.2rem;
     font-weight: 300;
     color: var(--text-dark-muted);
     line-height: 1.7;
-    margin-bottom: 2.5rem;
-    max-width: 620px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 2.75rem;
+    max-width: 720px;
   }
 
   .grunt-test .urgency {
@@ -218,6 +218,17 @@
     color: var(--text-dark);
     letter-spacing: 0.02em;
     margin-top: 1rem;
+  }
+
+  .grunt-test .grunt-positioning {
+    font-family: var(--font-hero);
+    font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--accent-deep);
+    line-height: 1.45;
+    margin: 0 auto;
+    max-width: 780px;
   }
 
   .btn-primary {
@@ -470,10 +481,7 @@
 
   .guide-top {
     text-align: center;
-    margin-bottom: 2rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 5.5rem;
   }
 
   .guide-headline {
@@ -493,6 +501,15 @@
     line-height: 1.5;
   }
 
+  .guide-choice-setup {
+    display: block;
+    font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+  }
+
   .guide-choice-label {
     font-weight: 500;
     color: var(--text-dark);
@@ -503,26 +520,83 @@
     color: var(--accent-deep);
   }
 
+  .guide-choice-imperative {
+    display: block;
+    font-weight: 500;
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    color: var(--text-dark);
+    margin-top: 0;
+  }
+
+  .guide-choice-paths {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1.75rem auto 1.75rem;
+    max-width: 920px;
+  }
+
+  .guide-choice-path {
+    flex: 1;
+    padding: 0.4rem 1rem;
+    text-align: center;
+    font-size: clamp(1.2rem, 1.7vw, 1.45rem);
+    font-weight: 300;
+    line-height: 1.4;
+    color: var(--text-dark-muted);
+  }
+
+  .guide-choice-path-positive {
+    font-weight: 500;
+    color: var(--accent-deep);
+  }
+
+  .guide-choice-or {
+    font-family: var(--font-hero);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+    color: var(--text-dark-muted);
+    flex-shrink: 0;
+  }
+
   .guide-blocks {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
   }
 
   .guide-block h3 {
+    font-family: var(--font-mono);
     font-size: 0.75rem;
     font-weight: 500;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--text-dark-muted);
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
   }
 
   .guide-block p {
-    font-size: 1.05rem;
+    font-family: var(--font-hero);
+    font-size: clamp(1.35rem, 2vw, 1.65rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--accent-deep);
+    line-height: 1.5;
+    letter-spacing: 0.005em;
+  }
+
+  .guide-positioning {
+    font-family: var(--font-hero);
+    font-size: clamp(1.35rem, 2.4vw, 1.75rem);
     font-weight: 300;
-    color: var(--text-dark-muted);
-    line-height: 1.75;
+    font-style: italic;
+    color: var(--accent-deep);
+    line-height: 1.45;
+    text-align: center;
+    margin: 4rem auto 0;
+    max-width: 780px;
   }
 
   /* ── PLAN ── */
@@ -612,6 +686,7 @@
     letter-spacing: -0.02em;
     color: var(--text-dark);
     text-align: center;
+    margin-top: 3rem;
     margin-bottom: 4rem;
   }
 
@@ -628,18 +703,19 @@
   }
 
   .persona h3 {
-    font-size: 1.1rem;
+    font-size: clamp(1.15rem, 1.6vw, 1.3rem);
     font-weight: 500;
     color: var(--text-dark);
-    margin-bottom: 0.75rem;
     line-height: 1.35;
+    margin-bottom: 0.75rem;
   }
 
   .persona p {
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 300;
     color: var(--text-dark-muted);
-    line-height: 1.7;
+    line-height: 1.6;
+    margin: 0;
   }
 
   /* ── ACCENT CTA BAND ── */
@@ -702,6 +778,29 @@
     border-top: 1px solid rgba(200,184,152,0.08);
     text-align: center;
     padding: 14vh 8vw;
+  }
+
+  .cta-brand {
+    display: block;
+    font-family: var(--font-hero);
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.9rem;
+  }
+
+  .cta-credo {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
   }
 
   .cta h2 {
@@ -821,8 +920,8 @@
     font-family: var(--font-hero);
     font-style: italic;
     font-size: 0.9rem;
-    color: var(--accent);
-    opacity: 0.6;
+    color: var(--text);
+    opacity: 0.75;
   }
 
   footer a {
@@ -857,7 +956,7 @@
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     .hero { padding: 0 6vw 10vh; }
-    .hero video { object-position: 65% center !important; }
+    .hero video { object-position: center center !important; }
     .hero-desktop { display: none; }
     .hero-mobile { display: block; }
     .hero-content p { font-size: clamp(1.15rem, 5vw, 1.5rem); }
@@ -877,6 +976,7 @@
     .mistake { margin-bottom: 2rem; }
     .mistake-content p { max-height: 400px; opacity: 1; margin-top: 0.6rem; }
     .mistake-content h3 { margin-bottom: 0.4rem; }
+    .guide-choice-paths { flex-direction: column; gap: 1rem; }
   }
 </style>
 </head>
@@ -900,10 +1000,9 @@
       <span class="hero-landing"><span class="hero-bridge">That's the only kind of business worth building.</span><span class="hero-brand-text">Okavango</span></span>
     </p>
     <p class="hero-mobile">
-      Every major river in the world runs to the sea, where they merge and lose their identity.
-      <span class="hero-pause">Except one.</span>
-      It flows to the desert and becomes a one-of-a-kind thriving oasis.
-      <span class="hero-landing"><span class="hero-bridge">That's the only kind of business worth building.</span><span class="hero-brand-text">Okavango</span></span>
+      <span class="hero-block">Every major river runs to the sea where they merge and lose their identity, except one.</span>
+      <span class="hero-block">It flows to the desert and becomes a one-of-a-kind, thriving oasis.</span>
+      <span class="hero-landing"><span class="hero-bridge">That's the only kind of business<br>worth building.</span><span class="hero-brand-text">Okavango</span></span>
     </p>
   </div>
   <div class="scroll-hint">
@@ -916,12 +1015,8 @@
 <!-- ── STORYBRAND: PROBLEM STATEMENT ── -->
 <section class="grunt-test">
   <div class="section-inner">
-    <h2>Your business was built for a world<br>that no longer exists.</h2>
-    <p class="subhead">
-      On one side, AI-enabled competitors are operating at a fraction of your cost structure.
-      On the other, your market is filled with me-too competition that all looks and feels the same.
-      You're getting squeezed on both sides.
-    </p>
+    <h2>Your business was built for a world that no longer exists.</h2>
+    <p class="subhead">You are getting squeezed on both sides. On one side, AI-enabled competitors are operating at a fraction of your cost structure. On the other, your market is filled with me-too competition that all looks and feels the same.</p>
   </div>
 </section>
 
@@ -935,15 +1030,15 @@
       <div class="values-pair">
         <div class="value">
           <h3>Your offering</h3>
-          <p>Your product, service, brand, and experience should all express the same thing. We help you uncover what makes your business genuinely distinct, then build it into each of them so customers feel the same signature wherever they meet you.</p>
+          <p>Every product, service, brand, and experience you offer should be expressions of one meaningful difference. We help you uncover what makes your business genuinely distinct, then build it into each of them so customers feel the same signature wherever they meet you.</p>
         </div>
         <div class="value">
           <h3>Your operations</h3>
-          <p>AI gives you leverage. What you point it at is what matters. We point it at the beliefs that make you who you are: your standards, your judgment, the ways of working you'd never compromise. The brand becomes what the operation actually is, all the way through.</p>
+          <p>AI gives you operational leverage, but how you structure it and what you point it at determines success or failure. We design that structure and infuse it with the purpose and beliefs that make you uniquely valuable, so the brand becomes what the operation actually is, all the way through.</p>
         </div>
       </div>
       <div class="value value-capstone">
-        <h3>Your distinction</h3>
+        <h3>Your durable distinction</h3>
         <p>When the offering reflects who you are and the operations make it real, you hold a position no one else can take. The work compounds. As the market shifts, the advantage only deepens.</p>
       </div>
     </div>
@@ -963,21 +1058,21 @@
           <div class="mistake-number">01</div>
           <div class="mistake-content">
             <h3>Prioritizing transactions over relationships</h3>
-            <p>Tracking transactions is easy. But making them your primary measure tends to produce churn. We help you build and measure around relationships instead.</p>
+            <p>Tracking transactions is easy. Making them your primary measure tends to produce churn. We rebuild your measurement around relationships, where the real value compounds.</p>
           </div>
         </div>
         <div class="mistake">
           <div class="mistake-number">02</div>
           <div class="mistake-content">
             <h3>Believing one big thing will set you apart</h3>
-            <p>Distinction isn't one differentiator. It's doing everything three percent differently than anyone else would. We help you build that compound identity across your whole offering.</p>
+            <p>Distinction isn't one differentiator. It's doing everything three percent differently than anyone else would. We compound those small differences across your whole offering until they become an identity.</p>
           </div>
         </div>
         <div class="mistake">
           <div class="mistake-number">03</div>
           <div class="mistake-content">
             <h3>Assuming people make logical decisions</h3>
-            <p>They don't. Decisions are made on feeling, then justified with logic. We help you build an offering for the part of the brain that actually decides.</p>
+            <p>They don't. Decisions are made on feeling, then justified with logic. Your offering needs to win the part of the brain that decides first. That's the work.</p>
           </div>
         </div>
       </div>
@@ -994,7 +1089,7 @@
           <div class="mistake-number">05</div>
           <div class="mistake-content">
             <h3>Chasing efficiency instead of capability</h3>
-            <p>Speed is a commodity. We help you find the real opportunity: what AI makes possible that wasn't possible before.</p>
+            <p>Speed is a commodity. We pursue what AI makes possible that wasn't possible before. The work that didn't exist last year.</p>
           </div>
         </div>
         <div class="mistake">
@@ -1013,28 +1108,20 @@
 <section class="guide">
   <div class="section-inner">
     <div class="guide-top">
-      <p class="guide-choice">You have a choice.<br>
-      Become easier to replace every day.<br>
-      <span class="guide-choice-accent">Or build distinction into everything you do.</span></p>
+      <div class="guide-choice">
+        <span class="guide-choice-setup">You have a choice.</span>
+        <div class="guide-choice-paths">
+          <div class="guide-choice-path">Become easier to replace every day.</div>
+          <span class="guide-choice-or">or</span>
+          <div class="guide-choice-path guide-choice-path-positive">Build distinction into everything you do.</div>
+        </div>
+        <span class="guide-choice-imperative">Choose wisely.</span>
+      </div>
     </div>
     <div class="guide-blocks">
       <div class="guide-block">
-        <h3>We get it</h3>
-        <p>
-          You know AI matters. Your board knows. Your competitors definitely know.
-          But knowing and doing are different things. Most organizations are stuck
-          between pilots that don't scale and vendors selling tools that don't fit
-          how your people actually work.
-        </p>
-      </div>
-      <div class="guide-block">
         <h3>Why Okavango</h3>
-        <p>
-          We find what makes your organization meaningfully different and build
-          AI systems that make it compound. Your difference becomes how you operate,
-          not a claim on a slide. We're AI-native ourselves, and we stay inside
-          your organization to run it with you.
-        </p>
+        <p>We uncover what makes your organization meaningfully different, then align your offering and build your AI systems so you can carve a path to durable distinction.</p>
       </div>
     </div>
   </div>
@@ -1044,7 +1131,7 @@
 <section class="plan" id="how">
   <div class="section-inner">
     <div class="section-label">Where to start</div>
-    <h2>If you're tired of blending in and watching your margins shrink,<br>here's how it starts.</h2>
+    <h2>Ready when you are. Here's how it starts.</h2>
     <div class="steps">
       <div class="step">
         <div class="step-number">01</div>
@@ -1053,7 +1140,7 @@
       </div>
       <div class="step">
         <div class="step-number">02</div>
-        <h3>Discuss the pain you're feeling</h3>
+        <h3>Discuss your pain</h3>
         <p>Together we map where your offering is being commoditized and where your operations are stretched. Plain language about what's actually compounding into pressure.</p>
       </div>
       <div class="step">
@@ -1068,21 +1155,21 @@
 <!-- ── WHO THIS IS FOR (client self-identification) ── -->
 <section class="who">
   <div class="section-inner">
-    <div class="section-label">Who this is for</div>
+    <div class="section-label">Is this a good fit?</div>
     <span class="line-reveal"></span>
-    <h2>We work with three kinds of organizations.</h2>
+    <h2>If you made it this far<br>and identify as one of these,<br>we should talk.</h2>
     <div class="personas">
       <div class="persona">
-        <h3>Venture-backed startups who need to move fast.</h3>
-        <p>You're racing to product-market fit, but operations are getting bolted on as you grow. We help you build AI-native operations from the start so growth doesn't break what got you here.</p>
+        <h3>Venture-backed startups.</h3>
+        <p>You need to move fast, prove scale, and take market share.</p>
       </div>
       <div class="persona">
-        <h3>SMB owners who need to grow or get squeezed out.</h3>
-        <p>Margins are tightening. Bigger competitors have AI you can't match. Smaller ones are leaner. We help you find what only you can do, then build operations around it that compound.</p>
+        <h3>Small and midsize business owners and leaders.</h3>
+        <p>You need to grow before you get squeezed out.</p>
       </div>
       <div class="persona">
-        <h3>Enterprise leaders who need to act like a startup at scale.</h3>
-        <p>You have the resources to win but can't seem to mobilize them in time. We help you turn institutional depth into operational speed without losing what makes you who you are.</p>
+        <h3>Enterprise leaders.</h3>
+        <p>You need to show tangible progress now.</p>
       </div>
     </div>
   </div>
@@ -1090,20 +1177,16 @@
 
 <!-- ── ACCENT CTA BAND ── -->
 <section class="cta-band">
-  <p>You already know what needs to change.<br>The question is how.</p>
+  <p>Build durable distinction with us.</p>
   <a href="#cta" class="btn-dark">Start a conversation</a>
 </section>
 
 <!-- ── STORYBRAND: CTA ── -->
 <section class="cta" id="cta">
+  <span class="cta-brand">Okavango</span>
+  <span class="cta-credo">AI-native · Human-centered</span>
   <h2>Worth a conversation?</h2>
   <p class="cta-sub">No pitch deck. No discovery call theater. A real conversation about where you are and what might be possible.</p>
-  <div class="pain-select">
-    <button class="pain-option" data-pain="squeezed">We're getting squeezed on margins</button>
-    <button class="pain-option" data-pain="stuck">AI pilots aren't sticking</button>
-    <button class="pain-option" data-pain="differentiate">We need to differentiate</button>
-    <button class="pain-option" data-pain="curious">Just curious</button>
-  </div>
   <form class="contact-form" action="mailto:thom@okavango.co" method="post" enctype="text/plain">
     <div class="form-row">
       <input type="text" name="name" placeholder="Your name" required>
@@ -1117,7 +1200,7 @@
 <!-- ── FOOTER ── -->
 <footer>
   <span>&copy; 2026 Okavango. All rights reserved.</span>
-  <span class="footer-line">Flow in your own direction.</span>
+  <span class="footer-line">Carve your path to distinction.</span>
 </footer>
 
 <script>
@@ -1181,29 +1264,6 @@
   } else {
     a.addEventListener('loadedmetadata', setup);
   }
-})();
-
-/* ── PAIN SELECTION ── */
-(function() {
-  const buttons = document.querySelectorAll('.pain-option');
-  const textarea = document.querySelector('.contact-form textarea');
-  const prompts = {
-    squeezed: "Our margins are under pressure and we need to change how we operate...",
-    stuck: "We've tried AI pilots but nothing has scaled or stuck...",
-    differentiate: "We need to build something competitors can't easily copy...",
-    curious: ""
-  };
-
-  buttons.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      buttons.forEach(function(b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-      if (prompts[btn.dataset.pain] && !textarea.value) {
-        textarea.value = prompts[btn.dataset.pain];
-        textarea.focus();
-      }
-    });
-  });
 })();
 
 /* ── LINE REVEAL ON SCROLL ── */
