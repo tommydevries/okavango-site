@@ -961,7 +961,7 @@
       padding: 0;
       justify-content: stretch;
     }
-    .hero video { object-position: 25% center !important; }
+    .hero video { object-position: 30% center !important; }
     .hero-desktop { display: none; }
     .hero-mobile { display: none; }
     .hero-mobile-top {
@@ -985,11 +985,12 @@
     .hero-content {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-end;
+      gap: 5vh;
       height: 100vh;
       width: 100%;
       max-width: 100%;
-      padding: 14vh 0 8vh;
+      padding: 0 0 6vh;
       transform: none;
     }
     .hero-content p { font-size: clamp(1.15rem, 5vw, 1.5rem); }
@@ -1036,9 +1037,9 @@
       <span class="hero-block">Every major river runs to the sea where they merge and lose their identity.</span>
       <span class="hero-block">Except one.</span>
       <span class="hero-block">It flows to the desert and becomes a one-of-a-kind, thriving oasis.</span>
+      <span class="hero-bridge">That's the only kind of business<br>worth building.</span>
     </div>
     <div class="hero-mobile-bottom">
-      <span class="hero-bridge">That's the only kind of business<br>worth building.</span>
       <span class="hero-brand-text">Okavango</span>
     </div>
   </div>
