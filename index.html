@@ -299,15 +299,33 @@
   }
 
   /* ── POSITIONING (channel-deep) ── */
-  .positioning {
+  .positioning-stack {
     grid-column: 2 / span 10;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .positioning-lead {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    color: var(--cream);
+    margin: 0;
+  }
+
+  .positioning {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 300;
     font-style: normal;
-    line-height: 1.18;
-    letter-spacing: -0.015em;
-    font-size: clamp(1.8rem, 3.8vw, 3.2rem);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    font-size: clamp(1.35rem, 2.4vw, 1.95rem);
     color: var(--cream);
+    margin: 0;
   }
 
   .positioning-body {
@@ -703,7 +721,10 @@
 
 <!-- ── ANSWER ── -->
 <section class="block block--channel">
-  <p class="positioning">Okavango carves your meaningful difference into every touchpoint and every AI-enabled system, so how you operate becomes what makes you valuable.</p>
+  <div class="positioning-stack">
+    <p class="positioning-lead">Most AI gives you the mediocre middle. We build AI systems that sharpen your edge.</p>
+    <p class="positioning">Carve your meaningful difference into every touchpoint and every AI-enabled system, so how you operate becomes what makes you valuable.</p>
+  </div>
   <p class="positioning-body">Need help carving distinction into your offering, operations, or both?</p>
   <a class="cta-button" href="mailto:hello@okavango.co" style="grid-column: 2 / span 9; justify-self: start;">Let's talk</a>
 </section>
@@ -729,8 +750,8 @@
     <li class="belief">
       <span class="belief-num">03</span>
       <div>
-        <h3 class="belief-headline">Every competitive position has a half-life.</h3>
-        <p class="belief-body">Market share fluctuates, scale gets disrupted, cost leadership gets undercut. The way forward is distinction built into how you operate. It's the only position that compounds. The more you scale, the more uniquely yours you become.</p>
+        <h3 class="belief-headline">Distinction is built, not claimed.</h3>
+        <p class="belief-body">Most distinction lives on the surface: a tagline, a campaign, a positioning statement. Claims get copied. The way forward is distinction built into how you operate, what your systems do, what your team decides without being told. The more you scale, the more uniquely yours you become.</p>
       </div>
     </li>
   </ol>
