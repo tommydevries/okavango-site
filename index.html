@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Okavango · Build meaningful difference into your business</title>
-<meta name="description" content="Okavango is an AI-native firm that builds and operates AI systems making organizations harder to compete with. We find what makes your business meaningfully different and operationalize that difference so it compounds over time.">
+<title>Okavango</title>
+<meta name="description" content="A small, private studio. AI-native. Human-centered. Selective by design.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -12,34 +12,29 @@
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --bg: #0e0d0b;
-    --bg-section: #14130f;
-    --text: #f2ead6;
-    --text-muted: #9a9488;
-    --accent: #4a7587;
-    --accent-light: #4a7587;
-    --accent-deep: #1a3a4a;
+    --paper: #ffffff;
+    --night: #0e0d0b;
+    --night-2: #14130f;
+    --channel: #1a3a4a;
+    --channel-3: #4a7587;
+    --ink: #1a1714;
+    --ink-muted: #5a5448;
+    --cream: #ffffff;
+    --cream-muted: rgba(255, 255, 255, 0.65);
+
     --font: 'Spectral', Georgia, serif;
     --font-hero: 'Cormorant Garamond', Georgia, serif;
     --font-mono: 'IBM Plex Mono', monospace;
-
-    /* light section */
-    --bg-light: #f3ede0;
-    --text-dark: #1a1714;
-    --text-dark-muted: #5a5448;
   }
 
-  html {
-    scroll-behavior: smooth;
-    font-size: 16px;
-  }
+  html { scroll-behavior: smooth; font-size: 16px; }
 
   body {
     font-family: var(--font);
-    background: var(--bg);
-    color: var(--text);
+    background: var(--paper);
+    color: var(--ink);
     -webkit-font-smoothing: antialiased;
-    line-height: 1.6;
+    line-height: 1.5;
   }
 
   /* ── HERO ── */
@@ -49,10 +44,11 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    align-items: center;
-    text-align: center;
-    padding: 0 8vw 10vh;
+    align-items: flex-end;
+    text-align: left;
+    padding: 0 8vw 5vh;
     overflow: hidden;
+    background: var(--night);
   }
 
   .hero video {
@@ -65,1226 +61,722 @@
     transition: opacity 2.5s ease;
   }
 
-  .hero .video-a { opacity: 0.65; z-index: 0; }
+  .hero .video-a { opacity: 0.62; z-index: 0; }
   .hero .video-b { opacity: 0; z-index: 0; }
+
+  /* Hero brand lockup (top-left corner) */
+  .hero-brand {
+    position: absolute;
+    top: 3.5vh;
+    left: 6vw;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .hero-brand-mark {
+    display: block;
+    width: 27px;
+    height: 27px;
+    color: var(--cream);
+  }
+
+  .hero-brand-mark svg { width: 100%; height: 100%; display: block; }
+
+  .hero-brand-name {
+    font-family: var(--font-hero);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.2rem;
+    letter-spacing: 0.04em;
+    color: var(--cream);
+    line-height: 1;
+  }
 
   .hero::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to top,
-      rgba(15,15,15, 0.70) 0%,
-      rgba(15,15,15, 0.25) 40%,
-      rgba(15,15,15, 0.17) 100%
-    );
+    background: linear-gradient(to top, rgba(14,13,11,0.75) 0%, rgba(14,13,11,0.2) 50%, rgba(14,13,11,0.15) 100%);
     z-index: 1;
   }
 
   .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 780px;
-    transform: translateY(10px);
-  }
-
-  .hero-content p {
-    font-family: var(--font-hero);
-    font-size: clamp(1.3rem, 2.5vw, 1.85rem);
-    font-weight: 300;
-    line-height: 1.35;
-    letter-spacing: 0.01em;
-    color: var(--text);
-  }
-
-  .hero-content br {
-    display: block;
-    content: '';
-  }
-
-  .hero-mobile { display: none; }
-  .hero-mobile-top { display: none; }
-  .hero-mobile-bottom { display: none; }
-
-  .hero-block {
-    display: block;
-  }
-
-  .hero-pause {
-    display: block;
-    padding: 0.55em 0;
-  }
-
-  .hero-landing {
-    display: block;
-    padding: 0.75em 0 0;
-  }
-
-  .hero-brand {
-    display: block;
-    color: var(--accent);
-  }
-
-  .hero-brand svg {
-    width: clamp(260px, 40vw, 480px);
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-
-  .hero-bridge {
-    display: block;
-    font-family: var(--font-hero);
-    font-size: clamp(1.3rem, 2.5vw, 1.85rem);
-    font-style: normal;
-    font-weight: 500;
-    color: var(--accent);
-    letter-spacing: 0.01em;
-  }
-
-  .hero-brand-text {
-    display: block;
-    padding-top: 0.9em;
-    margin-top: -20px;
-    font-family: var(--font-hero);
-    font-size: clamp(1.96rem, 4.2vw, 3.85rem);
-    font-weight: 300;
-    font-style: italic;
-    letter-spacing: 0.04em;
-    color: var(--accent);
-    line-height: 1;
-  }
-
-  .hero-content p .river-name {
-    font-weight: 500;
-    font-style: italic;
-    color: var(--accent);
-  }
-
-  .scroll-hint {
-    position: absolute;
-    bottom: 3vh;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    opacity: 0.4;
-    animation: pulse 2.5s ease-in-out infinite;
-  }
-
-  .scroll-hint svg {
-    width: 20px;
-    height: 20px;
-    stroke: var(--text-muted);
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 0.7; }
-  }
-
-  /* ── GRUNT TEST (paper section) ── */
-  .grunt-test {
-    background: var(--bg-light);
-    border-top: none;
-    text-align: center;
-    padding: 10vh 8vw;
-  }
-
-  .grunt-test .section-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .grunt-test h2 {
-    font-size: clamp(1.6rem, 3vw, 2.25rem);
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    margin: 0 auto 2.25rem;
-    max-width: 900px;
-    color: #c66a4a;
-  }
-
-  .grunt-test .subhead {
-    font-family: var(--font);
-    font-size: 1.2rem;
-    font-weight: 300;
-    color: var(--text-dark-muted);
-    line-height: 1.7;
-    margin: 0 auto 2.75rem;
-    max-width: 720px;
-  }
-
-  .grunt-test .urgency {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--text-dark);
-    letter-spacing: 0.02em;
-    margin-top: 1rem;
-  }
-
-  .grunt-test .grunt-positioning {
-    font-family: var(--font-hero);
-    font-size: clamp(1.35rem, 2.4vw, 1.75rem);
-    font-weight: 300;
-    font-style: italic;
-    color: var(--accent-deep);
-    line-height: 1.45;
-    margin: 0 auto;
-    max-width: 780px;
-  }
-
-  .btn-primary {
-    display: inline-block;
-    padding: 16px 44px;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: background 0.3s, color 0.3s;
-  }
-
-  .btn-primary:hover {
-    background: var(--accent);
-    color: var(--bg);
-  }
-
-  .btn-primary-dark {
-    display: inline-block;
-    padding: 16px 44px;
-    border: 1px solid var(--text-dark);
-    color: var(--text-dark);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: background 0.3s, color 0.3s;
-  }
-
-  .btn-primary-dark:hover {
-    background: var(--text-dark);
-    color: var(--bg-light);
-  }
-
-  /* ── VALUE STACK (channel-deep section) ── */
-  .value-stack {
-    background: var(--accent-deep);
-    color: var(--text);
-    padding: 12vh 8vw;
-    border-top: none;
-  }
-
-  .value-stack .section-inner {
-    max-width: 1100px;
-  }
-
-  .value-stack .section-label {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(242, 234, 214, 0.6);
-    margin-bottom: 1.5rem;
-  }
-
-  .value-headline {
-    font-size: clamp(1.6rem, 3vw, 2.25rem);
-    font-weight: 400;
-    line-height: 1.3;
-    letter-spacing: -0.02em;
-    color: var(--text);
-    margin-bottom: 0.75rem;
-  }
-
-  .value-subhead {
-    font-size: 1.15rem;
-    font-weight: 300;
-    color: rgba(242, 234, 214, 0.78);
-    line-height: 1.6;
-    margin-bottom: 3.5rem;
-  }
-
-  .values {
-    display: flex;
-    flex-direction: column;
-    gap: 3.5rem;
-  }
-
-  .values-pair {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3.5rem;
-  }
-
-  .value {
-    display: block;
-  }
-
-  .value h3 {
-    font-size: 1.25rem;
-    font-weight: 500;
-    line-height: 1.35;
-    color: var(--text);
-    margin-bottom: 0.9rem;
-  }
-
-  .value p {
-    font-size: 1.1rem;
-    font-weight: 300;
-    color: rgba(242, 234, 214, 0.78);
-    line-height: 1.7;
-  }
-
-  .value-capstone {
-    padding-top: 3rem;
-    border-top: 1px solid rgba(74, 117, 135, 0.6);
-    max-width: 780px;
-  }
-
-  .value-capstone h3 {
-    font-size: 1.5rem;
-    color: var(--text);
-  }
-
-  /* ── STAKES ── */
-  .stakes {
-    background: var(--bg-section);
-    border-top: 1px solid rgba(200,184,152,0.08);
-    padding: 12vh 8vw;
-  }
-
-  .stakes .section-inner {
-    max-width: 1100px;
-  }
-
-  .stakes .section-label {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 2.5rem;
-  }
-
-  .stakes-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-  }
-
-  .stakes h2 {
-    font-size: clamp(2rem, 3.5vw, 2.75rem);
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    margin-bottom: 1.25rem;
-    color: var(--text);
-    max-width: 680px;
-  }
-
-  .stakes-subhead {
-    font-size: 1.05rem;
-    font-weight: 300;
-    color: var(--text-muted);
-    line-height: 1.7;
-    margin-bottom: 3.5rem;
-    max-width: 580px;
-  }
-
-  .stakes-column-label {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(200,184,152,0.1);
-  }
-
-  .stakes-mistakes {
-    padding-top: 0.25rem;
-  }
-
-  .mistake {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1.5rem;
-    align-items: start;
-    margin-bottom: 1.4rem;
-  }
-
-  .mistake:last-child {
-    margin-bottom: 0;
-  }
-
-  .mistake-number {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    font-weight: 500;
-    line-height: 1;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-    padding-top: 0.35rem;
-    transition: color 0.2s ease;
-  }
-
-  .mistake-content h3 {
-    font-family: var(--font);
-    font-size: 1.35rem;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 0;
-    line-height: 1.4;
-    transition: color 0.2s ease;
-  }
-
-  .mistake-content p {
-    font-family: var(--font);
-    font-size: 1.05rem;
-    font-weight: 300;
-    color: var(--text-muted);
-    line-height: 1.7;
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    margin-top: 0;
-    transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.4s ease;
-  }
-
-  .mistake:hover .mistake-content p,
-  .mistake:focus-within .mistake-content p {
-    max-height: 260px;
-    opacity: 1;
-    margin-top: 0.6rem;
-  }
-
-  .mistake:hover .mistake-content h3,
-  .mistake:focus-within .mistake-content h3 {
-    color: var(--accent);
-  }
-
-  /* ── GUIDE (paper section) ── */
-  .guide {
-    background: var(--bg-light);
-    border-top: none;
-    padding: 12vh 8vw;
-  }
-
-  .guide .section-inner {
-    max-width: 1100px;
-  }
-
-  .guide-top {
-    text-align: center;
-    margin-bottom: 5.5rem;
-  }
-
-  .guide-headline {
-    font-size: clamp(1.1rem, 1.6vw, 1.25rem);
-    font-weight: 400;
-    line-height: 1.5;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-dark-muted);
-    margin-bottom: 1.75rem;
-  }
-
-  .guide-choice {
-    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
-    font-weight: 300;
-    color: var(--text-dark);
-    line-height: 1.5;
-  }
-
-  .guide-choice-setup {
-    display: block;
-    font-size: clamp(2.25rem, 4.5vw, 3.25rem);
-    font-weight: 400;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    margin-bottom: 1.25rem;
-  }
-
-  .guide-choice-label {
-    font-weight: 500;
-    color: var(--text-dark);
-    letter-spacing: -0.01em;
-  }
-
-  .guide-choice-accent {
-    color: var(--accent-deep);
-  }
-
-  .guide-choice-imperative {
-    display: block;
-    font-weight: 500;
-    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
-    color: var(--text-dark);
-    margin-top: 0;
-  }
-
-  .guide-choice-paths {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    margin: 1.75rem auto 1.75rem;
-    max-width: 920px;
-  }
-
-  .guide-choice-path {
-    flex: 1;
-    padding: 0.4rem 1rem;
-    text-align: center;
-    font-size: clamp(1.2rem, 1.7vw, 1.45rem);
-    font-weight: 300;
-    line-height: 1.4;
-    color: var(--text-dark-muted);
-  }
-
-  .guide-choice-path-positive {
-    font-weight: 500;
-    color: var(--accent-deep);
-  }
-
-  .guide-choice-or {
-    font-family: var(--font-hero);
-    font-style: italic;
-    font-weight: 300;
-    font-size: clamp(1.4rem, 2.2vw, 1.85rem);
-    color: var(--text-dark-muted);
-    flex-shrink: 0;
-  }
-
-  .guide-blocks {
-    max-width: 760px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .guide-block h3 {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-dark-muted);
-    margin-bottom: 1.5rem;
-  }
-
-  .guide-block p {
-    font-family: var(--font-hero);
-    font-size: clamp(1.35rem, 2vw, 1.65rem);
-    font-weight: 400;
-    font-style: italic;
-    color: var(--accent-deep);
-    line-height: 1.5;
-    letter-spacing: 0.005em;
-  }
-
-  .guide-positioning {
-    font-family: var(--font-hero);
-    font-size: clamp(1.35rem, 2.4vw, 1.75rem);
-    font-weight: 300;
-    font-style: italic;
-    color: var(--accent-deep);
-    line-height: 1.45;
-    text-align: center;
-    margin: 4rem auto 0;
-    max-width: 780px;
-  }
-
-  /* ── PLAN ── */
-  .plan {
-    background: var(--bg-section);
-    border-top: 1px solid rgba(200,184,152,0.08);
-    padding: 12vh 8vw;
-  }
-
-  .plan .section-inner {
-    max-width: 800px;
-  }
-
-  .plan .section-label {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 2.5rem;
-  }
-
-  .plan h2 {
-    font-size: clamp(1.6rem, 3vw, 2.25rem);
-    font-weight: 400;
-    line-height: 1.35;
-    letter-spacing: -0.02em;
-    margin-bottom: 3rem;
-    color: var(--text);
-  }
-
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-  }
-
-  .step-number {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--accent-light);
-    letter-spacing: 0.1em;
-    margin-bottom: 0.75rem;
-  }
-
-  .step h3 {
-    font-size: 1.15rem;
-    font-weight: 500;
-    margin-bottom: 0.75rem;
-  }
-
-  .step p {
-    font-size: 1rem;
-    font-weight: 300;
-    color: var(--text-muted);
-    line-height: 1.7;
-  }
-
-  /* ── WHO THIS IS FOR ── */
-  .who {
-    background: var(--bg-light);
-    padding: 12vh 8vw;
-  }
-
-  .who .section-inner {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .who .section-label {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-dark-muted);
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-
-  .who h2 {
-    font-size: clamp(1.6rem, 3vw, 2.25rem);
-    font-weight: 400;
-    line-height: 1.35;
-    letter-spacing: -0.02em;
-    color: var(--text-dark);
-    text-align: center;
-    margin-top: 3rem;
-    margin-bottom: 4rem;
-  }
-
-  .personas {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-  }
-
-  .persona {
-    padding: 2.5rem 2rem;
-    border: 1px solid rgba(26,26,24,0.1);
-    background: rgba(255,255,255,0.5);
-  }
-
-  .persona h3 {
-    font-size: clamp(1.15rem, 1.6vw, 1.3rem);
-    font-weight: 500;
-    color: var(--text-dark);
-    line-height: 1.35;
-    margin-bottom: 0.75rem;
-  }
-
-  .persona p {
-    font-size: 1rem;
-    font-weight: 300;
-    color: var(--text-dark-muted);
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  /* ── ACCENT CTA BAND ── */
-  .cta-band {
-    background: var(--accent-deep);
-    padding: 6vh 8vw;
-    text-align: center;
-  }
-
-  .cta-band p {
-    font-family: var(--font-hero);
-    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
-    font-weight: 300;
-    font-style: italic;
-    color: var(--text);
-    letter-spacing: 0.01em;
-    line-height: 1.4;
-    margin-bottom: 2rem;
-  }
-
-  .btn-dark {
-    display: inline-block;
-    padding: 14px 40px;
-    border: 1px solid var(--text);
-    color: var(--text);
-    text-decoration: none;
-    font-family: var(--font);
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: background 0.3s, color 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .btn-dark::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--text);
-    transition: width 0.4s ease;
-  }
-
-  .btn-dark:hover::after {
-    width: 100%;
-  }
-
-  .btn-dark:hover {
-    background: var(--text);
-    color: var(--accent-deep);
-  }
-
-  /* ── CTA ── */
-  .cta {
-    background: var(--bg);
-    border-top: 1px solid rgba(200,184,152,0.08);
-    text-align: center;
-    padding: 14vh 8vw;
-  }
-
-  .cta-mark {
-    display: block;
-    width: clamp(56px, 7vw, 80px);
-    height: clamp(56px, 7vw, 80px);
-    margin: 0 auto 1.5rem;
-    color: var(--accent);
-  }
-
-  .cta-mark svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-
-  .cta-brand {
-    display: block;
-    font-family: var(--font-hero);
-    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
-    font-weight: 300;
-    font-style: italic;
-    letter-spacing: 0.04em;
-    color: var(--accent);
-    line-height: 1;
-    margin-bottom: 0.9rem;
-  }
-
-  .cta-credo {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 3rem;
-  }
-
-  .cta h2 {
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    margin-bottom: 1rem;
-  }
-
-  .cta .cta-sub {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    font-weight: 300;
-    margin-bottom: 2.5rem;
-  }
-
-  /* self-selection entry */
-  .pain-select {
-    display: flex;
-    gap: 0.75rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 3rem;
-  }
-
-  .pain-option {
-    padding: 10px 20px;
-    border: 1px solid rgba(200,184,152,0.2);
-    background: transparent;
-    color: var(--text-muted);
-    font-family: var(--font);
-    font-size: 0.85rem;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    cursor: pointer;
-    transition: all 0.3s;
-    border-radius: 2px;
-  }
-
-  .pain-option:hover,
-  .pain-option.active {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: rgba(200,184,152,0.06);
-  }
-
-  .contact-form {
-    max-width: 480px;
-    margin: 0 auto;
+    max-width: 560px;
+    color: var(--cream);
     text-align: left;
   }
 
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    padding: 14px 16px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(200,184,152,0.15);
-    color: var(--text);
-    font-family: var(--font);
-    font-size: 1rem;
+  .hero-river {
+    font-family: var(--font-hero);
+    font-size: clamp(1.28rem, 2.16vw, 1.67rem);
     font-weight: 300;
-    border-radius: 2px;
-    outline: none;
-    transition: border-color 0.3s;
+    line-height: 1.22;
+    letter-spacing: 0.01em;
+    color: var(--cream);
+    max-width: 100%;
+    margin: 0;
   }
 
-  .contact-form input::placeholder,
-  .contact-form textarea::placeholder {
-    color: var(--text-muted);
-    opacity: 0.6;
+  .hero-river .pause {
+    display: block;
+    padding: 0.75em 0;
   }
 
-  .contact-form input:focus,
-  .contact-form textarea:focus {
-    border-color: var(--accent);
+  .hero-river .brand-reveal {
+    display: block;
+    padding-top: 1.1em;
+    font-style: italic;
+    font-size: 1.3em;
+    letter-spacing: 0.03em;
+    line-height: 1.1;
   }
 
-  .contact-form textarea {
-    resize: vertical;
-    min-height: 120px;
-    margin-bottom: 1.5rem;
+  .hero-question {
+    font-family: var(--font-hero);
+    font-size: clamp(1.46rem, 2.43vw, 1.89rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.12;
+    letter-spacing: 0.005em;
+    color: var(--channel-3);
+    margin-top: 0.6rem;
   }
 
-  .contact-form .btn-primary {
-    width: 100%;
-    text-align: center;
+  .hero-scroll {
+    display: inline-block;
+    margin-top: 2rem;
+    width: 22px;
+    height: 22px;
+    color: var(--cream);
+    opacity: 0.55;
+    text-decoration: none;
     cursor: pointer;
-    background: none;
-    font-family: var(--font);
+    transition: opacity 0.3s ease;
+    animation: heroScrollPulse 2.5s ease-in-out infinite;
   }
 
-  .contact-form .btn-primary:hover {
-    background: var(--accent);
-    color: var(--bg);
+  .hero-scroll:hover {
+    opacity: 0.9;
+  }
+
+  .hero-scroll svg { width: 100%; height: 100%; display: block; }
+
+  @keyframes heroScrollPulse {
+    0%, 100% { opacity: 0.5; transform: translateY(0); }
+    50% { opacity: 0.85; transform: translateY(4px); }
+  }
+
+  .hero-mark {
+    display: block;
+    width: clamp(48px, 5vw, 64px);
+    height: clamp(48px, 5vw, 64px);
+    margin: 4rem auto 1.25rem;
+    color: var(--cream);
+  }
+
+  .hero-mark svg { width: 100%; height: 100%; display: block; }
+
+  .hero-wordmark {
+    display: block;
+    font-family: var(--font-hero);
+    font-size: clamp(2.4rem, 5.5vw, 4.5rem);
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.04em;
+    color: var(--cream);
+    line-height: 1;
+  }
+
+  /* ── INTRO ── */
+  .intro {
+    background: var(--night);
+    color: var(--cream);
+    text-align: center;
+    padding: 20vh 8vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .intro-mark {
+    display: block;
+    width: clamp(72px, 8vw, 108px);
+    height: clamp(72px, 8vw, 108px);
+    margin-bottom: 1.5rem;
+    color: var(--cream);
+  }
+
+  .intro-mark svg { width: 100%; height: 100%; display: block; }
+
+  .intro-wordmark {
+    display: block;
+    font-family: var(--font-hero);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.04em;
+    color: var(--cream);
+    line-height: 1;
+    margin-bottom: 2.5rem;
+  }
+
+  .intro-tagline {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: 0.005em;
+    color: var(--cream);
+    max-width: 32ch;
+  }
+
+  /* ── BLOCK BASE ── */
+  .block {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 1.5rem;
+    row-gap: 5rem;
+    padding: 22vh 8vw;
+    align-items: center;
+  }
+
+  .block--night {
+    background: var(--night);
+    color: var(--cream);
+  }
+
+  .block--paper {
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  .block--channel {
+    background: var(--channel);
+    color: var(--cream);
+  }
+
+  /* ── STATEMENT ── */
+  .statement {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    max-width: 18ch;
+  }
+
+  .statement--left {
+    grid-column: 2 / span 8;
+  }
+
+  .statement--right {
+    grid-column: 5 / span 8;
+    text-align: right;
+    margin-left: auto;
+  }
+
+  /* ── DETAIL (body-sized paragraph statements) ── */
+  .detail {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1.55;
+    letter-spacing: 0.005em;
+    max-width: 38ch;
+  }
+
+  .detail--right {
+    grid-column: 6 / span 7;
+    text-align: right;
+    margin-left: auto;
+  }
+
+  /* ── POSITIONING (channel-deep) ── */
+  .positioning {
+    grid-column: 2 / span 10;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1.18;
+    letter-spacing: -0.015em;
+    font-size: clamp(1.8rem, 3.8vw, 3.2rem);
+    color: var(--cream);
+  }
+
+  .positioning-body {
+    grid-column: 2 / span 9;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1.55;
+    letter-spacing: 0.005em;
+    font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+    color: var(--cream);
+    max-width: 62ch;
+  }
+
+  .positioning .line {
+    display: block;
+  }
+
+  .positioning .line-1 { padding-left: 0; }
+  .positioning .line-2 { padding-left: 6vw; }
+  .positioning .line-3 { padding-left: 14vw; }
+  .positioning .line-4 { padding-left: 22vw; }
+
+  .positioning .accent {
+    color: var(--channel-3);
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .positioning .line-equation {
+    display: block;
+    padding-left: 0;
+    margin-top: 2rem;
+    font-size: 0.85em;
+    font-style: normal;
+  }
+
+  .positioning .op {
+    color: var(--channel-3);
+    font-style: normal;
+    font-weight: 400;
+    padding: 0 0.35em;
+  }
+
+  /* ── STAGGERED TWO-LINE STATEMENT ── */
+  .stagger {
+    grid-column: 3 / span 9;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+  }
+
+  .stagger-1 {
+    display: block;
+  }
+
+  .stagger-2 {
+    display: block;
+    padding-left: 8vw;
+    margin-top: 0.6em;
+    color: var(--channel);
+  }
+
+  /* ── PLAN (HERE'S HOW) ── */
+  .plan-eyebrow {
+    grid-column: 2 / span 10;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 3.5rem;
+  }
+
+  .plan-steps {
+    grid-column: 2 / span 10;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .plan-steps li {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .step-num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    color: var(--channel);
+  }
+
+  .step-text {
+    font-family: var(--font-hero);
+    font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    grid-column: 2 / span 9;
+  }
+
+  .contact-eyebrow {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-statement {
+    font-family: var(--font-hero);
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.25;
+    color: var(--ink);
+    max-width: 22ch;
+    margin-bottom: 3.5rem;
+  }
+
+  .contact-link {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    color: var(--channel);
+    text-decoration: none;
+    padding-bottom: 0.35em;
+    border-bottom: 1px solid rgba(26, 58, 74, 0.35);
+    transition: border-color 0.3s ease;
+  }
+
+  .contact-link:hover {
+    border-bottom-color: var(--channel);
+  }
+
+  /* ── CTA BUTTON ── */
+  .cta-button {
+    display: inline-block;
+    margin-top: 1.4rem;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(1rem, 1.35vw, 1.2rem);
+    font-weight: 500;
+    letter-spacing: 0.005em;
+    line-height: 1.2;
+    color: var(--cream);
+    background: transparent;
+    text-decoration: none;
+    padding: 0.95em 1.7em;
+    border: 1.5px solid var(--cream);
+    border-radius: 2px;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .cta-button:hover {
+    background: var(--cream);
+    color: var(--channel);
+  }
+
+  /* ── BRAND VOICE (in-line emphasis, matches opening stanza) ── */
+  .brand-voice {
+    font-family: var(--font-hero);
+    font-weight: 500;
+    font-style: normal;
+    font-size: clamp(1.45rem, 2.4vw, 2rem);
+    letter-spacing: 0.005em;
+    line-height: 1.3;
+  }
+
+  /* ── BELIEFS ── */
+  .beliefs-eyebrow {
+    grid-column: 2 / span 10;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--cream-muted);
+    margin-bottom: 3rem;
+  }
+
+  .beliefs-list {
+    grid-column: 2 / span 10;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4.5rem;
+  }
+
+  .belief {
+    display: grid;
+    grid-template-columns: 4rem 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .belief-num {
+    font-family: var(--font-hero);
+    font-size: clamp(1.5rem, 2.2vw, 1.85rem);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--channel-3);
+    padding-top: 0.4em;
+  }
+
+  .belief-headline {
+    font-family: var(--font-hero);
+    font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: 0.005em;
+    color: var(--cream);
+    margin: 0 0 1rem;
+    max-width: 38ch;
+  }
+
+  .belief-body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(1.05rem, 1.45vw, 1.2rem);
+    font-weight: 300;
+    line-height: 1.55;
+    letter-spacing: 0.005em;
+    color: var(--cream-muted);
+    max-width: 60ch;
+    margin: 0;
   }
 
   /* ── FOOTER ── */
   footer {
-    padding: 4vh 8vw;
-    border-top: 1px solid rgba(200,184,152,0.08);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.8rem;
-    color: var(--text-muted);
+    background: var(--night);
+    color: var(--cream-muted);
+    padding: 6vh 8vw 5vh;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 1.5rem;
+    align-items: end;
   }
 
-  footer .footer-line {
+  .footer-mark {
+    grid-column: 1 / span 2;
+    width: 44px;
+    height: 44px;
+    color: var(--cream);
+  }
+
+  .footer-mark svg { width: 100%; height: 100%; display: block; }
+
+  .footer-line {
+    grid-column: 5 / span 4;
     font-family: var(--font-hero);
+    font-size: 1.05rem;
     font-style: italic;
-    font-size: 0.9rem;
-    color: var(--text);
-    opacity: 0.75;
+    font-weight: 300;
+    color: var(--cream);
+    text-align: center;
   }
 
-  footer a {
-    color: var(--text-muted);
-    text-decoration: none;
-  }
-
-  footer a:hover {
-    color: var(--text);
-  }
-
-  /* ── EXPANDING LINE DIVIDER ── */
-  .line-reveal {
-    display: block;
-    width: 0;
-    height: 1px;
-    background: var(--accent-deep);
-    margin: 0 auto;
-    opacity: 0.3;
-    transition: none;
-  }
-
-  .line-reveal.visible {
-    animation: lineExpand 0.8s ease-out forwards;
-  }
-
-  @keyframes lineExpand {
-    from { width: 0; }
-    to { width: 80px; }
+  .footer-meta {
+    grid-column: 11 / span 2;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream-muted);
+    text-align: right;
   }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
-    .hero {
-      padding: 0;
-      justify-content: stretch;
-    }
+    .hero { padding: 0 6vw 10vh; align-items: stretch; }
     .hero video { object-position: 30% center !important; }
-    .hero-desktop { display: none; }
-    .hero-mobile { display: none; }
-    .hero-mobile-top {
-      display: flex;
-      flex-direction: column;
-      gap: 0.65em;
-      padding: 0 6vw;
-      font-family: var(--font-hero);
-      font-size: clamp(1.15rem, 5vw, 1.5rem);
-      font-weight: 300;
-      line-height: 1.35;
-      letter-spacing: 0.01em;
-      color: var(--text);
-      text-align: center;
-    }
-    .hero-mobile-top .hero-bridge {
-      font-size: clamp(1.15rem, 5vw, 1.5rem);
-    }
-    .hero-mobile-bottom {
-      display: block;
-      padding: 0 6vw;
-      text-align: center;
-    }
-    .hero-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      gap: 2vh;
-      height: 100vh;
-      width: 100%;
+    .hero-content { max-width: 100%; }
+    .hero-river { font-size: clamp(1.1rem, 4.5vw, 1.4rem); }
+    .hero-mark { margin: 3rem auto 1rem; width: 44px; height: 44px; }
+    .hero-wordmark { font-size: clamp(2.2rem, 9vw, 3.2rem); }
+
+    .block { padding: 14vh 6vw; grid-template-columns: 1fr; }
+
+    .statement { font-size: clamp(2rem, 9vw, 3.5rem); }
+    .statement--left, .statement--right {
+      grid-column: 1;
+      text-align: left;
+      margin-left: 0;
       max-width: 100%;
-      padding: 0 0 14vh;
-      transform: none;
     }
-    .scroll-hint { bottom: 7vh; }
-    .hero-content p { font-size: clamp(1.15rem, 5vw, 1.5rem); }
-    section, .value-stack, .stakes, .guide, .plan, .who { padding: 10vh 6vw; }
-    .grunt-test { padding: 10vh 6vw; }
-.values-pair { grid-template-columns: 1fr; gap: 3rem; }
-    .value-capstone { max-width: 100%; padding-top: 2rem; }
-    .steps { grid-template-columns: 1fr; }
-    .stakes-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .guide-top { max-width: 100%; }
-    .stakes-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .guide-blocks { grid-template-columns: 1fr; }
-    .form-row { grid-template-columns: 1fr; }
-    .personas { grid-template-columns: 1fr; }
-    .pain-select { flex-direction: column; align-items: center; }
-    .pain-option { width: 80%; text-align: center; }
-    .mistake { margin-bottom: 2rem; }
-    .mistake-content p { max-height: 400px; opacity: 1; margin-top: 0.6rem; }
-    .mistake-content h3 { margin-bottom: 0.4rem; }
-    .guide-choice-paths { flex-direction: column; gap: 1rem; }
+
+    .detail--right {
+      grid-column: 1;
+      text-align: left;
+      margin-left: 0;
+      max-width: 100%;
+    }
+
+    .positioning { grid-column: 1; font-size: clamp(1.6rem, 6.5vw, 2.4rem); }
+    .positioning .line-1,
+    .positioning .line-2,
+    .positioning .line-3,
+    .positioning .line-4 { padding-left: 0; }
+    .positioning .line-2 { padding-left: 2vw; }
+    .positioning .line-4 { padding-left: 6vw; }
+
+    .stagger { grid-column: 1; font-size: clamp(1.8rem, 8vw, 3rem); }
+    .stagger-2 { padding-left: 4vw; }
+
+    .plan-eyebrow { grid-column: 1; }
+    .plan-steps { grid-column: 1; grid-template-columns: 1fr; gap: 2.5rem; }
+
+    .contact { grid-column: 1; }
+    .contact-statement { font-size: clamp(1.4rem, 6vw, 2rem); }
+
+    footer { padding: 5vh 6vw 4vh; grid-template-columns: 1fr; row-gap: 2rem; text-align: center; }
+    .footer-mark { grid-column: 1; margin: 0 auto; }
+    .footer-line { grid-column: 1; }
+    .footer-meta { grid-column: 1; text-align: center; }
   }
 </style>
 </head>
 <body>
 
-<!-- ── HERO: BRAND EXPRESSION ── -->
+<!-- ── HERO ── -->
 <div class="hero">
-  <video class="video-a" autoplay muted playsinline preload="auto">
+  <video class="hero-video video-a" autoplay muted playsinline preload="auto">
     <source src="hero-video.mp4" type="video/mp4">
   </video>
-  <video class="video-b" muted playsinline preload="auto">
+  <video class="hero-video video-b" muted playsinline preload="auto">
     <source src="hero-video.mp4" type="video/mp4">
   </video>
-  <div class="hero-content">
-    <p class="hero-desktop">
-      <span class="hero-block">Every major river in the world runs to the sea,<br>
-      where they merge and lose their identity.</span>
-      <span class="hero-pause">Except one.</span>
-      <span class="hero-block">It flows to the desert<br>
-      and becomes a one-of-a-kind thriving oasis.</span>
-      <span class="hero-landing"><span class="hero-bridge">That's the only kind of business worth building.</span><span class="hero-brand-text">Okavango</span></span>
-    </p>
-    <div class="hero-mobile-top">
-      <span class="hero-block">Every major river runs to the sea<br>where they merge and lose their identity.</span>
-      <span class="hero-block">Except one.</span>
-      <span class="hero-block">It flows to the desert and becomes<br>a one-of-a-kind, thriving oasis.</span>
-      <span class="hero-bridge">That's the only kind of business<br>worth building.</span>
-    </div>
-    <div class="hero-mobile-bottom">
-      <span class="hero-brand-text">Okavango</span>
-    </div>
+  <div class="hero-brand">
+    <span class="hero-brand-mark" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <clipPath id="okvCircleNav"><circle cx="200" cy="200" r="150"/></clipPath>
+        </defs>
+        <circle cx="200" cy="200" r="150" fill="none" stroke="currentColor" stroke-width="3.5"/>
+        <g clip-path="url(#okvCircleNav)">
+          <path d="M 50 264 Q 95 260, 130 263 T 200 262 Q 245 263, 280 261 T 350 263 L 350 268 L 50 268 Z" fill="currentColor"/>
+          <line x1="50" y1="277" x2="350" y2="277" stroke="currentColor" stroke-width="1.6"/>
+          <line x1="50" y1="289" x2="350" y2="289" stroke="currentColor" stroke-width="2.0"/>
+          <line x1="50" y1="300" x2="350" y2="300" stroke="currentColor" stroke-width="2.4"/>
+          <line x1="50" y1="310" x2="350" y2="310" stroke="currentColor" stroke-width="2.9"/>
+          <line x1="50" y1="319" x2="350" y2="319" stroke="currentColor" stroke-width="3.4"/>
+          <line x1="50" y1="327" x2="350" y2="327" stroke="currentColor" stroke-width="3.9"/>
+          <line x1="50" y1="334" x2="350" y2="334" stroke="currentColor" stroke-width="4.4"/>
+          <line x1="50" y1="341" x2="350" y2="341" stroke="currentColor" stroke-width="5.0"/>
+          <path d="M 65 320 C 152 295, 230 215, 290 88" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </svg>
+    </span>
+    <span class="hero-brand-name">Okavango</span>
   </div>
-  <div class="scroll-hint">
-    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round">
-      <path d="M12 5v14M5 12l7 7 7-7"/>
-    </svg>
+  <div class="hero-content">
+    <p class="hero-river">
+      Every major river runs to the sea,<br>
+      where they merge and lose their identity.
+      <span class="pause">Except one.</span>
+      It carves its own path into the desert<br>
+      and becomes a thriving one-of-a-kind oasis.
+      <span class="pause">Your business should too.</span>
+      <span class="brand-reveal">Okavango.</span>
+    </p>
+    <p class="hero-question">Which path will you choose?</p>
+    <a href="#next" class="hero-scroll" aria-label="Scroll to next section">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </a>
   </div>
 </div>
 
-<!-- ── STORYBRAND: PROBLEM STATEMENT ── -->
-<section class="grunt-test">
-  <div class="section-inner">
-    <h2>Your business was built for a world that no longer exists.</h2>
-    <p class="subhead">You are getting squeezed on both sides. On one side, AI-enabled competitors are operating at a fraction of your cost structure. On the other, your market is filled with me-too competition that all looks and feels the same.</p>
+<!-- ── PROBLEM ── -->
+<section id="next" class="block block--paper">
+  <p class="statement statement--left">Your business was built for a world that no longer exists.</p>
+  <p class="detail detail--right">As artificial intelligence emerges, you are getting squeezed on both sides. Copy-cat competition on one side, AI-enabled competitors operating at a fraction of your cost on the other.<br><br>The solution to both is simple, but not easy.<br><span class="brand-voice">Choose meaningful difference.</span></p>
+</section>
+
+<!-- ── ANSWER ── -->
+<section class="block block--channel">
+  <p class="positioning">Okavango carves your meaningful difference into every touchpoint and every AI-enabled system, so how you operate becomes what makes you valuable.</p>
+  <p class="positioning-body">Need help carving distinction into your offering, operations, or both?</p>
+  <a class="cta-button" href="mailto:hello@okavango.co" style="grid-column: 2 / span 9; justify-self: start;">Let's talk</a>
+</section>
+
+<!-- ── BELIEFS ── -->
+<section class="block block--night">
+  <p class="beliefs-eyebrow">Why Okavango?</p>
+  <ol class="beliefs-list">
+    <li class="belief">
+      <span class="belief-num">01</span>
+      <div>
+        <h3 class="belief-headline">Big-change programs fail.</h3>
+        <p class="belief-body">If your people don't reject them, your systems will. The way forward is small, thematically aligned changes across product, service, brand, experience, and operations. Your people and systems can handle the adjustment, and usually feel the benefit. Your customers feel the same signature wherever they meet you, because what you offer and how you operate become the same thing.</p>
+      </div>
+    </li>
+    <li class="belief">
+      <span class="belief-num">02</span>
+      <div>
+        <h3 class="belief-headline">AI is not a technology problem.</h3>
+        <p class="belief-body">AI on its own does nothing. The way forward is human and organizational design: invest in people who can use it, and build an orchestration layer that expresses your organization. How you structure that layer and what you point it at shapes the entire output. The brand becomes what the operation actually is, all the way through.</p>
+      </div>
+    </li>
+    <li class="belief">
+      <span class="belief-num">03</span>
+      <div>
+        <h3 class="belief-headline">Every competitive position has a half-life.</h3>
+        <p class="belief-body">Market share fluctuates, scale gets disrupted, cost leadership gets undercut. The way forward is distinction built into how you operate. It's the only position that compounds. The more you scale, the more uniquely yours you become.</p>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<!-- ── CLOSE ── -->
+<section class="block block--paper">
+  <div class="contact">
+    <div class="contact-eyebrow">Get in touch</div>
+    <p class="contact-statement">If you're ready to carve your path to distinction, let's talk.</p>
+    <a class="contact-link" href="mailto:hello@okavango.co">hello@okavango.co</a>
   </div>
-</section>
-
-<!-- ── STORYBRAND: VALUE PROPOSITION ── -->
-<section class="value-stack">
-  <div class="section-inner">
-    <div class="section-label">What you get</div>
-    <h2 class="value-headline">Build meaningful difference into your business.</h2>
-    <p class="value-subhead">As intelligence and competition become abundant, the rules of this wild game called business change quickly. Your organization must deliver value that's scarce and hard to copy.</p>
-    <div class="values">
-      <div class="values-pair">
-        <div class="value">
-          <h3>Your offering</h3>
-          <p>Every product, service, brand, and experience you offer should be expressions of one meaningful difference. We help you uncover what makes your business genuinely distinct, then build it into each of them so customers feel the same signature wherever they meet you.</p>
-        </div>
-        <div class="value">
-          <h3>Your operations</h3>
-          <p>AI gives you operational leverage, but how you structure it and what you point it at determines success or failure. We design that structure and infuse it with the purpose and beliefs that make you uniquely valuable, so the brand becomes what the operation actually is, all the way through.</p>
-        </div>
-      </div>
-      <div class="value value-capstone">
-        <h3>Your durable distinction</h3>
-        <p>When the offering reflects who you are and the operations make it real, you hold a position no one else can take. The work compounds. As the market shifts, the advantage only deepens.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── STORYBRAND: STAKES ── -->
-<section class="stakes">
-  <div class="section-inner">
-    <div class="section-label">The cost of not acting</div>
-    <h2>Every day you wait,<br>you slowly disappear.</h2>
-    <p class="stakes-subhead">Action does not equal impact. These are the mistakes most organizations make on both sides of the problem and how we help you avoid them.</p>
-    <div class="stakes-grid">
-      <div class="stakes-mistakes">
-        <div class="stakes-column-label">Offering</div>
-        <div class="mistake">
-          <div class="mistake-number">01</div>
-          <div class="mistake-content">
-            <h3>Prioritizing transactions over relationships</h3>
-            <p>Tracking transactions is easy. Making them your primary measure tends to produce churn. We rebuild your measurement around relationships, where the real value compounds.</p>
-          </div>
-        </div>
-        <div class="mistake">
-          <div class="mistake-number">02</div>
-          <div class="mistake-content">
-            <h3>Believing one big thing will set you apart</h3>
-            <p>Distinction isn't one differentiator. It's doing everything three percent differently than anyone else would. We compound those small differences across your whole offering until they become an identity.</p>
-          </div>
-        </div>
-        <div class="mistake">
-          <div class="mistake-number">03</div>
-          <div class="mistake-content">
-            <h3>Assuming people make logical decisions</h3>
-            <p>They don't. Decisions are made on feeling, then justified with logic. Your offering needs to win the part of the brain that decides first. That's the work.</p>
-          </div>
-        </div>
-      </div>
-      <div class="stakes-mistakes">
-        <div class="stakes-column-label">Operations</div>
-        <div class="mistake">
-          <div class="mistake-number">04</div>
-          <div class="mistake-content">
-            <h3>Bolting AI onto old workflows</h3>
-            <p>AI doesn't improve a broken process. It amplifies it. We redesign your systems, habits, and organizational structure so AI is native to how you operate.</p>
-          </div>
-        </div>
-        <div class="mistake">
-          <div class="mistake-number">05</div>
-          <div class="mistake-content">
-            <h3>Chasing efficiency instead of capability</h3>
-            <p>Speed is a commodity. We pursue what AI makes possible that wasn't possible before. The work that didn't exist last year.</p>
-          </div>
-        </div>
-        <div class="mistake">
-          <div class="mistake-number">06</div>
-          <div class="mistake-content">
-            <h3>Treating it as a technology problem</h3>
-            <p>AI isn't a technology decision. It's an organizational design decision. We work on the human side, where it actually compounds or breaks.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── STORYBRAND: GUIDE ── -->
-<section class="guide">
-  <div class="section-inner">
-    <div class="guide-top">
-      <div class="guide-choice">
-        <span class="guide-choice-setup">You have a choice.</span>
-        <div class="guide-choice-paths">
-          <div class="guide-choice-path">Become easier to replace every day.</div>
-          <span class="guide-choice-or">or</span>
-          <div class="guide-choice-path guide-choice-path-positive">Build distinction into everything you do.</div>
-        </div>
-        <span class="guide-choice-imperative">Choose wisely.</span>
-      </div>
-    </div>
-    <div class="guide-blocks">
-      <div class="guide-block">
-        <h3>Why Okavango</h3>
-        <p>We uncover what makes your organization meaningfully different, then align your offering and build your AI systems so you can carve a path to durable distinction.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── STORYBRAND: THE PLAN ── -->
-<section class="plan" id="how">
-  <div class="section-inner">
-    <div class="section-label">Where to start</div>
-    <h2>Ready when you are. Here's how it starts.</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step-number">01</div>
-        <h3>Start a conversation</h3>
-        <p>30 minutes. No pitch. We talk about your business, what's working, what isn't, and whether this even makes sense for you right now.</p>
-      </div>
-      <div class="step">
-        <div class="step-number">02</div>
-        <h3>Discuss your pain</h3>
-        <p>Together we map where your offering is being commoditized and where your operations are stretched. Plain language about what's actually compounding into pressure.</p>
-      </div>
-      <div class="step">
-        <div class="step-number">03</div>
-        <h3>Choose a starting point</h3>
-        <p>You see what an AI-native operation around your distinction could look like. You decide if and where to begin. We don't push.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── WHO THIS IS FOR (client self-identification) ── -->
-<section class="who">
-  <div class="section-inner">
-    <div class="section-label">Is this a good fit?</div>
-    <span class="line-reveal"></span>
-    <h2>If you made it this far<br>and identify as one of these,<br>we should talk.</h2>
-    <div class="personas">
-      <div class="persona">
-        <h3>Venture-backed startups.</h3>
-        <p>You need to move fast, prove scale, and take market share.</p>
-      </div>
-      <div class="persona">
-        <h3>Small and midsize business owners and leaders.</h3>
-        <p>You need to grow before you get squeezed out.</p>
-      </div>
-      <div class="persona">
-        <h3>Enterprise leaders.</h3>
-        <p>You need to show tangible progress now.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── ACCENT CTA BAND ── -->
-<section class="cta-band">
-  <p>Build durable distinction with us.</p>
-  <a href="#cta" class="btn-dark">Start a conversation</a>
-</section>
-
-<!-- ── STORYBRAND: CTA ── -->
-<section class="cta" id="cta">
-  <span class="cta-mark" aria-hidden="true">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
-      <defs>
-        <clipPath id="okvCircle"><circle cx="200" cy="200" r="150"></circle></clipPath>
-      </defs>
-      <circle cx="200" cy="200" r="150" fill="none" stroke="currentColor" stroke-width="3.5"></circle>
-      <g clip-path="url(#okvCircle)">
-        <path d="M 50 264 Q 95 260, 130 263 T 200 262 Q 245 263, 280 261 T 350 263 L 350 268 L 50 268 Z" fill="currentColor"></path>
-        <line x1="50" y1="277" x2="350" y2="277" stroke="currentColor" stroke-width="1.6"></line>
-        <line x1="50" y1="289" x2="350" y2="289" stroke="currentColor" stroke-width="2.0"></line>
-        <line x1="50" y1="300" x2="350" y2="300" stroke="currentColor" stroke-width="2.4"></line>
-        <line x1="50" y1="310" x2="350" y2="310" stroke="currentColor" stroke-width="2.9"></line>
-        <line x1="50" y1="319" x2="350" y2="319" stroke="currentColor" stroke-width="3.4"></line>
-        <line x1="50" y1="327" x2="350" y2="327" stroke="currentColor" stroke-width="3.9"></line>
-        <line x1="50" y1="334" x2="350" y2="334" stroke="currentColor" stroke-width="4.4"></line>
-        <line x1="50" y1="341" x2="350" y2="341" stroke="currentColor" stroke-width="5.0"></line>
-        <path d="M 65 320 C 152 295, 230 215, 290 88" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
-      </g>
-    </svg>
-  </span>
-  <span class="cta-brand">Okavango</span>
-  <span class="cta-credo">AI-native · Human-centered</span>
-  <h2>Worth a conversation?</h2>
-  <p class="cta-sub">No pitch deck. No discovery call theater. A real conversation about where you are and what might be possible.</p>
-  <form class="contact-form" action="mailto:thom@okavango.co" method="post" enctype="text/plain">
-    <div class="form-row">
-      <input type="text" name="name" placeholder="Your name" required>
-      <input type="email" name="email" placeholder="Your email" required>
-    </div>
-    <textarea name="message" placeholder="What's on your mind?"></textarea>
-    <button type="submit" class="btn-primary">Start a conversation</button>
-  </form>
 </section>
 
 <!-- ── FOOTER ── -->
 <footer>
-  <span>&copy; 2026 Okavango. All rights reserved.</span>
+  <span class="footer-mark" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <clipPath id="okvCircleFoot"><circle cx="200" cy="200" r="150"/></clipPath>
+      </defs>
+      <circle cx="200" cy="200" r="150" fill="none" stroke="currentColor" stroke-width="3.5"/>
+      <g clip-path="url(#okvCircleFoot)">
+        <path d="M 50 264 Q 95 260, 130 263 T 200 262 Q 245 263, 280 261 T 350 263 L 350 268 L 50 268 Z" fill="currentColor"/>
+        <line x1="50" y1="277" x2="350" y2="277" stroke="currentColor" stroke-width="1.6"/>
+        <line x1="50" y1="289" x2="350" y2="289" stroke="currentColor" stroke-width="2.0"/>
+        <line x1="50" y1="300" x2="350" y2="300" stroke="currentColor" stroke-width="2.4"/>
+        <line x1="50" y1="310" x2="350" y2="310" stroke="currentColor" stroke-width="2.9"/>
+        <line x1="50" y1="319" x2="350" y2="319" stroke="currentColor" stroke-width="3.4"/>
+        <line x1="50" y1="327" x2="350" y2="327" stroke="currentColor" stroke-width="3.9"/>
+        <line x1="50" y1="334" x2="350" y2="334" stroke="currentColor" stroke-width="4.4"/>
+        <line x1="50" y1="341" x2="350" y2="341" stroke="currentColor" stroke-width="5.0"/>
+        <path d="M 65 320 C 152 295, 230 215, 290 88" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </svg>
+  </span>
   <span class="footer-line">Carve your own path.</span>
+  <span class="footer-meta">© 2026 · Okavango</span>
 </footer>
 
 <script>
-/* ── VIDEO CROSSFADE LOOP ── */
+/* ── HERO VIDEO CROSSFADE LOOP ── */
 (function() {
   const a = document.querySelector('.video-a');
   const b = document.querySelector('.video-b');
+  if (!a || !b) return;
   const fadeDuration = 2.5;
 
   function setup() {
@@ -1294,7 +786,7 @@
       return;
     }
 
-    a.style.opacity = '0.65';
+    a.style.opacity = '0.62';
     b.style.opacity = '0';
     var active = 'a';
 
@@ -1306,7 +798,7 @@
         b.currentTime = 0;
         b.play();
         b.style.zIndex = '1';
-        b.style.opacity = '0.65';
+        b.style.opacity = '0.62';
       }
     });
 
@@ -1342,25 +834,7 @@
     a.addEventListener('loadedmetadata', setup);
   }
 })();
-
-/* ── LINE REVEAL ON SCROLL ── */
-(function() {
-  var lines = document.querySelectorAll('.line-reveal');
-  if (!lines.length) return;
-
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  lines.forEach(function(line) {
-    observer.observe(line);
-  });
-})();
 </script>
+
 </body>
 </html>
