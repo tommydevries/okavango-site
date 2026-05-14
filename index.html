@@ -39,7 +39,8 @@
 
   /* ── HERO ── */
   .hero {
-    position: relative;
+    position: sticky;
+    top: 0;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -47,6 +48,7 @@
     align-items: flex-end;
     text-align: left;
     padding: 0 8vw 5vh;
+    z-index: 1;
     overflow: hidden;
     background: var(--night);
   }
@@ -611,6 +613,330 @@
     text-align: right;
   }
 
+  /* ── PHYSICS-STYLE PANELS (V6.0) ── */
+  :root {
+    --ph-ink: #24282C;
+    --ph-ink-2: #30302E;
+    --ph-ink-3: #141413;
+    --ph-rule: rgba(36, 40, 44, 0.15);
+    --ph-muted: rgba(36, 40, 44, 0.55);
+  }
+
+  .ph-scroll-wrap {
+    position: relative;
+    z-index: 2;
+    background: var(--paper);
+    color: var(--ph-ink);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+  }
+
+
+
+  .ph-panel {
+    min-height: 100vh;
+    padding: 120px 92px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: var(--paper);
+  }
+
+  .ph-kicker,
+  .ph-why-kicker,
+  .ph-offerings-kicker {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .ph-why-kicker { margin-bottom: 18px; }
+  .ph-offerings-kicker { margin-bottom: 32px; }
+
+  .ph-rule {
+    width: 36px;
+    height: 1px;
+    background: var(--channel);
+  }
+  .ph-kicker span,
+  .ph-why-kicker span,
+  .ph-offerings-kicker span {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: -0.012em;
+    color: var(--channel);
+    text-transform: uppercase;
+  }
+
+  /* DIAGNOSIS HERO */
+  .ph-hero {
+    position: relative;
+    z-index: 4;
+    box-shadow: 0 -40px 80px rgba(0, 0, 0, 0.08);
+  }
+  .ph-hero-inner {
+    max-width: 1200px;
+    width: 100%;
+  }
+  .ph-hero h1 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: clamp(44px, 7.2vw, 88px);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    max-width: 18ch;
+    color: var(--ph-ink);
+    text-wrap: balance;
+    border-top: 5px solid var(--channel);
+    border-bottom: 5px solid var(--channel);
+    padding: 40px 0;
+    margin: 0;
+  }
+
+  /* CHOICE PANEL */
+  .ph-choice {
+    position: relative;
+    z-index: 5;
+    box-shadow: 0 -40px 80px rgba(36, 40, 44, 0.04);
+  }
+  .ph-choice-inner {
+    max-width: 880px;
+    width: 100%;
+  }
+  .ph-choice p {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: clamp(19px, 1.7vw, 24px);
+    line-height: 1.5;
+    letter-spacing: -0.008em;
+    color: var(--ph-ink);
+    max-width: 60ch;
+    margin-bottom: 1.2em;
+  }
+  .ph-choice p.ph-punch {
+    font-family: var(--font-hero);
+    font-weight: 500;
+    font-style: normal;
+    font-size: clamp(28px, 2.6vw, 38px);
+    line-height: 1.2;
+    letter-spacing: 0.005em;
+    color: var(--ph-ink-3);
+    max-width: 22ch;
+    margin: 1.6em 0 1.2em;
+  }
+  .ph-choice p.ph-we-help {
+    font-family: var(--font-hero);
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(20px, 1.8vw, 24px);
+    letter-spacing: 0.005em;
+    color: var(--ph-ink);
+    margin-top: 1.6em;
+    margin-bottom: 32px;
+  }
+
+  .ph-cta-pill {
+    display: inline-block;
+    background: var(--channel);
+    color: var(--paper);
+    padding: 12px 32px;
+    border-radius: 9999px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s ease;
+  }
+  .ph-cta-pill:hover { background: var(--ink); }
+
+  /* CONTACT CLOSE */
+  .ph-contact {
+    position: relative;
+    z-index: 7;
+    box-shadow: 0 -40px 80px rgba(0, 0, 0, 0.04);
+  }
+  .ph-contact-inner {
+    max-width: 880px;
+    width: 100%;
+  }
+  .ph-contact-statement {
+    font-family: var(--font-hero);
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(32px, 4.2vw, 52px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    color: var(--ph-ink);
+    max-width: 22ch;
+    margin-bottom: 40px;
+    text-wrap: balance;
+  }
+  .ph-contact-link {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    color: var(--channel);
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(26, 58, 74, 0.35);
+    transition: border-color 0.3s ease;
+  }
+  .ph-contact-link:hover {
+    border-bottom-color: var(--channel);
+  }
+
+  /* PHILOSOPHY PANEL */
+  .ph-philosophy {
+    position: relative;
+    z-index: 6;
+    box-shadow: 0 -40px 80px rgba(36, 40, 44, 0.04);
+  }
+  .ph-philosophy-inner {
+    max-width: 880px;
+    width: 100%;
+  }
+  .ph-philosophy h2 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: clamp(32px, 4.2vw, 52px);
+    line-height: 1.1;
+    letter-spacing: -0.028em;
+    color: var(--ph-ink);
+    max-width: 22ch;
+    margin-bottom: 56px;
+    text-wrap: balance;
+  }
+  .ph-philosophy h2 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ph-ink-2);
+  }
+  .ph-philosophy p {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 1.65;
+    color: var(--ph-ink);
+    max-width: 62ch;
+    margin-bottom: 1.4em;
+  }
+  .ph-philosophy p:last-of-type { margin-bottom: 0; }
+
+  /* why okavango sub-block */
+  .ph-why-okavango {
+    margin: 48px 0 56px;
+    padding: 32px 0;
+    border-top: 1px solid var(--ph-rule);
+    border-bottom: 1px solid var(--ph-rule);
+    max-width: 62ch;
+  }
+  .ph-why-answer {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: clamp(20px, 1.8vw, 26px);
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    color: var(--ph-ink-3);
+    max-width: 48ch;
+    margin-bottom: 0 !important;
+  }
+
+  .ph-commitments-list {
+    margin-top: 32px;
+    margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 62ch;
+  }
+  .ph-commitment-row {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 24px;
+    align-items: baseline;
+    padding: 22px 0;
+    border-top: 1px solid var(--ph-rule);
+  }
+  .ph-commitment-row:last-child { border-bottom: 1px solid var(--ph-rule); }
+  .ph-commitment-row .ph-num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    color: var(--ph-muted);
+  }
+  .ph-commitment-row .ph-text {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--ph-ink);
+  }
+  .ph-commitment-row .ph-text strong {
+    font-weight: 700;
+    color: var(--channel);
+  }
+
+  /* offerings block */
+  .ph-offerings-block {
+    margin-top: 80px;
+    padding-top: 56px;
+    border-top: 1px solid var(--ph-rule);
+  }
+  .ph-offerings-lead {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: clamp(22px, 2vw, 28px);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--ph-ink-3);
+    max-width: 28ch;
+    margin-bottom: 32px;
+  }
+  .ph-offering-row {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 24px;
+    align-items: baseline;
+    padding: 16px 0;
+    border-top: 1px solid var(--ph-rule);
+  }
+  .ph-offering-row:last-child { border-bottom: 1px solid var(--ph-rule); }
+  .ph-offering-row .ph-off-name {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--channel);
+    letter-spacing: -0.005em;
+  }
+  .ph-offering-row .ph-off-desc {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--ph-ink);
+  }
+
+  /* closer */
+  .ph-closer {
+    min-height: 60vh;
+    padding: 0 92px 96px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background: var(--paper);
+  }
+  .ph-closer-text {
+    font-family: var(--font-hero);
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(22px, 2.6vw, 32px);
+    color: var(--ph-muted);
+    max-width: 36ch;
+    text-align: center;
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     .hero { padding: 0 6vw 10vh; align-items: stretch; }
@@ -658,6 +984,13 @@
     .footer-mark { grid-column: 1; margin: 0 auto; }
     .footer-line { grid-column: 1; }
     .footer-meta { grid-column: 1; text-align: center; }
+
+    /* Lower-section panels responsive */
+    .ph-panel { padding: 72px 56px; }
+    .ph-closer { padding: 0 56px 64px; }
+    .ph-hero h1 { padding: 28px 0; }
+    .ph-commitment-row { grid-template-columns: 1fr; gap: 8px; }
+    .ph-offering-row { grid-template-columns: 1fr; gap: 4px; }
   }
 </style>
 </head>
@@ -713,84 +1046,99 @@
   </div>
 </div>
 
-<!-- ── PROBLEM ── -->
-<section id="next" class="block block--paper">
-  <p class="statement statement--left">Your business was built for a world that no longer exists.</p>
-  <p class="detail detail--right">As artificial intelligence emerges, you are getting squeezed on both sides. Copy-cat competition on one side, AI-enabled competitors operating at a fraction of your cost on the other.<br><br>The solution to both is simple, but not easy.<br><span class="brand-voice">Choose meaningful difference.</span></p>
-</section>
+<!-- ── OKAVANGO BODY (V6.0) ── -->
+<div class="ph-scroll-wrap" id="next">
 
-<!-- ── ANSWER ── -->
-<section class="block block--channel">
-  <div class="positioning-stack">
-    <p class="positioning-lead">Most AI gives you the mediocre middle. We build AI systems that sharpen your edge.</p>
-    <p class="positioning">Carve your meaningful difference into every touchpoint and every AI-enabled system, so how you operate becomes what makes you valuable.</p>
-  </div>
-  <p class="positioning-body">Need help carving distinction into your offering, operations, or both?</p>
-  <a class="cta-button" href="mailto:hello@okavango.co" style="grid-column: 2 / span 9; justify-self: start;">Let's talk</a>
-</section>
+  <!-- DIAGNOSIS HERO -->
+  <section class="ph-panel ph-hero">
+    <div class="ph-hero-inner">
+      <h1>Your business was built for a world that no longer exists.</h1>
+    </div>
+  </section>
 
-<!-- ── BELIEFS ── -->
-<section class="block block--night">
-  <p class="beliefs-eyebrow">Why Okavango?</p>
-  <ol class="beliefs-list">
-    <li class="belief">
-      <span class="belief-num">01</span>
-      <div>
-        <h3 class="belief-headline">Big-change programs fail.</h3>
-        <p class="belief-body">If your people don't reject them, your systems will. The way forward is small, thematically aligned changes across product, service, brand, experience, and operations. Your people and systems can handle the adjustment, and usually feel the benefit. Your customers feel the same signature wherever they meet you, because what you offer and how you operate become the same thing.</p>
+  <!-- THE CHOICE -->
+  <section class="ph-panel ph-choice">
+    <div class="ph-choice-inner">
+      <div class="ph-kicker">
+        <span class="ph-rule"></span>
+        <span>the squeeze</span>
       </div>
-    </li>
-    <li class="belief">
-      <span class="belief-num">02</span>
-      <div>
-        <h3 class="belief-headline">AI is not a technology problem.</h3>
-        <p class="belief-body">AI on its own does nothing. The way forward is human and organizational design: invest in people who can use it, and build an orchestration layer that expresses your organization. How you structure that layer and what you point it at shapes the entire output. The brand becomes what the operation actually is, all the way through.</p>
-      </div>
-    </li>
-    <li class="belief">
-      <span class="belief-num">03</span>
-      <div>
-        <h3 class="belief-headline">Distinction is built, not claimed.</h3>
-        <p class="belief-body">Most distinction lives on the surface: a tagline, a campaign, a positioning statement. Claims get copied. The way forward is distinction built into how you operate, what your systems do, what your team decides without being told. The more you scale, the more uniquely yours you become.</p>
-      </div>
-    </li>
-  </ol>
-</section>
 
-<!-- ── CLOSE ── -->
-<section class="block block--paper">
-  <div class="contact">
-    <div class="contact-eyebrow">Get in touch</div>
-    <p class="contact-statement">If you're ready to carve your path to distinction, let's talk.</p>
-    <a class="contact-link" href="mailto:hello@okavango.co">hello@okavango.co</a>
-  </div>
-</section>
+      <p>As artificial intelligence emerges, you're getting squeezed on both sides. Endless competition that all looks and feels the same on one side. AI-enabled competitors operating at a fraction of your cost on the other.</p>
 
-<!-- ── FOOTER ── -->
-<footer>
-  <span class="footer-mark" aria-hidden="true">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
-      <defs>
-        <clipPath id="okvCircleFoot"><circle cx="200" cy="200" r="150"/></clipPath>
-      </defs>
-      <circle cx="200" cy="200" r="150" fill="none" stroke="currentColor" stroke-width="3.5"/>
-      <g clip-path="url(#okvCircleFoot)">
-        <path d="M 50 264 Q 95 260, 130 263 T 200 262 Q 245 263, 280 261 T 350 263 L 350 268 L 50 268 Z" fill="currentColor"/>
-        <line x1="50" y1="277" x2="350" y2="277" stroke="currentColor" stroke-width="1.6"/>
-        <line x1="50" y1="289" x2="350" y2="289" stroke="currentColor" stroke-width="2.0"/>
-        <line x1="50" y1="300" x2="350" y2="300" stroke="currentColor" stroke-width="2.4"/>
-        <line x1="50" y1="310" x2="350" y2="310" stroke="currentColor" stroke-width="2.9"/>
-        <line x1="50" y1="319" x2="350" y2="319" stroke="currentColor" stroke-width="3.4"/>
-        <line x1="50" y1="327" x2="350" y2="327" stroke="currentColor" stroke-width="3.9"/>
-        <line x1="50" y1="334" x2="350" y2="334" stroke="currentColor" stroke-width="4.4"/>
-        <line x1="50" y1="341" x2="350" y2="341" stroke="currentColor" stroke-width="5.0"/>
-        <path d="M 65 320 C 152 295, 230 215, 290 88" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-      </g>
-    </svg>
-  </span>
-  <span class="footer-line">Carve your own path.</span>
-  <span class="footer-meta">© 2026 · Okavango</span>
-</footer>
+      <p>The pressure to go with the flow is overwhelming, but if you build copycat offerings and generic AI systems, the best you can hope for is becoming a commodity.</p>
+
+      <p>There is a smarter path, and it's not as hard as you think.</p>
+
+      <p class="ph-punch">Carve your path to meaningful distinction.</p>
+
+      <p class="ph-we-help">We can help.</p>
+
+      <a class="ph-cta-pill" href="mailto:hello@okavango.co">Start a conversation</a>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK -->
+  <section class="ph-panel ph-philosophy">
+    <div class="ph-philosophy-inner">
+      <div class="ph-kicker">
+        <span class="ph-rule"></span>
+        <span>the practice</span>
+      </div>
+
+      <h2>For leaders who can't afford to <em>blend in</em> or <em>fall behind.</em></h2>
+
+      <p>Okavango partners with leaders and teams to build unfair advantage. We design your offering and operations to be AI-enabled and truly distinct.</p>
+
+      <div class="ph-kicker" style="margin-top: 56px;">
+        <span class="ph-rule"></span>
+        <span>commitments</span>
+      </div>
+
+      <div class="ph-commitments-list">
+        <div class="ph-commitment-row">
+          <div class="ph-num">01</div>
+          <div class="ph-text"><strong>We work from first principles. Not best practices.</strong> Best practices are answers to someone else's problems. We reason forward from your specific situation to what's actually true for your business.</div>
+        </div>
+        <div class="ph-commitment-row">
+          <div class="ph-num">02</div>
+          <div class="ph-text"><strong>We compound small changes. Not gamble on big ones.</strong> Small, thematically aligned changes compound. Across product, service, brand, and experience. Until customers feel the same signature wherever they meet you.</div>
+        </div>
+        <div class="ph-commitment-row">
+          <div class="ph-num">03</div>
+          <div class="ph-text"><strong>We treat AI as organizational design. Not technology.</strong> The tools are commoditized. The orchestration that expresses your organization is not. How you structure it, what you point it at, who learns to use it.</div>
+        </div>
+        <div class="ph-commitment-row">
+          <div class="ph-num">04</div>
+          <div class="ph-text"><strong>We stitch offering and operations. Not work them as separate projects.</strong> The brand becomes what the operation actually is. Where the two align, distinction compounds.</div>
+        </div>
+        <div class="ph-commitment-row">
+          <div class="ph-num">05</div>
+          <div class="ph-text"><strong>We get paid for value. Not for time.</strong> When the engagement allows, our compensation reflects the value we deliver. Nothing more, nothing less.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT CLOSE -->
+  <section class="ph-panel ph-contact">
+    <div class="ph-contact-inner">
+      <div class="ph-kicker">
+        <span class="ph-rule"></span>
+        <span>get in touch</span>
+      </div>
+      <p class="ph-contact-statement">If you're ready to carve your path to distinction, let's talk.</p>
+      <a class="ph-contact-link" href="mailto:hello@okavango.co">hello@okavango.co</a>
+    </div>
+  </section>
+
+  <!-- CLOSER -->
+  <section class="ph-closer">
+    <div class="ph-closer-text">Carve your own path.</div>
+  </section>
+
+</div>
 
 <script>
 /* ── HERO VIDEO CROSSFADE LOOP ── */
