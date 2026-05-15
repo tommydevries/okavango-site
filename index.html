@@ -64,7 +64,6 @@
   }
 
   .hero .video-a { opacity: 0.62; z-index: 0; }
-  .hero .video-b { opacity: 0; z-index: 0; }
 
   /* Hero brand lockup (top-left corner) */
   .hero-brand {
@@ -998,10 +997,7 @@
 
 <!-- ── HERO ── -->
 <div class="hero">
-  <video class="hero-video video-a" autoplay muted playsinline preload="auto">
-    <source src="hero-video.mp4" type="video/mp4">
-  </video>
-  <video class="hero-video video-b" muted playsinline preload="auto">
+  <video class="hero-video video-a" autoplay muted loop playsinline preload="auto">
     <source src="hero-video.mp4" type="video/mp4">
   </video>
   <div class="hero-brand">
@@ -1139,71 +1135,6 @@
   </section>
 
 </div>
-
-<script>
-/* ── HERO VIDEO CROSSFADE LOOP ── */
-(function() {
-  const a = document.querySelector('.video-a');
-  const b = document.querySelector('.video-b');
-  if (!a || !b) return;
-  const fadeDuration = 2.5;
-
-  function setup() {
-    const duration = a.duration;
-    if (!duration || duration < fadeDuration * 2) {
-      a.loop = true;
-      return;
-    }
-
-    a.style.opacity = '0.62';
-    b.style.opacity = '0';
-    var active = 'a';
-
-    a.addEventListener('timeupdate', function() {
-      if (active !== 'a') return;
-      var timeLeft = duration - a.currentTime;
-      if (timeLeft <= fadeDuration) {
-        active = 'b';
-        b.currentTime = 0;
-        b.play();
-        b.style.zIndex = '1';
-        b.style.opacity = '0.62';
-      }
-    });
-
-    b.addEventListener('timeupdate', function() {
-      if (active !== 'b') return;
-      if (a.ended || a.paused) {
-        a.currentTime = 0;
-        a.play();
-      }
-      var timeLeft = duration - b.currentTime;
-      if (timeLeft <= fadeDuration) {
-        active = 'a';
-        b.style.opacity = '0';
-        b.style.zIndex = '0';
-      }
-    });
-
-    b.addEventListener('ended', function() {
-      b.pause();
-      b.style.opacity = '0';
-      b.style.zIndex = '0';
-    });
-
-    a.addEventListener('ended', function() {
-      a.currentTime = 0;
-      a.play();
-    });
-  }
-
-  if (a.readyState >= 1) {
-    setup();
-  } else {
-    a.addEventListener('loadedmetadata', setup);
-  }
-})();
-</script>
 
 </body>
 </html>
