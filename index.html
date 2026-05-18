@@ -7,7 +7,7 @@
 <meta name="description" content="A small, private studio. AI-native. Human-centered. Selective by design.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -17,6 +17,7 @@
     --night-2: #14130f;
     --channel: #1a3a4a;
     --channel-3: #4a7587;
+    --tannin: #c89a52;
     --ink: #1a1714;
     --ink-muted: #5a5448;
     --cream: #ffffff;
@@ -134,6 +135,7 @@
     font-size: 1.3em;
     letter-spacing: 0.03em;
     line-height: 1.1;
+    color: var(--tannin);
   }
 
   .hero-question {
@@ -143,7 +145,7 @@
     font-style: italic;
     line-height: 1.12;
     letter-spacing: 0.005em;
-    color: var(--channel-3);
+    color: var(--tannin);
     margin-top: 0.6rem;
   }
 
@@ -672,24 +674,113 @@
     position: relative;
     z-index: 4;
     box-shadow: 0 -40px 80px rgba(0, 0, 0, 0.08);
+    background: var(--tannin);
   }
   .ph-hero-inner {
     max-width: 1200px;
     width: 100%;
   }
+  .ph-hero-kicker {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream-muted);
+    margin-bottom: 48px;
+  }
   .ph-hero h1 {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 400;
-    font-size: clamp(44px, 7.2vw, 88px);
+    font-weight: 300;
+    font-style: normal;
+    font-size: clamp(48px, 7.5vw, 92px);
     line-height: 1.05;
-    letter-spacing: -0.035em;
+    letter-spacing: -0.025em;
     max-width: 18ch;
-    color: var(--ph-ink);
+    color: var(--ink);
     text-wrap: balance;
-    border-top: 5px solid var(--channel);
-    border-bottom: 5px solid var(--channel);
-    padding: 40px 0;
     margin: 0;
+  }
+
+  .ph-hero-sub {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: clamp(18px, 1.6vw, 22px);
+    line-height: 1.5;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    max-width: 60ch;
+    margin: 36px 0 0;
+  }
+  .ph-hero-sub + .ph-hero-sub {
+    margin-top: 1.2em;
+  }
+  .ph-hero-realization {
+    font-weight: 500;
+    margin-top: 1.6em;
+  }
+  .ph-hero-emphasis {
+    font-family: var(--font-hero);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(22px, 2vw, 28px);
+    line-height: 1.4;
+    letter-spacing: 0.005em;
+    margin-top: 1.4em;
+  }
+
+  /* BRIDGE PANEL */
+  .ph-bridge {
+    position: relative;
+    z-index: 4.5;
+    box-shadow: 0 -40px 80px rgba(36, 40, 44, 0.04);
+    background: var(--paper);
+  }
+  .ph-bridge-inner {
+    max-width: 880px;
+    width: 100%;
+  }
+  .ph-bridge-lead {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: clamp(20px, 1.8vw, 26px);
+    line-height: 1.5;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    max-width: 60ch;
+    margin: 0 0 2em;
+  }
+  .ph-bridge-text {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: clamp(28px, 3.2vw, 42px);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--channel);
+    max-width: 28ch;
+    text-wrap: balance;
+    margin: 0;
+  }
+  .ph-bridge-sub {
+    display: block;
+    margin-top: 0.5em;
+    font-size: clamp(18px, 1.8vw, 24px);
+    line-height: 1.3;
+    color: var(--channel-3);
+    font-weight: 300;
+  }
+  .ph-bridge-punch {
+    font-family: var(--font-hero);
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(44px, 5.5vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    max-width: 22ch;
+    margin: 1.8em 0 1.6em;
+    text-wrap: balance;
   }
 
   /* CHOICE PANEL */
@@ -697,7 +788,11 @@
     position: relative;
     z-index: 5;
     box-shadow: 0 -40px 80px rgba(36, 40, 44, 0.04);
+    background: var(--channel);
   }
+  .ph-choice p { color: var(--cream); }
+  .ph-choice .ph-rule { background: var(--tannin); }
+  .ph-choice .ph-kicker span { color: var(--tannin); }
   .ph-choice-inner {
     max-width: 880px;
     width: 100%;
@@ -705,23 +800,28 @@
   .ph-choice p {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 400;
+    font-style: normal;
     font-size: clamp(19px, 1.7vw, 24px);
     line-height: 1.5;
     letter-spacing: -0.008em;
-    color: var(--ph-ink);
+    color: var(--cream);
     max-width: 60ch;
     margin-bottom: 1.2em;
   }
   .ph-choice p.ph-punch {
     font-family: var(--font-hero);
-    font-weight: 500;
+    font-weight: 400;
     font-style: normal;
-    font-size: clamp(28px, 2.6vw, 38px);
-    line-height: 1.2;
-    letter-spacing: 0.005em;
-    color: var(--ph-ink-3);
+    font-size: clamp(36px, 4.2vw, 56px);
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+    color: var(--cream);
     max-width: 22ch;
     margin: 1.6em 0 1.2em;
+  }
+
+  .tannin-accent {
+    color: var(--tannin);
   }
   .ph-choice p.ph-we-help {
     font-family: var(--font-hero);
@@ -729,15 +829,15 @@
     font-style: italic;
     font-size: clamp(20px, 1.8vw, 24px);
     letter-spacing: 0.005em;
-    color: var(--ph-ink);
+    color: var(--cream);
     margin-top: 1.6em;
     margin-bottom: 32px;
   }
 
   .ph-cta-pill {
     display: inline-block;
-    background: var(--channel);
-    color: var(--paper);
+    background: var(--tannin);
+    color: var(--ink);
     padding: 12px 32px;
     border-radius: 9999px;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -748,13 +848,14 @@
     font-weight: 500;
     transition: background 0.2s ease;
   }
-  .ph-cta-pill:hover { background: var(--ink); }
+  .ph-cta-pill:hover { background: var(--cream); }
 
   /* CONTACT CLOSE */
   .ph-contact {
     position: relative;
     z-index: 7;
     box-shadow: 0 -40px 80px rgba(0, 0, 0, 0.04);
+    background: var(--tannin);
   }
   .ph-contact-inner {
     max-width: 880px;
@@ -787,15 +888,160 @@
     border-bottom-color: var(--channel);
   }
 
-  /* PHILOSOPHY PANEL */
+  /* PHILOSOPHY PANEL — channel blue, river color */
   .ph-philosophy {
     position: relative;
     z-index: 6;
     box-shadow: 0 -40px 80px rgba(36, 40, 44, 0.04);
+    background: var(--channel);
   }
-  .ph-philosophy-inner {
+  .ph-philosophy h2 { color: var(--cream); }
+  .ph-philosophy h2 em { color: var(--cream-muted); }
+  .ph-philosophy p { color: var(--cream); }
+  section.ph-philosophy { display: block; padding: 120px 92px; }
+  section.ph-philosophy .ph-philosophy-inner {
+    max-width: none !important;
+    width: 100% !important;
+  }
+
+  /* Practice intro block inside merged panel */
+  .ph-practice-intro {
+    margin-bottom: 120px;
+    max-width: 880px;
+  }
+  .ph-practice-intro .ph-practice-headline {
+    margin: 0 0 24px 0;
+  }
+
+  /* Three-column principles grid */
+  .ph-philosophy .ph-commitments-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 80px;
+    margin-bottom: 72px;
+    max-width: none;
+    width: 100%;
+  }
+  .ph-philosophy .ph-commitment-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 0 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    border-bottom: none;
+    gap: 20px;
+    position: relative;
+  }
+  .ph-philosophy .ph-commitment-row .ph-num {
+    color: var(--tannin);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+  .ph-philosophy .ph-commitment-row .ph-text {
+    color: var(--cream);
+    font-size: clamp(28px, 2.8vw, 42px);
+    line-height: 1.15;
+    width: 100%;
+  }
+  .ph-philosophy .ph-commitment-row .ph-text strong {
+    color: var(--cream);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 18px;
+  }
+  .ph-philosophy .ph-commitment-row .ph-text .ph-desc {
+    display: block;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(15px, 1.1vw, 18px);
+    line-height: 1.55;
+    font-weight: 400;
+    color: var(--cream-muted);
+  }
+  .ph-philosophy .ph-commitment-row .ph-toggle {
+    display: none;
+  }
+
+  /* Contact CTA inside philosophy panel */
+  .ph-philosophy-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .ph-philosophy-contact .ph-contact-statement {
+    color: var(--cream);
+  }
+  .ph-philosophy-contact .ph-contact-link {
+    color: var(--tannin);
+    border-bottom-color: rgba(200, 154, 82, 0.45);
+  }
+  .ph-philosophy-contact .ph-contact-link:hover {
+    border-bottom-color: var(--tannin);
+  }
+
+  /* Wordmark close inside philosophy panel */
+  .ph-philosophy-wordmark {
+    margin-top: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    width: 100%;
+  }
+
+  /* RALLY CRY */
+  .ph-rally-cry {
+    font-family: var(--font-hero);
+    font-weight: 500;
+    font-style: italic;
+    font-size: clamp(40px, 5vw, 68px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--cream);
+    margin: 0 0 48px;
+    max-width: 22ch;
+  }
+
+  /* PRACTICE PANEL (brand intro - standalone) */
+  .ph-practice {
+    position: relative;
+    z-index: 5.5;
+    box-shadow: 0 -40px 80px rgba(36, 40, 44, 0.04);
+    background: var(--paper);
+  }
+  .ph-practice-inner {
     max-width: 880px;
     width: 100%;
+  }
+  .ph-practice-headline {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: clamp(40px, 6vw, 76px);
+    line-height: 1.05;
+    letter-spacing: -0.028em;
+    color: var(--ink);
+    max-width: 22ch;
+    margin: 32px 0;
+    text-wrap: balance;
+  }
+  .ph-practice-headline em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink-muted);
+  }
+  .ph-practice-body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: clamp(18px, 1.6vw, 22px);
+    line-height: 1.65;
+    color: var(--ink);
+    max-width: 62ch;
+    margin: 0;
+  }
+  .ph-philosophy-inner {
+    max-width: none;
+    width: 100%;
+    flex: 1;
   }
   .ph-philosophy h2 {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -803,7 +1049,7 @@
     font-size: clamp(32px, 4.2vw, 52px);
     line-height: 1.1;
     letter-spacing: -0.028em;
-    color: var(--ph-ink);
+    color: var(--cream);
     max-width: 22ch;
     margin-bottom: 56px;
     text-wrap: balance;
@@ -811,14 +1057,14 @@
   .ph-philosophy h2 em {
     font-style: italic;
     font-weight: 300;
-    color: var(--ph-ink-2);
+    color: var(--cream-muted);
   }
   .ph-philosophy p {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 400;
     font-size: 19px;
     line-height: 1.65;
-    color: var(--ph-ink);
+    color: var(--cream);
     max-width: 62ch;
     margin-bottom: 1.4em;
   }
@@ -864,17 +1110,17 @@
     font-family: var(--font-mono);
     font-size: 12px;
     letter-spacing: 0.02em;
-    color: var(--ph-muted);
+    color: var(--cream-muted);
   }
   .ph-commitment-row .ph-text {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 17px;
     line-height: 1.5;
-    color: var(--ph-ink);
+    color: var(--cream);
   }
   .ph-commitment-row .ph-text strong {
     font-weight: 700;
-    color: var(--channel);
+    color: var(--tannin);
   }
 
   /* offerings block */
@@ -917,23 +1163,68 @@
     color: var(--ph-ink);
   }
 
+  /* CONTACT PANEL — standalone */
+  .ph-contact-panel {
+    position: relative;
+    z-index: 6.5;
+    box-shadow: 0 -40px 80px rgba(0, 0, 0, 0.04);
+    background: var(--tannin);
+    min-height: auto;
+    padding: 140px 92px;
+    display: block;
+  }
+  .ph-contact-panel-inner {
+    max-width: none;
+    width: 100%;
+  }
+  .ph-contact-panel .ph-contact-statement {
+    color: var(--ink);
+  }
+  .ph-contact-panel .ph-contact-link {
+    color: var(--ink);
+    border-bottom-color: rgba(26, 23, 20, 0.4);
+  }
+  .ph-contact-panel .ph-contact-link:hover {
+    border-bottom-color: var(--ink);
+  }
+
   /* closer */
   .ph-closer {
     min-height: 60vh;
-    padding: 0 92px 96px;
+    padding: 120px 92px;
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    background: var(--paper);
+    background: var(--night);
+    gap: 32px;
   }
-  .ph-closer-text {
+  .ph-wordmark {
     font-family: var(--font-hero);
-    font-weight: 400;
     font-style: italic;
-    font-size: clamp(22px, 2.6vw, 32px);
-    color: var(--ph-muted);
-    max-width: 36ch;
+    font-weight: 300;
+    font-size: clamp(36px, 4.5vw, 64px);
+    line-height: 1;
+    letter-spacing: 0;
+    color: var(--tannin);
     text-align: center;
+  }
+  .ph-wordmark-tag {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+    font-size: clamp(11px, 1vw, 13px);
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: var(--tannin);
+  }
+  .ph-wordmark-tag .ph-wordmark-rule {
+    width: 48px;
+    height: 1px;
+    background: var(--tannin);
+    opacity: 0.6;
   }
 
   /* ── RESPONSIVE ── */
@@ -989,6 +1280,12 @@
     .ph-closer { padding: 0 56px 64px; }
     .ph-hero h1 { padding: 28px 0; }
     .ph-commitment-row { grid-template-columns: 1fr; gap: 8px; }
+    .ph-philosophy .ph-commitments-list { grid-template-columns: 1fr; gap: 28px; margin-bottom: 64px; }
+    .ph-philosophy .ph-commitment-row { padding: 28px 0 0 0; gap: 16px; }
+    .ph-philosophy .ph-commitment-row .ph-toggle { top: 28px; }
+    .ph-philosophy-contact { padding-top: 48px; }
+    .ph-practice-intro { margin-bottom: 64px; }
+    .ph-philosophy-wordmark { margin-top: 72px; }
     .ph-offering-row { grid-template-columns: 1fr; gap: 4px; }
   }
 </style>
@@ -1001,26 +1298,6 @@
     <source src="hero-video.mp4" type="video/mp4">
   </video>
   <div class="hero-brand">
-    <span class="hero-brand-mark" aria-hidden="true">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
-        <defs>
-          <clipPath id="okvCircleNav"><circle cx="200" cy="200" r="150"/></clipPath>
-        </defs>
-        <circle cx="200" cy="200" r="150" fill="none" stroke="currentColor" stroke-width="3.5"/>
-        <g clip-path="url(#okvCircleNav)">
-          <path d="M 50 264 Q 95 260, 130 263 T 200 262 Q 245 263, 280 261 T 350 263 L 350 268 L 50 268 Z" fill="currentColor"/>
-          <line x1="50" y1="277" x2="350" y2="277" stroke="currentColor" stroke-width="1.6"/>
-          <line x1="50" y1="289" x2="350" y2="289" stroke="currentColor" stroke-width="2.0"/>
-          <line x1="50" y1="300" x2="350" y2="300" stroke="currentColor" stroke-width="2.4"/>
-          <line x1="50" y1="310" x2="350" y2="310" stroke="currentColor" stroke-width="2.9"/>
-          <line x1="50" y1="319" x2="350" y2="319" stroke="currentColor" stroke-width="3.4"/>
-          <line x1="50" y1="327" x2="350" y2="327" stroke="currentColor" stroke-width="3.9"/>
-          <line x1="50" y1="334" x2="350" y2="334" stroke="currentColor" stroke-width="4.4"/>
-          <line x1="50" y1="341" x2="350" y2="341" stroke="currentColor" stroke-width="5.0"/>
-          <path d="M 65 320 C 152 295, 230 215, 290 88" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-        </g>
-      </svg>
-    </span>
     <span class="hero-brand-name">Okavango</span>
   </div>
   <div class="hero-content">
@@ -1049,81 +1326,58 @@
   <section class="ph-panel ph-hero">
     <div class="ph-hero-inner">
       <h1>Your business was built for a world that no longer exists.</h1>
+      <p class="ph-hero-sub">As artificial intelligence emerges, you face endless copy-cat competition on one side and AI-enabled competitors operating at a fraction of your cost on the other.</p>
+      <p class="ph-hero-sub ph-hero-realization">Every day you wait, the gap widens.</p>
     </div>
   </section>
 
-  <!-- THE CHOICE -->
-  <section class="ph-panel ph-choice">
-    <div class="ph-choice-inner">
-      <div class="ph-kicker">
-        <span class="ph-rule"></span>
-        <span>the squeeze</span>
-      </div>
-
-      <p>As artificial intelligence emerges, you're getting squeezed on both sides. Endless competition that all looks and feels the same on one side. AI-enabled competitors operating at a fraction of your cost on the other.</p>
-
-      <p>The pressure to go with the flow is overwhelming, but if you build copycat offerings and generic AI systems, the best you can hope for is becoming a commodity.</p>
-
-      <p>There is a smarter path, and it's not as hard as you think.</p>
-
-      <p class="ph-punch">Choose the path of meaningful difference.</p>
-
-      <p class="ph-we-help">We can help.</p>
-
+  <!-- BREATH / BRIDGE + CHOICE -->
+  <section class="ph-panel ph-bridge">
+    <div class="ph-bridge-inner">
+      <p class="ph-bridge-lead">The pressure to go with the flow is overwhelming, but if you build copycat offerings and generic AI systems, the best you can hope for is becoming a commodity.</p>
+      <p class="ph-bridge-text">There is a smarter path —<span class="ph-bridge-sub">and it's not as hard as you think.</span></p>
+      <p class="ph-bridge-punch">Choose the path of <span class="tannin-accent">meaningful difference</span>.</p>
       <a class="ph-cta-pill" href="mailto:hello@okavango.co">Start a conversation</a>
     </div>
   </section>
 
-  <!-- HOW WE WORK -->
+  <!-- THE PRACTICE + PRINCIPLES + CONTACT + CLOSE -->
   <section class="ph-panel ph-philosophy">
     <div class="ph-philosophy-inner">
-      <div class="ph-kicker">
-        <span class="ph-rule"></span>
-        <span>the practice</span>
+      <div class="ph-practice-intro">
+        <h2 class="ph-practice-headline">For leaders who can't afford to <em>fall behind</em> or <em>blend in.</em></h2>
+        <p class="ph-practice-body">Build <span class="tannin-accent">AI-enabled leverage</span> and <span class="tannin-accent">meaningful difference</span> into your offering and operations. Build a business for the world that's emerging.</p>
       </div>
-
-      <h2>For leaders who can't afford to <em>blend in</em> or <em>fall behind.</em></h2>
-
-      <p>Okavango partners with leaders and teams to build unfair advantage. We design your offering and operations to be AI-enabled and truly distinct.</p>
-
-      <div class="ph-kicker" style="margin-top: 56px;">
-        <span class="ph-rule"></span>
-        <span>commitments</span>
-      </div>
-
       <div class="ph-commitments-list">
         <div class="ph-commitment-row">
           <div class="ph-num">01</div>
-          <div class="ph-text"><strong>We work from first principles. Not best practices.</strong> Best practices are answers to someone else's problems. We reason forward from your specific situation to what's actually true for your business.</div>
+          <div class="ph-text">
+            <strong>Work from first principles.</strong>
+            <span class="ph-desc">Yesterday's playbooks are dangerous. We build for the world as it is.</span>
+          </div>
         </div>
         <div class="ph-commitment-row">
           <div class="ph-num">02</div>
-          <div class="ph-text"><strong>We compound small changes. Not gamble on big ones.</strong> Small, thematically aligned changes compound. Across product, service, brand, and experience. Until customers feel the same signature wherever they meet you.</div>
+          <div class="ph-text">
+            <strong>Compound small changes.</strong>
+            <span class="ph-desc">Big changes get rejected by your people or your systems. We stack small, aligned moves that build proof and momentum.</span>
+          </div>
         </div>
         <div class="ph-commitment-row">
           <div class="ph-num">03</div>
-          <div class="ph-text"><strong>We treat AI as organizational design. Not technology.</strong> The tools are commoditized. The orchestration that expresses your organization is not. How you structure it, what you point it at, who learns to use it.</div>
-        </div>
-        <div class="ph-commitment-row">
-          <div class="ph-num">04</div>
-          <div class="ph-text"><strong>We stitch offering and operations. Not work them as separate projects.</strong> The brand becomes what the operation actually is. Where the two align, distinction compounds.</div>
-        </div>
-        <div class="ph-commitment-row">
-          <div class="ph-num">05</div>
-          <div class="ph-text"><strong>We get paid for value. Not for time.</strong> When the engagement allows, our compensation reflects the value we deliver. Nothing more, nothing less.</div>
+          <div class="ph-text">
+            <strong>Tie compensation to outcomes.</strong>
+            <span class="ph-desc">Most consulting bills for time regardless of impact. When the engagement supports it, we earn when you do.</span>
+          </div>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- CONTACT CLOSE -->
-  <section class="ph-panel ph-contact">
-    <div class="ph-contact-inner">
-      <div class="ph-kicker">
-        <span class="ph-rule"></span>
-        <span>get in touch</span>
-      </div>
+  <!-- CONTACT -->
+  <section class="ph-panel ph-contact-panel">
+    <div class="ph-contact-panel-inner">
       <p class="ph-contact-statement">If you're ready to carve your path to distinction, let's talk.</p>
       <a class="ph-contact-link" href="mailto:hello@okavango.co">hello@okavango.co</a>
     </div>
@@ -1131,10 +1385,32 @@
 
   <!-- CLOSER -->
   <section class="ph-closer">
-    <div class="ph-closer-text">Carve your own path.</div>
+    <div class="ph-wordmark">Okavango</div>
+    <div class="ph-wordmark-tag">
+      <span class="ph-wordmark-rule"></span>
+      <span>Defy Ordinary</span>
+      <span class="ph-wordmark-rule"></span>
+    </div>
   </section>
 
+
 </div>
+
+<script>
+  // Toggle principle descriptions on click/tap
+  document.querySelectorAll('.ph-philosophy .ph-commitment-row').forEach(function(row) {
+    row.addEventListener('click', function() {
+      var open = row.classList.toggle('is-open');
+      row.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    row.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        row.click();
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
