@@ -637,7 +637,8 @@
     padding: 120px 92px;
     display: flex;
     align-items: center;
-    position: relative;
+    position: sticky;
+    top: 0;
     background: var(--paper);
   }
 
@@ -669,7 +670,8 @@
 
   /* DIAGNOSIS HERO */
   .ph-hero {
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 4;
     box-shadow: 0 -40px 80px rgba(0, 0, 0, 0.08);
     background: var(--tannin);
@@ -728,7 +730,8 @@
 
   /* BRIDGE PANEL */
   .ph-bridge {
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 4.5;
     box-shadow: 0 -40px 80px rgba(36, 40, 44, 0.04);
     background: var(--paper);
@@ -893,7 +896,8 @@
 
   /* PHILOSOPHY PANEL — channel blue, river color */
   .ph-philosophy {
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 6;
     box-shadow: 0 -40px 80px rgba(36, 40, 44, 0.04);
     background: var(--channel);
@@ -1168,13 +1172,15 @@
 
   /* CONTACT PANEL — standalone */
   .ph-contact-panel {
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 6.5;
     box-shadow: 0 -40px 80px rgba(0, 0, 0, 0.04);
     background: var(--tannin);
-    min-height: auto;
+    min-height: 100vh;
     padding: 140px 92px;
-    display: block;
+    display: flex;
+    align-items: center;
   }
   .ph-contact-panel-inner {
     max-width: none;
@@ -1193,7 +1199,10 @@
 
   /* closer */
   .ph-closer {
-    min-height: 60vh;
+    position: sticky;
+    top: 0;
+    z-index: 7;
+    min-height: 100vh;
     padding: 120px 92px;
     display: flex;
     flex-direction: column;
