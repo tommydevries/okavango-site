@@ -1280,6 +1280,7 @@
 
     /* Lower-section panels responsive */
     .ph-panel { padding: 72px 56px; }
+    section.ph-philosophy { padding: 72px 56px; }
     .ph-closer { padding: 0 56px 64px; }
     .ph-hero h1 { padding: 28px 0; }
     .ph-commitment-row { grid-template-columns: 1fr; gap: 8px; }
@@ -1290,6 +1291,45 @@
     .ph-practice-intro { margin-bottom: 64px; }
     .ph-philosophy-wordmark { margin-top: 72px; }
     .ph-offering-row { grid-template-columns: 1fr; gap: 4px; }
+  }
+
+  /* MOBILE LANDSCAPE — short viewport overrides for hero and philosophy panel */
+  @media (max-height: 500px) and (orientation: landscape) {
+    /* Hero: right-align content, shrink type, tighten spacing */
+    .hero {
+      padding: 4vh 6vw;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .hero-content {
+      max-width: 65%;
+    }
+    .hero-river {
+      font-size: clamp(0.85rem, 2.2vw, 1.1rem) !important;
+      line-height: 1.2;
+    }
+    .hero-river .pause {
+      padding: 0.35em 0;
+    }
+    .hero-river .brand-reveal {
+      padding-top: 0.6em;
+      font-size: 1.2em;
+    }
+    .hero-question {
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      margin-top: 0.5rem;
+    }
+    .hero-mark { width: 36px; height: 36px; margin: 0 auto 0.6rem; }
+    .hero-scroll { display: none; }
+
+    /* Philosophy: match other panels' padding on landscape mobile */
+    section.ph-philosophy { padding: 72px 56px; }
+  }
+
+  /* Catch wider mobile landscape (tablet sizes) for philosophy padding too */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    section.ph-philosophy { padding: 100px 72px; }
+    .ph-panel { padding: 100px 72px; }
   }
 </style>
 </head>
