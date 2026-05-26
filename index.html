@@ -1300,14 +1300,19 @@
     .footer-line { grid-column: 1; }
     .footer-meta { grid-column: 1; text-align: center; }
 
-    /* Lower-section panels responsive */
+    /* Lower-section panels responsive — disable card-deck on all but first */
     .ph-panel {
       padding: 72px 32px;
+      position: relative;
+      min-height: auto;
+    }
+    .ph-panel.ph-hero {
+      position: sticky;
       min-height: 100vh;
       min-height: 100svh;
     }
     section.ph-philosophy { padding: 72px 32px; }
-    .ph-closer { padding: 0 32px 64px; }
+    .ph-closer { padding: 0 32px 64px; position: relative; min-height: auto; }
     .ph-hero h1 { padding: 28px 0; }
     .ph-commitment-row { grid-template-columns: 1fr; gap: 8px; }
     .ph-philosophy .ph-commitments-list { grid-template-columns: 1fr; gap: 28px; margin-bottom: 64px; }
