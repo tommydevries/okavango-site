@@ -138,12 +138,12 @@
 
   .hero-question {
     font-family: var(--font-hero);
-    font-size: clamp(1.46rem, 2.43vw, 1.89rem);
-    font-weight: 400;
-    font-style: italic;
-    line-height: 1.12;
-    letter-spacing: 0.005em;
-    color: var(--tannin);
+    font-size: clamp(1.28rem, 2.16vw, 1.67rem);
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1.22;
+    letter-spacing: 0.01em;
+    color: #ffffff;
     margin-top: 0.6rem;
   }
 
@@ -674,7 +674,7 @@
     top: 0;
     z-index: 4;
     box-shadow: 0 -40px 80px rgba(0, 0, 0, 0.08);
-    background: var(--tannin);
+    background: #000000;
   }
   .ph-hero-inner {
     max-width: 1200px;
@@ -696,7 +696,7 @@
     line-height: 1.05;
     letter-spacing: -0.025em;
     max-width: 18ch;
-    color: var(--ink);
+    color: #ffffff;
     text-wrap: balance;
     margin: 0;
   }
@@ -707,7 +707,7 @@
     font-size: clamp(20px, 1.9vw, 26px);
     line-height: 1.5;
     letter-spacing: -0.005em;
-    color: var(--ink);
+    color: #ffffff;
     max-width: 60ch;
     margin: 36px 0 0;
   }
@@ -753,13 +753,13 @@
   }
   .ph-bridge-body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     font-style: normal;
     font-size: clamp(20px, 1.9vw, 26px);
     line-height: 1.5;
     letter-spacing: -0.005em;
     color: var(--ink);
-    max-width: 56ch;
+    max-width: 46ch;
     margin: 0 0 1.8em;
   }
   .ph-bridge-pivot {
@@ -914,7 +914,8 @@
   /* Practice intro block inside merged panel */
   .ph-practice-intro {
     margin-bottom: 120px;
-    max-width: 880px;
+    max-width: none;
+    width: calc(66.66% + 40px);
   }
   .ph-practice-intro .ph-practice-headline {
     margin: 0 0 24px 0;
@@ -952,7 +953,7 @@
     width: 100%;
   }
   .ph-philosophy .ph-commitment-row .ph-text strong {
-    color: var(--cream);
+    color: var(--tannin);
     font-weight: 500;
     display: block;
     margin-bottom: 18px;
@@ -964,6 +965,10 @@
     line-height: 1.55;
     font-weight: 400;
     color: var(--cream-muted);
+  }
+  .ph-philosophy .ph-commitment-row .ph-desc strong {
+    color: #ffffff;
+    font-weight: 500;
   }
   .ph-philosophy .ph-commitment-row .ph-toggle {
     display: none;
@@ -1023,13 +1028,12 @@
   .ph-practice-headline {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 300;
-    font-size: clamp(40px, 6vw, 76px);
-    line-height: 1.05;
-    letter-spacing: -0.028em;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
     color: var(--ink);
-    max-width: 22ch;
+    max-width: 100%;
     margin: 32px 0;
-    text-wrap: balance;
   }
   .ph-practice-headline em {
     font-style: italic;
@@ -1039,10 +1043,10 @@
   .ph-practice-body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 400;
-    font-size: clamp(18px, 1.6vw, 22px);
-    line-height: 1.65;
+    font-size: clamp(20px, 1.9vw, 26px);
+    line-height: 1.5;
     color: var(--ink);
-    max-width: 62ch;
+    max-width: 46ch;
     margin: 0;
   }
   .ph-philosophy-inner {
@@ -1057,9 +1061,8 @@
     line-height: 1.1;
     letter-spacing: -0.028em;
     color: var(--cream);
-    max-width: 22ch;
+    max-width: none;
     margin-bottom: 56px;
-    text-wrap: balance;
   }
   .ph-philosophy h2 em {
     font-style: italic;
@@ -1195,6 +1198,15 @@
   }
   .ph-contact-panel .ph-contact-link:hover {
     border-bottom-color: var(--ink);
+  }
+  .ph-contact-panel .ph-cta-pill {
+    background: #ffffff;
+    color: #000000;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .ph-contact-panel .ph-cta-pill:hover {
+    background: #000000;
+    color: #ffffff;
   }
 
   /* closer */
@@ -1362,7 +1374,7 @@
       <span class="pause">Your business should too.</span>
       <span class="brand-reveal">Okavango.</span>
     </p>
-    <p class="hero-question">Which path will you choose?</p>
+    <p class="hero-question">Which path will your business choose?</p>
     <a href="#next" class="hero-scroll" aria-label="Scroll to next section">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
         <path d="M12 5v14M5 12l7 7 7-7"/>
@@ -1371,56 +1383,59 @@
   </div>
 </div>
 
-<!-- ── OKAVANGO BODY (V6.0) ── -->
+<!-- ── OKAVANGO BODY (V7.1) ── -->
 <div class="ph-scroll-wrap" id="next">
 
-  <!-- DIAGNOSIS HERO -->
+  <!-- 1. PROBLEM -->
   <section class="ph-panel ph-hero">
     <div class="ph-hero-inner">
       <h1>Your business was built for a world that no longer exists.</h1>
-      <p class="ph-hero-sub">As artificial intelligence emerges, you face endless copy-cat competition on one side and AI-enabled competitors operating at a fraction of your cost on the other.</p>
-      <p class="ph-hero-sub ph-hero-realization">Every day you wait, the gap widens.</p>
+      <p class="ph-hero-sub" style="max-width: 36em;"><strong>You're getting squeezed from both sides:</strong> AI-enabled competitors operating at a fraction of your cost on one side and AI-generated copycat competitors on the other.</p>
+      <p class="ph-hero-sub">In the era of AI, <span class="tannin-accent">falling behind</span> and <span class="tannin-accent">blending in</span> are no longer two separate problems. They are two sides of the same problem.</p>
+      <p class="ph-hero-sub ph-hero-realization">Most approaches fail because they solve one or the other.<br>The only way out is to solve them together.</p>
     </div>
   </section>
 
-  <!-- BREATH / BRIDGE + CHOICE -->
+  <!-- 2. SOLUTION -->
   <section class="ph-panel ph-bridge">
     <div class="ph-bridge-inner">
-      <p class="ph-bridge-statement">The pressure to follow the flow is overwhelming.</p>
-      <p class="ph-bridge-body">If you build copycat offerings and generic AI systems, the best you can hope for is becoming a commodity.</p>
-      <p class="ph-bridge-pivot">There is a smarter path —<br><span class="ph-bridge-pivot-sub">it's not as hard as you think.</span></p>
-      <p class="ph-bridge-punch">Choose the path of<br><span class="tannin-accent">meaningful difference</span>.</p>
+      <p class="ph-bridge-punch">Reshape your business<br><span class="tannin-accent">for the era of AI.</span></p>
+      <p class="ph-bridge-body"><strong>Carve your edge into every dimension of your business and amplify it with AI.</strong></p>
+      <div style="margin: 1.8em 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; font-size: clamp(18px, 1.7vw, 24px); line-height: 2.2; color: var(--ink);">
+        <div>Stand out.</div>
+        <div>Get ahead.</div>
+        <div>Face tomorrow with confidence.</div>
+      </div>
       <a class="ph-cta-pill" href="mailto:hello@okavango.co">Start a conversation</a>
     </div>
   </section>
 
-  <!-- THE PRACTICE + PRINCIPLES + CONTACT + CLOSE -->
+  <!-- 3. HOW -->
   <section class="ph-panel ph-philosophy">
     <div class="ph-philosophy-inner">
       <div class="ph-practice-intro">
-        <h2 class="ph-practice-headline">For leaders who can't afford to <em>fall behind</em> or <em>blend in.</em></h2>
-        <p class="ph-practice-body">Build <span class="tannin-accent">AI-enabled leverage</span> and <span class="tannin-accent">meaningful difference</span> into your offering and operations. Build a business for the world that's emerging.</p>
+        <h2 class="ph-practice-headline">Can't afford to <em>fall behind</em> or <em>blend in?</em> <span style="font-weight: 300; font-size: clamp(22px, 2.4vw, 32px); display: block; margin-top: 0.4em;">Okavango activates small, intentional, high-leverage changes that<br>deliver quick impact and pay for themselves.</span></h2>
       </div>
       <div class="ph-commitments-list">
         <div class="ph-commitment-row">
           <div class="ph-num">01</div>
           <div class="ph-text">
-            <strong>Work from first principles.</strong>
-            <span class="ph-desc">Yesterday's playbooks are dangerous. We build for the world as it is.</span>
+            <strong>Find your edge.</strong>
+            <span class="ph-desc"><strong>Name what makes you meaningfully different and hard to copy.</strong> It needs to be relevant, significant, and true. If you don't know what it is, we can help you figure it out — so no matter where people interact with you, they feel your unique signature.</span>
           </div>
         </div>
         <div class="ph-commitment-row">
           <div class="ph-num">02</div>
           <div class="ph-text">
-            <strong>Compound small changes.</strong>
-            <span class="ph-desc">Big changes get rejected by your people or your systems. We stack small, aligned moves that build proof and momentum.</span>
+            <strong>Amplify it with AI.</strong>
+            <span class="ph-desc"><strong>Use AI to expand your capabilities, not only drive efficiency.</strong> Your AI must amplify your difference, not make you more the same. Design, build, and activate AI systems that give you sustainable leverage across your offering and operations.</span>
           </div>
         </div>
         <div class="ph-commitment-row">
           <div class="ph-num">03</div>
           <div class="ph-text">
-            <strong>Tie compensation to outcomes.</strong>
-            <span class="ph-desc">Most consulting bills for time regardless of impact. When the engagement supports it, we earn when you do.</span>
+            <strong>Lead tomorrow.</strong>
+            <span class="ph-desc"><strong>Build for the world that is emerging, not the one that is disappearing.</strong> Bracing for tomorrow by optimizing for yesterday's rules is a losing formula. Create a business that's capable of succeeding in the era of AI so you can face the future with confidence.</span>
           </div>
         </div>
       </div>
@@ -1428,20 +1443,23 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- 4. CTA -->
   <section class="ph-panel ph-contact-panel">
     <div class="ph-contact-panel-inner">
-      <p class="ph-contact-statement">If you're ready to carve your path to distinction, let's talk.</p>
-      <a class="ph-contact-link" href="mailto:hello@okavango.co">hello@okavango.co</a>
+      <p class="ph-contact-statement">Ready to carve your own path?</p>
+      <a class="ph-cta-pill" href="mailto:hello@okavango.co">Start a conversation</a>
+      <div style="margin-top: 2rem;">
+        <a class="ph-contact-link" href="mailto:hello@okavango.co">hello@okavango.co</a>
+      </div>
     </div>
   </section>
 
-  <!-- CLOSER -->
+  <!-- 5. CLOSER -->
   <section class="ph-closer">
     <div class="ph-wordmark">Okavango</div>
     <div class="ph-wordmark-tag">
       <span class="ph-wordmark-rule"></span>
-      <span>Defy Ordinary</span>
+      <span>Your edge. AI amplified.</span>
       <span class="ph-wordmark-rule"></span>
     </div>
   </section>
