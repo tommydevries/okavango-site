@@ -1301,18 +1301,22 @@
     .footer-meta { grid-column: 1; text-align: center; }
 
     /* Lower-section panels responsive */
-    .ph-panel { padding: 72px 56px; }
-    section.ph-philosophy { padding: 72px 56px; }
-    .ph-closer { padding: 0 56px 64px; }
+    .ph-panel { padding: 72px 32px; min-height: auto; position: relative; }
+    section.ph-philosophy { padding: 72px 32px; min-height: auto; position: relative; }
+    .ph-closer { padding: 0 32px 64px; }
     .ph-hero h1 { padding: 28px 0; }
     .ph-commitment-row { grid-template-columns: 1fr; gap: 8px; }
     .ph-philosophy .ph-commitments-list { grid-template-columns: 1fr; gap: 28px; margin-bottom: 64px; }
     .ph-philosophy .ph-commitment-row { padding: 28px 0 0 0; gap: 16px; }
     .ph-philosophy .ph-commitment-row .ph-toggle { top: 28px; }
     .ph-philosophy-contact { padding-top: 48px; }
-    .ph-practice-intro { margin-bottom: 64px; }
+    .ph-practice-intro { margin-bottom: 48px; width: 100%; }
+    .ph-practice-headline { white-space: normal !important; }
     .ph-philosophy-wordmark { margin-top: 72px; }
     .ph-offering-row { grid-template-columns: 1fr; gap: 4px; }
+    br.desktop-only { display: none; }
+    .ph-wordmark-tag { white-space: nowrap; font-size: clamp(9px, 2.5vw, 13px); gap: 12px; }
+    .ph-wordmark-tag .ph-wordmark-rule { width: 24px; }
   }
 
   /* MOBILE LANDSCAPE — short viewport overrides for hero and philosophy panel */
@@ -1415,7 +1419,7 @@
   <section class="ph-panel ph-philosophy">
     <div class="ph-philosophy-inner">
       <div class="ph-practice-intro">
-        <h2 class="ph-practice-headline">Can't afford to <em>fall behind</em> or <em>blend in?</em> <span style="font-weight: 300; font-size: clamp(22px, 2.4vw, 32px); display: block; margin-top: 0.4em;">Okavango activates small, intentional, high-leverage changes that<br>deliver quick impact and pay for themselves.</span></h2>
+        <h2 class="ph-practice-headline">Can't afford to <em>fall behind</em> or <em>blend in?</em> <span style="font-weight: 300; font-size: clamp(22px, 2.4vw, 32px); display: block; margin-top: 0.4em;">Okavango activates small, intentional, high-leverage changes that<br class="desktop-only">deliver quick impact and pay for themselves.</span></h2>
       </div>
       <div class="ph-commitments-list">
         <div class="ph-commitment-row">
