@@ -1572,8 +1572,12 @@
   // Prevent scrolling while splash is visible
   document.body.style.overflow = 'hidden';
   window.scrollTo(0, 0);
+  var splashDismissed = false;
 
-  document.getElementById('splash-enter').addEventListener('click', function() {
+  function dismissSplash() {
+    if (splashDismissed) return;
+    splashDismissed = true;
+
     var splash = document.getElementById('splash');
     var heroVideo = document.querySelector('.hero .video-a');
     var heroContent = document.querySelector('.hero-content');
@@ -1601,6 +1605,18 @@
         document.body.style.overflow = '';
       }, 1500);
     }, 800);
+  }
+
+  // Click triggers transition
+  document.getElementById('splash-enter').addEventListener('click', dismissSplash);
+
+  // Scroll triggers transition (wheel, touch, keyboard)
+  window.addEventListener('wheel', dismissSplash, { once: true });
+  window.addEventListener('touchmove', dismissSplash, { once: true });
+  window.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown') {
+      dismissSplash();
+    }
   });
 
   // ── DIAGNOSTIC LOGIC ──
