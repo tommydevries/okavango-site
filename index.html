@@ -287,74 +287,45 @@
     box-shadow: 0 -40px 80px rgba(36, 40, 44, 0.04);
     background: var(--paper);
     display: block;
-    padding: 140px 92px 120px;
+    padding: 160px 92px 120px;
   }
   .ph-bridge-inner {
     max-width: 1100px;
     width: 100%;
+    margin: 0 auto;
+    text-align: center;
   }
-  .ph-bridge-rally {
-    font-size: clamp(28px, 3.5vw, 48px);
-    line-height: 1.15;
-    margin: 0 0 0.8em;
+  .ph-bridge-label {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    border: 1px solid rgba(26,23,20,0.15);
+    padding: 8px 20px;
+    border-radius: 100px;
+    margin-bottom: 48px;
   }
-  .ph-bridge-rally-accent {
-    display: block;
-    font-family: var(--font-hero);
-    font-style: italic;
-    font-weight: 400;
-    letter-spacing: -0.005em;
-    color: var(--tannin);
-  }
-  .ph-bridge-rally-base {
-    display: block;
+  .ph-bridge-headline {
     font-family: var(--font-body);
-    font-style: normal;
-    font-weight: 300;
-    letter-spacing: -0.02em;
+    font-weight: 600;
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
     color: var(--ink);
+    margin: 0 auto 36px;
+    max-width: 16ch;
   }
-  .ph-bridge-rally-2 {
-    font-family: var(--font-hero);
-    font-weight: 400;
-    font-style: italic;
-    font-size: clamp(30px, 3.5vw, 52px);
-    line-height: 1.15;
-    letter-spacing: -0.005em;
-    color: var(--tannin);
-    margin: 0 0 0.8em;
-  }
-  .ph-bridge-punch {
-    font-family: var(--font-body);
-    font-weight: 300;
-    font-style: normal;
-    font-size: clamp(22px, 2.2vw, 32px);
-    line-height: 1.35;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-    max-width: 32ch;
-    margin: 0 0 2em;
-    text-wrap: balance;
-  }
-  .ph-bridge-body {
-    font-family: var(--font-body);
-    font-weight: 400;
-    font-size: clamp(18px, 1.7vw, 22px);
-    line-height: 1.5;
-    letter-spacing: -0.005em;
-    color: var(--ink);
-    max-width: 46ch;
-    margin: 0 0 3em;
-  }
-  .ph-bridge-punch-2 {
+  .ph-bridge-sub {
     font-family: var(--font-body);
     font-weight: 300;
     font-size: clamp(16px, 1.4vw, 19px);
     line-height: 1.55;
     letter-spacing: -0.005em;
     color: var(--ink-muted);
-    max-width: 42ch;
-    margin: 0 0 2.5em;
+    max-width: 52ch;
+    margin: 0 auto 120px;
   }
 
   /* Steps */
@@ -363,6 +334,9 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 48px;
     width: 100%;
+    text-align: left;
+    border-top: 1px solid rgba(26,23,20,0.1);
+    padding-top: 48px;
     margin: 0 0 3em;
   }
   .ph-bridge-step-num {
@@ -373,13 +347,12 @@
     margin-bottom: 16px;
   }
   .ph-bridge-step-title {
-    font-family: var(--font-hero);
-    font-size: clamp(22px, 2.2vw, 32px);
-    font-weight: 400;
-    font-style: italic;
-    line-height: 1.2;
+    font-family: var(--font-body);
+    font-size: clamp(16px, 1.3vw, 20px);
+    font-weight: 600;
+    line-height: 1.3;
     color: var(--ink);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
   .ph-bridge-step-desc {
     font-family: var(--font-body);
@@ -1270,9 +1243,9 @@
     .ph-panel { padding: 72px 32px; position: relative; min-height: auto; }
 
     /* Bridge */
-    .ph-bridge { padding: 72px 32px !important; }
-    .ph-bridge-rally { font-size: clamp(32px, 9vw, 48px); }
-    .ph-bridge-rally-2 { font-size: clamp(34px, 9vw, 52px); }
+    .ph-bridge { padding: 80px 32px 72px !important; }
+    .ph-bridge-headline { font-size: clamp(32px, 8vw, 48px); }
+    .ph-bridge-sub { margin-bottom: 72px; }
     .ph-bridge-steps { grid-template-columns: 1fr; gap: 32px; }
     .ph-bridge-pillars { grid-template-columns: 1fr; gap: 24px; }
 
@@ -1378,9 +1351,9 @@
   <div class="ph-runway ph-runway--tall">
   <section class="ph-panel ph-bridge">
     <div class="ph-bridge-inner">
-      <div class="ph-bridge-rally fade-up"><span class="ph-bridge-rally-accent">Reshape your business</span><span class="ph-bridge-rally-base">for the era of AI.</span></div>
-      <p class="ph-bridge-punch fade-up fade-up-delay-1">Become AI-native and meaningfully different.</p>
-      <p class="ph-bridge-punch-2 fade-up fade-up-delay-1">Okavango finds what makes your organization distinct, then scales it with AI — so you can face the future with confidence.</p>
+      <div class="ph-bridge-label fade-up">The AI distinction firm</div>
+      <h2 class="ph-bridge-headline fade-up">Reshape your business for the era of AI.</h2>
+      <p class="ph-bridge-sub fade-up fade-up-delay-1">Become AI-native and meaningfully different. Okavango finds what makes your organization distinct, then scales it with AI — so you can face the future with confidence.</p>
 
       <!-- THREE STEPS (the plan) -->
       <div class="ph-bridge-steps fade-up fade-up-delay-2">
