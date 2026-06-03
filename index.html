@@ -1234,11 +1234,14 @@
     .splash-enter { width: 48px; height: 48px; }
     .splash-content { gap: 24px; }
 
-    /* Hero */
-    .hero { padding: 0 6vw 10vh; align-items: stretch; }
+    /* Hero - disable sticky on mobile */
+    .hero { padding: 0 6vw 10vh; align-items: stretch; position: relative; }
     .hero video { object-position: 30% center !important; }
     .hero-content { max-width: 100%; }
     .hero-river { font-size: clamp(1.1rem, 4.5vw, 1.4rem); }
+
+    /* Collapse runways on mobile - no sticky stacking needed */
+    .ph-runway { min-height: auto !important; }
 
     /* Panels general */
     .ph-panel { padding: 72px 32px; position: relative; min-height: auto; }
