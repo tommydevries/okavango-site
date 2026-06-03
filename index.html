@@ -294,20 +294,25 @@
     width: 100%;
   }
   .ph-bridge-rally {
-    font-family: var(--font-hero);
-    font-style: italic;
-    font-weight: 400;
     font-size: clamp(28px, 3.5vw, 48px);
     line-height: 1.15;
-    letter-spacing: -0.005em;
-    color: var(--ink);
     margin: 0 0 0.8em;
   }
   .ph-bridge-rally-accent {
+    display: block;
+    font-family: var(--font-hero);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    color: var(--tannin);
+  }
+  .ph-bridge-rally-base {
+    display: block;
     font-family: var(--font-body);
     font-style: normal;
     font-weight: 300;
-    color: var(--tannin);
+    letter-spacing: -0.02em;
+    color: var(--ink);
   }
   .ph-bridge-rally-2 {
     font-family: var(--font-hero);
@@ -341,6 +346,17 @@
     max-width: 46ch;
     margin: 0 0 3em;
   }
+  .ph-bridge-punch-2 {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: clamp(16px, 1.4vw, 19px);
+    line-height: 1.55;
+    letter-spacing: -0.005em;
+    color: var(--ink-muted);
+    max-width: 42ch;
+    margin: 0 0 2.5em;
+  }
+
   /* Steps */
   .ph-bridge-steps {
     display: grid;
@@ -1362,8 +1378,9 @@
   <div class="ph-runway ph-runway--tall">
   <section class="ph-panel ph-bridge">
     <div class="ph-bridge-inner">
-      <div class="ph-bridge-rally fade-up"><span class="ph-bridge-rally-accent">Reshape your business</span><br>for the era of AI.</div>
-      <p class="ph-bridge-punch fade-up fade-up-delay-1">Become AI-native and meaningfully different. Okavango finds what makes your organization distinct, then scales it with AI — so you can face the future with confidence.</p>
+      <div class="ph-bridge-rally fade-up"><span class="ph-bridge-rally-accent">Reshape your business</span><span class="ph-bridge-rally-base">for the era of AI.</span></div>
+      <p class="ph-bridge-punch fade-up fade-up-delay-1">Become AI-native and meaningfully different.</p>
+      <p class="ph-bridge-punch-2 fade-up fade-up-delay-1">Okavango finds what makes your organization distinct, then scales it with AI — so you can face the future with confidence.</p>
 
       <!-- THREE STEPS (the plan) -->
       <div class="ph-bridge-steps fade-up fade-up-delay-2">
