@@ -1,0 +1,23 @@
+User-agent: *
+Disallow: /reports/
+
+User-agent: GPTBot
+Disallow: /reports/
+
+User-agent: ClaudeBot
+Disallow: /reports/
+
+User-agent: CCBot
+Disallow: /reports/
+
+User-agent: anthropic-ai
+Disallow: /reports/
+
+User-agent: PerplexityBot
+Disallow: /reports/
+
+User-agent: ChatGPT-User
+Disallow: /reports/
+
+User-agent: Googlebot-Extended
+Disallow: /reports/
