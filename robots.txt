@@ -1,23 +1,31 @@
 User-agent: *
 Disallow: /reports/
+Disallow: /hjpt/
 
 User-agent: GPTBot
 Disallow: /reports/
+Disallow: /hjpt/
 
 User-agent: ClaudeBot
 Disallow: /reports/
+Disallow: /hjpt/
 
 User-agent: CCBot
 Disallow: /reports/
+Disallow: /hjpt/
 
 User-agent: anthropic-ai
 Disallow: /reports/
+Disallow: /hjpt/
 
 User-agent: PerplexityBot
 Disallow: /reports/
+Disallow: /hjpt/
 
 User-agent: ChatGPT-User
 Disallow: /reports/
+Disallow: /hjpt/
 
 User-agent: Googlebot-Extended
 Disallow: /reports/
+Disallow: /hjpt/
