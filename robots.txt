@@ -1,31 +1,39 @@
 User-agent: *
 Disallow: /reports/
 Disallow: /hjpt/
+Disallow: /boerins/
 
 User-agent: GPTBot
 Disallow: /reports/
 Disallow: /hjpt/
+Disallow: /boerins/
 
 User-agent: ClaudeBot
 Disallow: /reports/
 Disallow: /hjpt/
+Disallow: /boerins/
 
 User-agent: CCBot
 Disallow: /reports/
 Disallow: /hjpt/
+Disallow: /boerins/
 
 User-agent: anthropic-ai
 Disallow: /reports/
 Disallow: /hjpt/
+Disallow: /boerins/
 
 User-agent: PerplexityBot
 Disallow: /reports/
 Disallow: /hjpt/
+Disallow: /boerins/
 
 User-agent: ChatGPT-User
 Disallow: /reports/
 Disallow: /hjpt/
+Disallow: /boerins/
 
 User-agent: Googlebot-Extended
 Disallow: /reports/
 Disallow: /hjpt/
+Disallow: /boerins/
