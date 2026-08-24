@@ -17,30 +17,96 @@
 <meta property="og:description" content="We activate AI to help businesses become more distinct — instead of more the same.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://okavango.co">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-v4.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&family=Orbit&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Calligraffitti&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Orbit&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
+  /* ══════════════════════════════════════════════════════════════════
+     OKAVANGO v4.0 BRAND TOKENS
+     Copied verbatim from Okavango Brand/book-v4.0/okavango-brand-spec.md
+     Same system the Mav Group RFP response was built on
+     (Document Templates/Proposal System/skins/skin-okavango.css).
+     ══════════════════════════════════════════════════════════════════ */
   :root {
-    --paper: #ffffff;
-    --night: #0e0d0b;
-    --night-2: #14130f;
-    --channel: #1a3a4a;
-    --channel-3: #4a7587;
-    --tannin: #c89a52;
-    --tannin-muted: rgba(200, 154, 82, 0.25);
-    --ink: #1a1714;
-    --ink-muted: #5a5448;
-    --cream: #ffffff;
-    --cream-muted: rgba(255, 255, 255, 0.65);
-    --cream-dim: rgba(255, 255, 255, 0.35);
+    /* ---- type (spec §1) ---- */
+    --font-display:   'Cormorant Garamond', Georgia, serif;   /* DISPLAY ONLY, 32px+ */
+    --font-body:      'Helvetica Neue', Helvetica, Arial, system-ui, sans-serif;
+    --font-signal:    'Orbit', ui-monospace, Menlo, monospace; /* labels, weight 400 ONLY */
+    --font-tributary: 'Calligraffitti', cursive;               /* the one hand-drawn letter */
 
-    --font: 'Spectral', Georgia, serif;
-    --font-hero: 'Spectral', Georgia, serif;
-    --font-mono: 'Orbit', 'Helvetica Neue', sans-serif;
-    --font-body: 'Spectral', Georgia, serif;
+    /* ---- fields: ONE per surface, never two (spec §7) ---- */
+    --c-night:   #1a1410;   /* substance / default hero        */
+    --c-channel: #1a3a4a;   /* formal                          */
+    --c-tannin:  #c89a52;   /* marketing — a FIELD, not accent */
+    --c-mokoro:  #5a3a24;   /* craft                           */
+    --c-slate:   #f4f4f0;   /* the ONLY light reading surface  */
+    --p-night:   #2a2a26;   /* companion panel to Night        */
+
+    /* ---- figure ---- */
+    --c-sand: #ede4d0;      /* text on any dark field */
+    --c-ink:  #0e0d0b;      /* text on Slate          */
+    --c-sun:  #d6a05c;      /* the SINGLE accent      */
+
+    /* ---- tracking (spec §3) ---- */
+    --ls-display:  -0.035em;  /* hero display 60px+     */
+    --ls-tight:    -0.02em;   /* standard headline      */
+    --ls-wordmark:  0.03em;   /* wordmark lockup ONLY   */
+    --ls-mono:      0.14em;   /* Orbit labels           */
+
+    /* ---- bindings: the page's existing names, pointed at real tokens ---- */
+    --paper:       var(--c-slate);        /* never pure white */
+    --night:       var(--c-night);
+    --night-2:     var(--p-night);
+    --channel:     var(--c-channel);
+    --channel-3:   #4a7587;
+    --accent:      var(--c-sun);
+    --tannin:      var(--c-sun);          /* accent uses resolve to Sun */
+    --tannin-muted: rgba(214, 160, 92, 0.25);
+    --ink:         var(--c-ink);
+    --ink-muted:   rgba(14, 13, 11, 0.62);
+    --cream:       var(--c-sand);
+    --cream-muted: rgba(237, 228, 208, 0.66);
+    --cream-dim:   rgba(237, 228, 208, 0.40);
+    --hairline-dark:  rgba(237, 228, 208, 0.14);  /* spec §7 */
+    --hairline-light: rgba(14, 13, 11, 0.14);
+
+    --font:      var(--font-body);
+    --font-hero: var(--font-display);
+    --font-mono: var(--font-signal);
+  }
+
+  /* ══════════════════════════════════════════════════════════════════
+     THE WORDMARK (spec §5)
+     "Okavango", upright Cormorant 400, the lowercase v (4th letter) in
+     Calligraffitti. No period. Mono colour — the v inherits, it is never
+     coloured separately. No extra kern around the v.
+     ══════════════════════════════════════════════════════════════════ */
+  .wm {
+    font-family: var(--font-display);
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: var(--ls-wordmark);
+    white-space: nowrap;
+    line-height: 1;
+  }
+  .wm .v {
+    font-family: var(--font-tributary);
+    font-size: 0.8em;
+    vertical-align: 0.02em;
+    letter-spacing: 0;
+  }
+
+  /* THE TRIBUTARY LETTER (spec §4)
+     One hand-drawn Calligraffitti letter inside an otherwise upright
+     Cormorant word. Display text only, one per line, inherits its colour. */
+  .trib {
+    font-family: var(--font-tributary);
+    font-size: 0.8em;
+    vertical-align: 0.02em;
+    letter-spacing: 0;
   }
 
   html { scroll-behavior: smooth; font-size: 16px; }
@@ -92,12 +158,12 @@
   }
 
   .hero-brand-name {
-    font-family: var(--font-hero);
+    font-family: var(--font-display);
     font-style: normal;
-    font-weight: 600;
-    font-size: 1.2rem;
-    letter-spacing: 0.02em;
-    color: var(--cream);
+    font-weight: 400;
+    font-size: 1.45rem;
+    letter-spacing: var(--ls-wordmark);
+    color: var(--c-sand);
     line-height: 1;
   }
 
@@ -105,7 +171,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(14,13,11,0.75) 0%, rgba(14,13,11,0.2) 50%, rgba(14,13,11,0.15) 100%);
+    background: linear-gradient(to top, rgba(26,20,16,0.75) 0%, rgba(26,20,16,0.2) 50%, rgba(26,20,16,0.15) 100%);
     z-index: 1;
   }
 
@@ -118,11 +184,11 @@
   }
 
   .hero-river {
-    font-family: var(--font-hero);
-    font-size: clamp(1.1rem, 1.85vw, 1.45rem);
-    font-weight: 400;
-    line-height: 1.3;
-    letter-spacing: 0.005em;
+    font-family: var(--font-display);
+    font-size: clamp(20px, 1.85vw, 24px);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.005em;
     color: var(--cream);
     max-width: 100%;
     margin: 0;
@@ -136,21 +202,23 @@
   .hero-river .brand-reveal {
     display: block;
     padding-top: 1.1em;
-    font-style: italic;
-    font-size: 1.3em;
-    letter-spacing: 0.03em;
+    font-family: var(--font-display);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.55em;
+    letter-spacing: var(--ls-wordmark);
     line-height: 1.1;
-    color: var(--tannin);
+    color: var(--c-sun);
   }
 
   .hero-question {
-    font-family: var(--font-hero);
+    font-family: var(--font-body);
     font-size: clamp(1.28rem, 2.16vw, 1.67rem);
     font-weight: 300;
     font-style: normal;
     line-height: 1.22;
-    letter-spacing: 0.01em;
-    color: #ffffff;
+    letter-spacing: 0;
+    color: var(--c-sand);
     margin-top: 0.6rem;
   }
 
@@ -234,18 +302,18 @@
   .ph-problem-kicker span:last-child {
     font-family: var(--font-mono);
     font-size: 13px;
-    letter-spacing: 0.12em;
+    letter-spacing: var(--ls-mono);
     text-transform: uppercase;
     color: var(--tannin);
   }
   .ph-problem h1 {
-    font-family: var(--font-body);
+    font-family: var(--font-display);
     font-weight: 500;
-    font-size: clamp(40px, 5vw, 64px);
-    line-height: 1.12;
-    letter-spacing: -0.015em;
+    font-size: clamp(42px, 5.4vw, 72px);
+    line-height: 1.06;
+    letter-spacing: var(--ls-display);
     max-width: 22ch;
-    color: #ffffff;
+    color: var(--c-sand);
     text-wrap: balance;
     margin: 0 0 56px;
   }
@@ -255,7 +323,7 @@
     font-size: clamp(20px, 1.8vw, 24px);
     line-height: 1.55;
     letter-spacing: -0.005em;
-    color: #ffffff;
+    color: var(--c-sand);
     max-width: 30em;
     margin-bottom: 1em;
   }
@@ -270,17 +338,17 @@
     font-weight: 600;
     font-size: clamp(20px, 1.8vw, 24px);
     line-height: 1.55;
-    color: #ffffff;
+    color: var(--c-sand);
     max-width: 49ch;
     margin: 1.5em 0 0;
   }
   .ph-problem-thesis {
-    font-family: var(--font-hero);
-    font-weight: 400;
-    font-style: italic;
-    font-size: clamp(32px, 4vw, 56px);
-    line-height: 1.1;
-    letter-spacing: -0.005em;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-style: normal;
+    font-size: clamp(34px, 4.3vw, 60px);
+    line-height: 1.08;
+    letter-spacing: var(--ls-tight);
     color: var(--cream);
     max-width: 22ch;
     text-wrap: balance;
@@ -315,25 +383,25 @@
     text-transform: uppercase;
     color: var(--ink-muted);
     padding: 0 0 6px;
-    border-bottom: 1px solid rgba(26,23,20,0.25);
+    border-bottom: 1px solid var(--hairline-light);
     margin-bottom: 40px;
   }
   .ph-bridge-headline {
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: clamp(30px, 4vw, 52px);
-    line-height: 1.3;
-    letter-spacing: -0.02em;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(34px, 4.4vw, 60px);
+    line-height: 1.14;
+    letter-spacing: var(--ls-tight);
     color: var(--ink);
     margin: 0 auto 40px;
     max-width: none;
   }
   .ph-bridge-headline em {
-    font-family: var(--font-hero);
+    font-family: var(--font-display);
     font-style: italic;
     font-weight: 500;
-    font-size: 1.08em;
-    color: var(--tannin);
+    font-size: 1.05em;
+    color: var(--c-sun);
   }
   .ph-bridge-sub {
     font-family: var(--font-body);
@@ -353,7 +421,7 @@
     gap: 48px;
     width: 100%;
     text-align: left;
-    border-top: 1px solid rgba(26,23,20,0.1);
+    border-top: 1px solid var(--hairline-light);
     padding-top: 48px;
     margin: 0 0 3em;
   }
@@ -384,17 +452,17 @@
   .ph-bridge-divider {
     width: 100%;
     border: none;
-    border-top: 1px solid rgba(26,23,20,0.1);
+    border-top: 1px solid var(--hairline-light);
     margin: 2em 0 3em;
   }
 
   /* Second half headline */
   .ph-bridge-second-headline {
-    font-family: var(--font-body);
-    font-weight: 300;
-    font-size: clamp(28px, 3vw, 40px);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(34px, 3.4vw, 46px);
+    line-height: 1.12;
+    letter-spacing: var(--ls-tight);
     color: var(--ink);
     margin-bottom: 12px;
     max-width: 22ch;
@@ -412,7 +480,7 @@
   .ph-bridge-pillars-label {
     font-family: var(--font-mono);
     font-size: 12px;
-    letter-spacing: 0.12em;
+    letter-spacing: var(--ls-mono);
     text-transform: uppercase;
     color: var(--ink-muted);
     margin-bottom: 24px;
@@ -424,7 +492,7 @@
     margin: 0 0 3em;
     width: 100%;
     padding-top: 2em;
-    border-top: 1px solid rgba(26,23,20,0.1);
+    border-top: 1px solid var(--hairline-light);
   }
   .ph-bridge-pillar-title {
     font-family: var(--font-body);
@@ -496,7 +564,7 @@
   .ph-questions-label span {
     font-family: var(--font-mono);
     font-size: 13px;
-    letter-spacing: 0.12em;
+    letter-spacing: var(--ls-mono);
     text-transform: uppercase;
     color: var(--tannin);
   }
@@ -513,27 +581,27 @@
     gap: 2.5rem;
     align-items: baseline;
     padding: 72px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid var(--hairline-dark);
   }
   .ph-q:last-child {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid var(--hairline-dark);
   }
   .ph-q-num {
-    font-family: var(--font-hero);
+    font-family: var(--font-display);
     font-size: clamp(2.2rem, 3vw, 3rem);
-    font-style: italic;
-    font-weight: 300;
-    letter-spacing: 0.02em;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: var(--ls-tight);
     color: var(--tannin);
     line-height: 1;
   }
   .ph-q-text {
-    font-family: var(--font-hero);
-    font-size: clamp(1.8rem, 3vw, 2.8rem);
-    font-weight: 300;
-    font-style: italic;
-    line-height: 1.25;
-    letter-spacing: 0.005em;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3vw, 2.9rem);
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1.16;
+    letter-spacing: var(--ls-tight);
     color: var(--cream);
     max-width: 32ch;
     margin: 0 0 1rem;
@@ -562,11 +630,11 @@
     width: 100%;
   }
   .ph-build-intro {
-    font-family: var(--font-body);
-    font-weight: 400;
-    font-size: clamp(28px, 3.5vw, 44px);
-    line-height: 1.15;
-    letter-spacing: -0.028em;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(34px, 3.9vw, 50px);
+    line-height: 1.12;
+    letter-spacing: var(--ls-tight);
     color: var(--cream);
     max-width: none;
     margin-bottom: 24px;
@@ -584,7 +652,7 @@
     color: var(--cream-muted);
   }
   .ph-fade-line {
-    background: linear-gradient(to right, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.4) 20%, rgba(255,255,255,0.25) 45%, rgba(255,255,255,0.12) 70%, rgba(255,255,255,0.06) 100%);
+    background: linear-gradient(to right, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.4) 20%, rgba(255,255,255,0.25) 45%, var(--hairline-dark) 70%, rgba(255,255,255,0.06) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -600,11 +668,11 @@
     margin-bottom: 56px;
   }
   .ph-build-headline {
-    font-family: var(--font-body);
-    font-weight: 300;
-    font-size: clamp(40px, 5vw, 64px);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(42px, 5.4vw, 72px);
+    line-height: 1.06;
+    letter-spacing: var(--ls-display);
     color: var(--cream);
     margin: 0 0 28px;
   }
@@ -637,12 +705,12 @@
     gap: 1.5rem;
     align-items: baseline;
     padding: 20px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: 1px solid var(--hairline-dark);
     cursor: pointer;
     transition: background 0.2s ease;
   }
   .ph-offering:last-child {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid var(--hairline-dark);
   }
   .ph-offering:hover {
     background: rgba(255, 255, 255, 0.03);
@@ -682,13 +750,23 @@
     opacity: 1;
     margin-top: 12px;
   }
+  /* Touch devices have no hover, so every description above stayed invisible:
+     the five offerings rendered as five bare titles with no explanation.
+     Reveal them wherever hover is unavailable. Desktop behaviour unchanged. */
+  @media (hover: none) {
+    .ph-offering .ph-o-bold {
+      max-height: none;
+      opacity: 1;
+      margin-top: 12px;
+    }
+  }
   .ph-offering .ph-o-desc {
     display: none;
   }
 
   /* Engagement note */
   .ph-engage {
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: 1px solid var(--hairline-dark);
     padding-top: 48px;
     margin-top: 80px;
     max-width: 62ch;
@@ -696,7 +774,7 @@
   .ph-engage-label {
     font-family: var(--font-mono);
     font-size: 11px;
-    letter-spacing: 0.14em;
+    letter-spacing: var(--ls-mono);
     text-transform: uppercase;
     color: var(--cream-dim);
     margin-bottom: 14px;
@@ -733,17 +811,17 @@
   .ph-diag-label span {
     font-family: var(--font-mono);
     font-size: 13px;
-    letter-spacing: 0.12em;
+    letter-spacing: var(--ls-mono);
     text-transform: uppercase;
     color: var(--tannin);
   }
   .ph-diag-headline {
-    font-family: var(--font-hero);
-    font-weight: 400;
-    font-style: italic;
-    font-size: clamp(32px, 4vw, 52px);
-    line-height: 1.15;
-    letter-spacing: -0.005em;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-style: normal;
+    font-size: clamp(34px, 4.2vw, 58px);
+    line-height: 1.1;
+    letter-spacing: var(--ls-tight);
     color: var(--cream);
     margin-bottom: 16px;
     max-width: 20ch;
@@ -777,7 +855,7 @@
   .ph-diag-q-num {
     font-family: var(--font-mono);
     font-size: 12px;
-    letter-spacing: 0.12em;
+    letter-spacing: var(--ls-mono);
     text-transform: uppercase;
     color: var(--cream-dim);
     margin-bottom: 20px;
@@ -803,7 +881,7 @@
     text-align: left;
     background: none;
     border: none;
-    border-top: 1px solid rgba(255,255,255,0.08);
+    border-top: 1px solid var(--hairline-dark);
     padding: 20px 24px;
     font-family: var(--font-body);
     font-size: clamp(15px, 1.2vw, 17px);
@@ -814,7 +892,7 @@
     transition: color 0.2s ease, background 0.2s ease;
   }
   .ph-diag-opt:last-child {
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid var(--hairline-dark);
   }
   .ph-diag-opt:hover {
     color: var(--cream);
@@ -826,8 +904,8 @@
   }
   .ph-diag-opt.selected {
     color: var(--tannin);
-    background: rgba(200,154,82,0.08);
-    border-color: rgba(200,154,82,0.2);
+    background: rgba(214, 160, 92, 0.08);
+    border-color: rgba(214, 160, 92, 0.2);
   }
 
   /* Progress bar */
@@ -839,7 +917,7 @@
   .ph-diag-dot {
     width: 32px;
     height: 3px;
-    background: rgba(255,255,255,0.12);
+    background: var(--hairline-dark);
     border-radius: 2px;
     transition: background 0.3s ease;
   }
@@ -857,17 +935,18 @@
   .ph-diag-persona-label {
     font-family: var(--font-mono);
     font-size: 12px;
-    letter-spacing: 0.14em;
+    letter-spacing: var(--ls-mono);
     text-transform: uppercase;
     color: var(--tannin);
     margin-bottom: 20px;
   }
   .ph-diag-persona-name {
-    font-family: var(--font-hero);
-    font-size: clamp(2rem, 3.5vw, 3.2rem);
-    font-weight: 400;
-    font-style: italic;
-    line-height: 1.15;
+    font-family: var(--font-display);
+    font-size: clamp(2.1rem, 3.6vw, 3.4rem);
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1.1;
+    letter-spacing: var(--ls-tight);
     color: var(--cream);
     margin-bottom: 32px;
   }
@@ -889,7 +968,7 @@
     max-width: 49ch;
     margin-bottom: 40px;
     padding-top: 24px;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid var(--hairline-dark);
   }
   .ph-diag-result .ph-cta-pill {
     background: var(--tannin);
@@ -942,12 +1021,12 @@
   }
 
   /* ════════════════════════════════
-     PANEL 5: CTA (tannin gold)
+     PANEL 5: CTA (Tannin field — spec §7: Tannin is a FIELD, not an accent)
      ════════════════════════════════ */
   .ph-cta {
     z-index: 9;
     box-shadow: 0 -40px 80px rgba(0, 0, 0, 0.04);
-    background: var(--tannin);
+    background: var(--c-tannin);
     min-height: 100vh;
     padding: 140px 92px;
   }
@@ -956,12 +1035,12 @@
     width: 100%;
   }
   .ph-cta-statement {
-    font-family: var(--font-hero);
-    font-weight: 400;
-    font-style: italic;
-    font-size: clamp(40px, 5vw, 68px);
-    line-height: 1.1;
-    letter-spacing: -0.005em;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-style: normal;
+    font-size: clamp(42px, 5.4vw, 74px);
+    line-height: 1.04;
+    letter-spacing: var(--ls-display);
     color: var(--ink);
     max-width: 18ch;
     margin-bottom: 1.5em;
@@ -979,8 +1058,8 @@
   }
   .ph-cta-pill {
     display: inline-block;
-    background: #ffffff;
-    color: #000000;
+    background: var(--c-slate);
+    color: var(--c-ink);
     padding: 14px 36px;
     border-radius: 9999px;
     font-family: var(--font-body);
@@ -992,8 +1071,8 @@
     transition: background 0.2s ease, color 0.2s ease;
   }
   .ph-cta-pill:hover {
-    background: #000000;
-    color: #ffffff;
+    background: var(--c-night);
+    color: var(--c-sand);
   }
   .ph-cta-email {
     display: inline-block;
@@ -1029,13 +1108,13 @@
     flex: 1;
   }
   .ph-wordmark {
-    font-family: var(--font-hero);
+    font-family: var(--font-display);
     font-style: normal;
-    font-weight: 600;
-    font-size: clamp(36px, 4.5vw, 64px);
+    font-weight: 400;
+    font-size: clamp(44px, 5.4vw, 78px);
     line-height: 1;
-    letter-spacing: 0.01em;
-    color: var(--tannin);
+    letter-spacing: var(--ls-wordmark);
+    color: var(--c-sun);
     text-align: center;
   }
   .ph-wordmark-tag {
@@ -1084,7 +1163,7 @@
     color: var(--tannin);
     text-decoration: none;
     padding-bottom: 4px;
-    border-bottom: 1px solid rgba(200, 154, 82, 0.4);
+    border-bottom: 1px solid rgba(214, 160, 92, 0.4);
     transition: border-color 0.3s ease;
   }
   .ph-closer-email:hover { border-bottom-color: var(--tannin); }
@@ -1141,12 +1220,13 @@
     padding-bottom: 8vh;
   }
   .splash-wordmark {
-    font-family: var(--font-hero);
-    font-style: italic;
-    font-weight: 300;
-    font-size: clamp(42px, 5.5vw, 72px);
+    font-family: var(--font-display);
+    font-style: normal;
+    font-weight: 400;
+    font-size: clamp(46px, 6vw, 80px);
+    letter-spacing: var(--ls-wordmark);
     line-height: 1;
-    color: var(--tannin);
+    color: var(--c-sun);
   }
   .splash-tag {
     display: flex;
@@ -1175,7 +1255,7 @@
     color: var(--tannin);
     text-decoration: none;
     padding: 0;
-    border: 1px solid rgba(200,154,82,0.25);
+    border: 1px solid rgba(214, 160, 92, 0.25);
     border-radius: 50%;
     cursor: pointer;
     background: none;
@@ -1196,7 +1276,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at center, rgba(14,13,11,0.3) 0%, rgba(14,13,11,0.7) 100%);
+    background: radial-gradient(ellipse at center, rgba(26,20,16,0.3) 0%, rgba(26,20,16,0.7) 100%);
     z-index: 1;
   }
 
@@ -1255,7 +1335,7 @@
     .hero { padding: 0 6vw 10vh; align-items: stretch; position: relative; }
     .hero video { object-position: 30% center !important; }
     .hero-content { max-width: 100%; }
-    .hero-river { font-size: clamp(1.1rem, 4.5vw, 1.4rem); }
+    .hero-river { font-size: clamp(19px, 4.6vw, 23px); }
 
     /* Collapse runways on mobile - no sticky stacking needed */
     .ph-runway { min-height: auto !important; }
@@ -1272,11 +1352,11 @@
 
     /* Build / Offerings */
     .ph-build { padding: 72px 32px; }
-    .ph-build-intro { font-size: clamp(24px, 7vw, 36px); }
+    .ph-build-intro { font-size: clamp(32px, 7vw, 40px); }
     .ph-offering { grid-template-columns: 2.5rem 1fr; gap: 1rem; padding: 16px 0; }
 
     /* Diagnostic */
-    .ph-diag-headline { font-size: clamp(28px, 7vw, 40px); }
+    .ph-diag-headline { font-size: clamp(32px, 7vw, 40px); }
     .ph-diag-q-text { font-size: clamp(1.1rem, 4vw, 1.4rem); }
     .ph-diag-opt { padding: 16px 20px; font-size: clamp(14px, 3.5vw, 16px); }
     .ph-diag-submit { padding: 12px 28px; font-size: 13px; }
@@ -1289,14 +1369,31 @@
     .ph-wordmark-tag .ph-wm-rule { width: 24px; }
     .ph-closer-pill { padding: 12px 28px; font-size: 13px; }
 
+    /* Prose: let the browser avoid one-word last lines where it can.
+       Progressive enhancement — ignored by browsers that don't support it. */
+    .hero-river, .ph-problem-body, .ph-problem-pivot, .ph-bridge-sub,
+    .ph-build-intro-sub, .ph-diag-sub, .ph-diag-q-text, .ph-o-bold,
+    .ph-bridge-step-desc, .ph-diag-persona-body, .ph-diag-persona-insight {
+      text-wrap: pretty;
+    }
+
     /* Misc */
     br.desktop-only { display: none; }
+  }
+
+  /* Very narrow phones (iPhone SE and similar). The rally-cry lockup is
+     nowrap, so below this width its decorative rules push the whole line
+     past both edges. Drop the rules; the text alone fits. */
+  @media (max-width: 360px) {
+    .ph-wordmark-tag .ph-wm-rule,
+    .splash-tag .splash-tag-rule { display: none; }
+    .ph-wordmark-tag, .splash-tag { gap: 0; }
   }
 
   @media (max-height: 500px) and (orientation: landscape) {
     .hero { padding: 4vh 6vw; align-items: flex-end; justify-content: center; }
     .hero-content { max-width: 65%; }
-    .hero-river { font-size: clamp(0.85rem, 2.2vw, 1.1rem) !important; line-height: 1.2; }
+    .hero-river { font-size: clamp(17px, 2.4vw, 20px) !important; line-height: 1.28; }
     .hero-river .pause { padding: 0.35em 0; }
     .hero-river .brand-reveal { padding-top: 0.6em; font-size: 1.2em; }
     .hero-question { font-size: clamp(0.9rem, 2vw, 1.1rem); margin-top: 0.5rem; }
@@ -1318,6 +1415,7 @@
     <source src="hero-video.mp4" type="video/mp4">
   </video>
   <div class="splash-content">
+    <div class="splash-wordmark wm">Oka<span class="v">v</span>ango</div>
     <div class="splash-tag">
       <span class="splash-tag-rule"></span>
       <span>Stop the sameness. Become the only.</span>
@@ -1333,15 +1431,15 @@
     <source src="hero-video.mp4" type="video/mp4">
   </video>
   <div class="hero-brand">
-    <span class="hero-brand-name">Okavango</span>
+    <span class="hero-brand-name wm">Oka<span class="v">v</span>ango</span>
   </div>
   <div class="hero-content">
     <p class="hero-river">
       Every major river runs to the sea,<br>
       where they merge and lose their identity.
       <span class="pause">Except one.</span>
-      The <span class="brand-reveal" style="display:inline; padding-top:0; font-size:inherit; line-height:inherit; color:var(--tannin);">Okavango</span> carves its own path into the desert<br>
-      and becomes a thriving, one-of-a-kind oasis.
+      The <span class="brand-reveal wm" style="display:inline; padding-top:0; font-size:inherit; line-height:inherit; color:var(--c-sun);">Oka<span class="v">v</span>ango</span> carves its own path into the desert<br class="desktop-only">
+      and becomes a thriving, <span style="white-space:nowrap">one-of-a-kind</span> oasis.
       <span class="pause" style="padding-top: 1.5em;">Which path will you choose?</span>
     </p>
     <a href="#next" class="hero-scroll" aria-label="Scroll to next section">
@@ -1359,7 +1457,7 @@
   <div class="ph-runway ph-runway--tall">
   <section class="ph-panel ph-problem">
     <div class="ph-problem-inner">
-      <h1 class="fade-up">Your business was built for a world that no longer exists.</h1>
+      <h1 class="fade-up"><span class="trib">Y</span>our business was built for a world that no longer exists.</h1>
       <p class="ph-problem-body fade-up fade-up-delay-1"><strong>AI changed the rules. Now you're getting squeezed on both sides.</strong> AI-native competitors operate at a fraction of your cost on one side. Copycat competitors crowd you on the other. Every company is buying the same AI tools, running the same playbooks, chasing the same efficiencies so the organizations using them become the same, and our world gets less interesting.</p>
       <p class="ph-problem-pivot fade-up fade-up-delay-2"><strong>You need to act. But how?</strong></p>
     </div>
@@ -1402,7 +1500,7 @@
   <section class="ph-panel ph-build">
     <div class="ph-build-inner">
       <div class="ph-build-intro fade-up">Can't afford to<br><em class="ph-fade-line">fall behind or blend in</em><span class="ph-blend-q">?</span></div>
-      <p class="ph-build-intro-sub fade-up">We activate AI to make small, intentional, high-leverage changes<br>that deliver quick impact and pay for themselves.</p>
+      <p class="ph-build-intro-sub fade-up">We activate AI to make small, intentional, <span style="white-space:nowrap">high-leverage</span> changes<br class="desktop-only">that deliver quick impact and pay for themselves.</p>
 
       <div class="ph-offerings">
         <div class="ph-offering fade-up">
@@ -1445,7 +1543,7 @@
         <span class="ph-questions-rule"></span>
         <span>60 seconds</span>
       </div>
-      <h2 class="ph-diag-headline fade-up">What's your situation?</h2>
+      <h2 class="ph-diag-headline fade-up"><span class="trib">W</span>hat's your situation?</h2>
       <p class="ph-diag-sub fade-up">Five questions. No email required.<br>An honest snapshot of where you stand.</p>
 
       <div class="ph-diag-progress" id="diag-progress">
@@ -1464,8 +1562,8 @@
           <div class="ph-diag-q-text">Which best describes your business?</div>
           <div class="ph-diag-options">
             <button class="ph-diag-opt" data-q="0" data-v="enterprise"><strong>Enterprise</strong> — large organization, multiple teams or divisions</button>
-            <button class="ph-diag-opt" data-q="0" data-v="venture"><strong>Venture-backed</strong> — investor-funded with growth targets</button>
-            <button class="ph-diag-opt" data-q="0" data-v="smb"><strong>Independent business</strong> — owner-operated, self-funded, or bootstrapped</button>
+            <button class="ph-diag-opt" data-q="0" data-v="venture"><strong>Venture-backed</strong> — <span style="white-space:nowrap">investor-funded</span> with growth targets</button>
+            <button class="ph-diag-opt" data-q="0" data-v="smb"><strong>Independent business</strong> — <span style="white-space:nowrap">owner-operated</span>, self-funded, or bootstrapped</button>
             <button class="ph-diag-opt" data-q="0" data-v="fund"><strong>Fund or family office</strong> — investing in or operating a portfolio of companies</button>
           </div>
         </div>
@@ -1566,7 +1664,7 @@
   <!-- ═══ PANEL 5: CLOSER + CTA ═══ -->
   <section class="ph-closer">
     <div class="ph-closer-spacer"></div>
-    <div class="ph-wordmark fade-up">Okavango</div>
+    <div class="ph-wordmark wm fade-up">Oka<span class="v">v</span>ango</div>
     <div class="ph-wordmark-tag fade-up">
       <span class="ph-wm-rule"></span>
       <span>Stop the sameness. Become the only.</span>
@@ -1640,11 +1738,19 @@
     var dots = document.querySelectorAll('.ph-diag-dot');
     var currentStep = 0;
     var totalQuestions = 5; // 5 questions, step 5 is submit
+    var lastStep = steps.length - 1; // index of the submit step
+    var advanceTimer = null;
 
     document.querySelectorAll('.ph-diag-opt').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var q = btn.dataset.q;
         var v = btn.dataset.v;
+
+        // Ignore clicks on a step we've already advanced past, and any click
+        // once we're on the submit step — otherwise a fast double-click queues
+        // two advances and currentStep runs off the end of `steps`.
+        if (parseInt(q, 10) !== currentStep || currentStep >= lastStep) return;
+
         answers[q] = v;
 
         // Highlight selected
@@ -1653,8 +1759,12 @@
         });
         btn.classList.add('selected');
 
-        // Advance after short delay
-        setTimeout(function() {
+        // Advance after short delay — drop any advance already queued for this
+        // step so changing your answer within the window doesn't double-advance
+        clearTimeout(advanceTimer);
+        advanceTimer = setTimeout(function() {
+          advanceTimer = null;
+          if (currentStep >= lastStep) return;
           currentStep++;
           steps.forEach(function(s) { s.classList.remove('active'); });
           steps[currentStep].classList.add('active');
