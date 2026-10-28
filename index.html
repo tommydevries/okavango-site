@@ -60,7 +60,11 @@ body{margin:0;background:#5a3a24;color:#ede4d0;font-family:'Helvetica Neue',Helv
 .btn:hover,.btn:focus-visible{border-color:#d6a05c;color:#d6a05c}
 a:focus-visible{outline:2px solid #d6a05c;outline-offset:3px}
 
-.hero{position:relative;height:clamp(560px,80svh,760px);background:#1a3a4a;overflow:hidden}
+.hero{position:relative;height:100vh;height:100svh;min-height:560px;max-height:1200px;background:#1a3a4a;overflow:hidden}
+.cue{position:absolute;left:50%;bottom:28px;width:1px;height:44px;margin-left:-0.5px;background:rgba(237,228,208,0.14);overflow:hidden}
+.cue::after{content:"";position:absolute;left:0;top:-44px;width:1px;height:44px;background:linear-gradient(180deg,rgba(237,228,208,0),rgba(237,228,208,0.7));animation:cue 2.6s ease-in-out 6s infinite}
+@keyframes cue{0%{top:-44px}70%,100%{top:44px}}
+@media (prefers-reduced-motion: reduce){.cue::after{animation:none;top:0}}
 #hero-art{position:absolute;inset:0;width:100%;height:100%}
 .wordmark{position:absolute;left:0;right:0;top:48px;text-align:center;font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;letter-spacing:0.05em}
 .hero-copy{position:absolute;left:var(--gut);right:var(--gut);top:36%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;text-align:center}
@@ -122,6 +126,7 @@ a:focus-visible{outline:2px solid #d6a05c;outline-offset:3px}
 <h1>Reshape your business with AI.</h1>
 <a class="btn" href="#contact">Get in touch</a>
 </div>
+<span class="cue" aria-hidden="true"></span>
 </header>
 
 <main>
@@ -195,7 +200,7 @@ a:focus-visible{outline:2px solid #d6a05c;outline-offset:3px}
   var s=document.getElementById('hero-art'); if(!s) return;
   function fit(){
     var narrow = window.innerWidth/window.innerHeight < 0.9 || window.innerWidth < 760;
-    s.setAttribute('viewBox', narrow ? '520 280 920 480' : '0 0 1440 900');
+    s.setAttribute('viewBox', narrow ? '520 280 920 600' : '0 0 1440 900');
     s.setAttribute('preserveAspectRatio', narrow ? 'xMidYMax meet' : 'xMidYMid slice');
   }
   fit(); window.addEventListener('resize', fit);
