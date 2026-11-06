@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude SMB Workshops in Grand Rapids · Okavango</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="description" content="Free, in-person Claude SMB Workshops for business owners and leaders in Grand Rapids. Designed by Anthropic, delivered by Okavango. Bring one task you dread and leave with Claude doing it.">
+<meta property="og:title" content="Claude SMB Workshops in Grand Rapids">
+<meta property="og:description" content="Free and hands on. Designed by Anthropic. Tue Nov 17 at Start Garden. Tue Dec 15 at Bamboo.">
+<meta property="og:image" content="https://okavango.co/workshops/assets/claude-workshop-art.png">
+<link href="https://fonts.googleapis.com/css2?family=Calligraffitti&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&amp;family=Orbit&amp;display=swap" rel="stylesheet">
+<style>
+/* Claude content fonts (same files as the published carousel) */
+@font-face{font-family:SS;font-style:normal;font-display:swap;src:url(assets/source-serif-4-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:SS;font-style:italic;font-display:swap;src:url(assets/source-serif-4-latin-400-italic.woff2) format('woff2')}
+@font-face{font-family:IS;font-weight:400;font-display:swap;src:url(assets/instrument-sans-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:IS;font-weight:500;font-display:swap;src:url(assets/instrument-sans-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:IS;font-weight:600;font-display:swap;src:url(assets/instrument-sans-latin-600-normal.woff2) format('woff2')}
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  /* Okavango housing */
+  --ch:#1a1410;--deep:#1a1410;--sand:#ede4d0;--sun:#d6a05c;--smute:rgba(237,228,208,0.74);--sline:rgba(237,228,208,0.2);
+  /* Claude content */
+  --ivory:#faf9f5;--card:#f0eee6;--ink:#141413;--coral:#d97757;--coral-deep:#c4633f;--mute:#5e5d59;--rule:rgba(20,20,19,0.12);
+  --gut:clamp(16px,5vw,96px)
+}
+html{background:var(--ch);-webkit-text-size-adjust:100%}
+body{margin:0;background:linear-gradient(180deg,var(--ch) 0,var(--deep) 100%);color:var(--sand);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:17px;line-height:1.55;overflow-x:hidden}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--sun);outline-offset:3px}
+img{max-width:100%;height:auto}
+.wrap{max-width:1180px;margin:0 auto;padding:0 var(--gut)}
+.cv{font-family:'Calligraffitti',cursive;font-size:0.82em;letter-spacing:0;padding:0 0.02em}
+
+/* ---------- Okavango housing ---------- */
+.top{padding:48px var(--gut) 0;text-align:center}
+.okv{font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;letter-spacing:0.05em;text-decoration:none}
+.okv span{font-family:'Calligraffitti',cursive;font-size:0.8em}
+.lab{font-family:'Orbit',ui-monospace,monospace;text-transform:uppercase;font-size:11px;letter-spacing:0.22em;color:var(--sun)}
+.sec{padding-top:clamp(88px,10vw,136px)}
+.sec>.lab{display:block;text-align:center}
+.sec>h2{margin:20px auto 0;max-width:18em;text-align:center;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(36px,4.6vw,58px);line-height:1.08;letter-spacing:-0.02em;text-wrap:balance}
+.sec>h2 .ln{display:block}
+.sec>h2 .ln:first-child{font-weight:300}
+.sec>h2 .ln+.ln{font-weight:600}
+.obtn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 32px;border:1px solid var(--sand);color:var(--sand);text-decoration:none;font-family:'Orbit',ui-monospace,monospace;font-size:12px;letter-spacing:0.2em;text-transform:uppercase}
+.obtn:hover,.obtn:focus-visible{border-color:var(--sun);color:var(--sun)}
+
+/* ---------- Claude content: ivory panels ---------- */
+.cl{background:var(--ivory);color:var(--ink);font-family:IS,'Helvetica Neue',Helvetica,Arial,sans-serif;border-radius:24px}
+.cl .eyebrow{font-size:13px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--coral-deep)}
+.cl .serif{font-family:SS,Georgia,serif;font-weight:400}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:999px;background:var(--ink);color:var(--ivory);text-decoration:none;font-family:IS,'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:500;font-size:16px}
+.btn:hover,.btn:focus-visible{background:var(--coral-deep)}
+
+.hero{margin-top:clamp(40px,6vw,72px);padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:1.1fr 0.9fr;gap:clamp(28px,5vw,64px);align-items:center}
+.hero h1{margin:18px 0 0;font-family:SS,Georgia,serif;font-weight:400;font-size:clamp(42px,5.4vw,72px);line-height:1.03;letter-spacing:-0.025em}
+.hero .lede{margin:24px 0 0;max-width:30em;font-size:18px;line-height:1.55;color:var(--mute)}
+.hero .acts{margin-top:32px}
+.attr{margin-top:20px;font-size:14px;color:var(--mute)}
+.attr b{color:var(--ink);font-weight:500}
+.art{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:18px}
+.facts{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.fact{background:var(--card);border-radius:14px;padding:18px 22px}
+.fact .k{font-size:12px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--coral-deep)}
+.fact .v{margin-top:4px;font-family:SS,Georgia,serif;font-size:24px;line-height:1.15}
+
+.cards{margin-top:clamp(40px,5vw,60px);display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.card{border-top:6px solid var(--coral);padding:36px 36px 32px;display:flex;flex-direction:column}
+.card .date{font-family:SS,Georgia,serif;font-size:clamp(42px,4.6vw,58px);line-height:1;letter-spacing:-0.025em}
+.card .time{margin-top:10px;font-size:17px;color:var(--mute)}
+.card dl{margin:26px 0 0;padding-top:20px;border-top:1px solid var(--rule);display:grid;grid-template-columns:auto 1fr;gap:10px 22px;font-size:16px;line-height:1.5}
+.card dt{font-size:12px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--coral-deep);padding-top:3px}
+.card dd{margin:0}
+.card .btn{margin-top:30px;align-self:flex-start}
+.card.past{opacity:0.55}
+.card.past .btn{display:none}
+.card .done{display:none;margin-top:30px;font-size:15px;color:var(--mute)}
+.card.past .done{display:block}
+.reg-note{margin:22px 0 0;text-align:center;font-size:15px;color:var(--smute)}
+
+.steps{margin-top:clamp(40px,5vw,60px);display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{padding:30px 30px 32px}
+.step .n{font-family:SS,Georgia,serif;font-size:52px;line-height:1;color:var(--coral)}
+.step h3{margin:14px 0 0;font-size:21px;font-weight:600;line-height:1.3}
+.step p{margin:10px 0 0;font-size:16px;line-height:1.6;color:var(--mute)}
+.step .close{color:var(--ink)}
+
+.tour{margin-top:clamp(40px,5vw,60px);padding:clamp(20px,3vw,32px);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,0.7fr);gap:clamp(24px,4vw,48px);align-items:center}
+.tour video{width:100%;aspect-ratio:16/9;background:#000;border-radius:14px;display:block}
+.tour p{margin:0 0 14px;font-size:16px;color:var(--mute)}
+.tour .src{font-size:13px;margin:0}
+
+.two{margin-top:clamp(40px,5vw,60px);display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.box{padding:32px 34px}
+.box ul{margin:14px 0 0;padding:0;list-style:none}
+.box li{padding:12px 0;border-top:1px solid var(--rule);font-size:16px;line-height:1.5}
+.box li:first-child{border-top:0}
+.box.solo{max-width:760px;margin:clamp(40px,5vw,60px) auto 0}
+.reg-note b{color:var(--sand);font-weight:500}
+
+/* ---------- Okavango sections ---------- */
+.trainer{margin-top:clamp(40px,5vw,60px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,4vw,56px);align-items:center}
+.trainer figure{margin:0}
+.trainer img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block}
+.trainer figcaption{margin-top:12px;font-size:13px;color:var(--smute)}
+.trainer p{margin:0 0 16px;font-size:17px;line-height:1.65;color:var(--smute)}
+.trainer p b{color:var(--sand);font-weight:500}
+
+.host{margin-top:clamp(96px,11vw,140px);padding:clamp(56px,7vw,88px) 0;text-align:center;border-top:1px solid var(--sline)}
+.host h2{margin:20px auto 0;max-width:16em;font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(34px,4.4vw,54px);line-height:1.1;letter-spacing:-0.02em}
+.host p{margin:20px auto 0;max-width:32em;font-size:17px;line-height:1.6;color:var(--smute)}
+.host .obtn{margin-top:32px}
+
+.foot{margin:0 var(--gut);padding:40px 0 48px;border-top:1px solid var(--sline);display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;font-size:12px;line-height:1.6;color:var(--smute)}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--sun)}
+
+@media (max-width:900px){
+  .hero,.tour,.trainer,.two,.cards{grid-template-columns:1fr}
+  .hero .art{max-width:420px;order:-1}
+  .facts{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .cl{border-radius:18px}
+  .card{padding:28px 22px 24px}
+  .box,.step{padding:26px 22px}
+  .card .btn,.hero .btn{width:100%}
+  .fact{padding:14px 16px}
+  .fact .v{font-size:20px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+<a class="okv" href="/" aria-label="Okavango home">Oka<span>v</span>ango</a>
+</header>
+
+<main class="wrap">
+
+<section class="cl hero" aria-labelledby="hero-h">
+<div>
+<span class="eyebrow">Claude SMB Workshop &middot; Grand Rapids</span>
+<h1 id="hero-h">Put Claude to work in your business.</h1>
+<p class="lede">A free, hands-on, in-person workshop for business owners and leaders. Bring one task you dread. In one afternoon you set Claude up on it, with trainers in the room, and leave with that task handed off.</p>
+<div class="acts"><a class="btn" href="#dates">See dates and apply</a></div>
+<p class="attr"><b>Designed by Anthropic.</b><br>Delivered by Okavango, an Approved Claude SMB Trainer.</p>
+</div>
+<img class="art" src="assets/claude-workshop-art.png" width="1000" height="1000" alt="Claude SMB Workshop artwork by Anthropic: two hands passing a stack of pages">
+<div class="facts" aria-label="The workshop at a glance">
+<div class="fact"><div class="k">Cost</div><div class="v">Free</div></div>
+<div class="fact"><div class="k">Format</div><div class="v">In person</div></div>
+<div class="fact"><div class="k">Length</div><div class="v">Half a day</div></div>
+<div class="fact"><div class="k">Style</div><div class="v">Hands on</div></div>
+</div>
+</section>
+
+<section class="sec" aria-labelledby="what-h">
+<span class="lab">What happens in the room</span>
+<h2 id="what-h"><span class="ln">Stop using AI like a search box.</span> <span class="ln">Have Claude <span class="cv">d</span>o the work.</span></h2>
+<div class="steps">
+<div class="cl step"><div class="n">1</div><h3>Learn the method.</h3><p>A simple way to work with AI: what to hand off, how to brief it, and how to check what comes back.</p></div>
+<div class="cl step"><div class="n">2</div><h3>Set Claude up on real work.</h3><p>Chasing invoices, organizing notes, running reports. You pick the task. Trainers in the room help you get it working.</p></div>
+<div class="cl step"><div class="n">3</div><h3>Leave with it handed off.</h3><p>You walk out with Claude doing that task. <span class="close">Claude drafts and recommends. You decide.</span></p></div>
+</div>
+</section>
+
+<section class="sec" aria-labelledby="who-h">
+<span class="lab">Is this for you</span>
+<h2 id="who-h"><span class="ln">Built for the people</span> <span class="ln">who <span class="cv">r</span>un the business.</span></h2>
+<div class="cl box solo">
+<span class="eyebrow">Who it's for</span>
+<ul>
+<li>Owners and leaders of small and medium businesses.</li>
+<li>Nonprofit leaders.</li>
+<li>People who've tried AI a little, or not at all. No tech background needed.</li>
+</ul>
+</div>
+</section>
+
+<section class="sec" aria-labelledby="tour-h">
+<span class="lab">From Anthropic's Claude SMB Tour</span>
+<h2 id="tour-h"><span class="ln">Owners who've been through it,</span> <span class="ln">in their own <span class="cv">w</span>ords.</span></h2>
+<div class="cl tour">
+<video controls playsinline preload="metadata" poster="assets/claude-smb-tour-recap-baton-rouge-thumb.jpg" aria-label="Claude SMB Tour recap, Baton Rouge stop, by Anthropic"><source src="assets/claude-smb-tour-recap-baton-rouge-720p.mp4" type="video/mp4"><track kind="captions" src="assets/claude-smb-tour-recap-baton-rouge-captions.vtt" srclang="en" label="English">Your browser can't play this video.</video>
+<div>
+<p>Anthropic built this workshop for small businesses and took it on the road. This is their recap from the Baton Rouge stop.</p>
+<p>Now it runs locally, in person, through approved trainers and community partners. Grand Rapids is next.</p>
+<p class="src">Video: Anthropic, Claude SMB Tour.</p>
+</div>
+</div>
+</section>
+
+<section class="sec" id="dates" aria-labelledby="dates-h">
+<span class="lab">Upcoming workshops</span>
+<h2 id="dates-h"><span class="ln">Pick a date.</span> <span class="ln">Apply for a <span class="cv">s</span>eat.</span></h2>
+<div class="cards">
+
+<article class="cl card" data-end="2026-11-17T16:00:00-05:00">
+<div class="date">Tue, Nov 17</div>
+<div class="time">1:00 to 4:00 PM</div>
+<dl>
+<dt>With</dt><dd>Start Garden</dd>
+<dt>Where</dt><dd>Start Garden, 2 Fulton St W, downtown Grand Rapids</dd>
+<dt>Seats</dt><dd>25, free</dd>
+</dl>
+<a class="btn" href="https://luma.com/f0yivgqt" target="_blank" rel="noopener">Apply on Luma</a>
+<p class="done">This workshop has happened. Pick another date.</p>
+</article>
+
+<article class="cl card" data-end="2026-12-15T16:00:00-05:00">
+<div class="date">Tue, Dec 15</div>
+<div class="time">1:00 to 4:00 PM</div>
+<dl>
+<dt>With</dt><dd>Bamboo Grand Rapids</dd>
+<dt>Where</dt><dd>Bamboo, 2 Fulton St W, downtown Grand Rapids</dd>
+<dt>Seats</dt><dd>Free</dd>
+</dl>
+<a class="btn" href="https://luma.com/xiz0fd5v" target="_blank" rel="noopener">Apply on Luma</a>
+<p class="done">This workshop has happened. Pick another date.</p>
+</article>
+
+</div>
+<p class="reg-note"><b>All workshops are in person only.</b> There is no online or recorded option.<br>Seats are by application on Luma. Once you're approved, you'll get the room details and a reminder by email.</p>
+</section>
+
+<section class="sec" aria-labelledby="before-h">
+<span class="lab">Before you come</span>
+<h2 id="before-h"><span class="ln">Come ready</span> <span class="ln">to <span class="cv">w</span>ork.</span></h2>
+<div class="cl box solo">
+<span class="eyebrow">Bring and set up</span>
+<ul>
+<li>Create a Claude account at claude.ai and install the app on your laptop.</li>
+<li>Bring a charged laptop.</li>
+<li>Bring one real task you'd like to hand off.</li>
+<li>New Claude Max users get a free month.</li>
+</ul>
+</div>
+</section>
+
+<section class="sec" aria-labelledby="trainer-h">
+<span class="lab">Your trainer</span>
+<h2 id="trainer-h"><span class="ln">Trained by Anthropic</span> <span class="ln">in San <span class="cv">F</span>rancisco.</span></h2>
+<div class="trainer">
+<figure><img src="assets/sf-trainer-workshop.jpg" width="1600" height="1200" loading="lazy" alt="Tom DeVries on stage at Anthropic's Claude SMB Trainer Workshop in San Francisco"><figcaption>Tom DeVries at Anthropic's Claude SMB Trainer Workshop, San Francisco, Sep 8, 2026.</figcaption></figure>
+<div>
+<p><b>Tom DeVries</b> is an Approved Claude SMB Trainer from the program's first cohort, and the founder of Okavango, an AI consultancy in Grand Rapids.</p>
+<p>He runs Anthropic's workshop as designed, with a second trainer in the room so nobody gets stuck.</p>
+</div>
+</div>
+</section>
+
+<section class="host" id="host" aria-labelledby="host-h">
+<span class="lab">For chambers, networks and associations</span>
+<h2 id="host-h">Want this workshop for your <span class="cv">m</span>embers?</h2>
+<p>You bring the room and the people. We bring Anthropic's workshop. It stays free for attendees.</p>
+<a class="obtn" href="mailto:hello@okavango.co?subject=Host%20a%20Claude%20SMB%20Workshop">Host a workshop</a>
+</section>
+</main>
+
+<footer class="foot">
+<span class="okv" style="font-size:18px">Oka<span>v</span>ango</span>
+<span>Claude SMB Workshop designed by Anthropic. Delivered by Okavango, an Approved Claude SMB Trainer.</span>
+<span>Claude and Anthropic are trademarks of Anthropic. This page is run by Okavango, not Anthropic.</span>
+<span><a href="mailto:hello@okavango.co">hello@okavango.co</a> &middot; &copy; 2026 Okavango LLC</span>
+</footer>
+
+<script>
+(function(){
+  var now = Date.now();
+  document.querySelectorAll('.card[data-end]').forEach(function(c){
+    var t = Date.parse(c.getAttribute('data-end'));
+    if (t && t < now) { c.classList.add('past'); c.parentNode.appendChild(c); }
+  });
+})();
+</script>
+</body>
+</html>
