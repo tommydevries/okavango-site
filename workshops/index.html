@@ -119,6 +119,18 @@ img{max-width:100%;height:auto}
 .foot a{text-decoration:none}
 .foot a:hover{color:var(--sun)}
 
+/* Desktop: fit the whole hero panel on the first screen, scaling with window height */
+@media (min-width:901px){
+  .top{padding-top:clamp(22px,4vh,48px)}
+  .hero{margin-top:clamp(18px,3.4vh,72px);padding:clamp(28px,5vh,64px) clamp(28px,5vw,64px);row-gap:clamp(20px,3.6vh,48px)}
+  .hero h1{margin-top:clamp(10px,1.6vh,18px);font-size:clamp(40px,min(5.4vw,7vh),72px)}
+  .hero .lede{margin-top:clamp(12px,2.2vh,24px);font-size:clamp(16px,2.3vh,18px)}
+  .hero .acts{margin-top:clamp(16px,3vh,32px)}
+  .attr{margin-top:clamp(10px,1.8vh,20px)}
+  .art{max-width:min(100%,50vh);margin-left:auto}
+  .fact{padding:clamp(10px,1.8vh,18px) 22px}
+  .fact .v{font-size:clamp(19px,2.8vh,24px)}
+}
 @media (max-width:900px){
   .hero,.tour,.trainer,.two,.cards{grid-template-columns:1fr}
   .hero .art{max-width:420px;order:-1}
